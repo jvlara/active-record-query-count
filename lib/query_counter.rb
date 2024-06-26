@@ -34,7 +34,7 @@ class QueryCounter
 
     def end_recording
       singleton_instance.unsubscribe
-      singleton_instance.print
+      singleton_instance.display_data singleton_instance.query_count
     end
   end
   extend ClassMethods
@@ -52,11 +52,13 @@ class QueryCounter
     puts "Cantidad total de queries: #{data.values.sum { |v| v[:count] }}\n\n"
     puts "Se ignoran todas las tablas con menos de #{IGNORE_TABLE_COUNT} queries. \n\n"
     puts "Por cada tabla se muestrarán las #{MAX_LOCATIONS_PER_TABLE} ubicaciones con más queries.\n\n"
+    data = data.select { |_, v| v[:count] >= IGNORE_TABLE_COUNT }
     data.sort_by{|_, v| -v[:count] }.each do |category, info|
       puts "Tabla #{category.colorize(:cyan)}"
       puts "  Cantidad total de queries: #{info[:count].to_s.colorize(:blue)}"
       puts "  Lugares donde se llamo a la tabla:"
-      info[:location].sort_by{|_, v| -v }.each do |loc, count|
+      locations = info[:location].sort_by{|_, v| -v }.first(MAX_LOCATIONS_PER_TABLE)
+      locations.each do |loc, count|
         location_display = loc.nil? ? 'None' : loc
         puts "    - Lugar: #{location_display}"
         puts "        Cantidad de queries: #{count.to_s.colorize(:blue)}"
