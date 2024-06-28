@@ -10,7 +10,6 @@ module QueryCounter
         data = data.sort_by { |_, v| -v[:count] }.each do |category, info|
           info[:location] = info[:location].sort_by { |_, v| -v }.first(Configuration.max_locations_per_table).to_h
         end
-        binding.pry
         data.to_h
       end
     end
