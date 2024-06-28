@@ -5,63 +5,44 @@ require 'launchy'
 module QueryCounter
   module Printer
     class Html < Base
-      TEMPLATE = <<-HTML
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <title>Query Counter Report</title>
-        <style>
-          body { font-family: Arial, sans-serif; }
-          table { width: 100%; border-collapse: collapse; }
-          th, td { border: 1px solid #ddd; padding: 8px; }
-          th { background-color: #f2f2f2; }
-          tr:nth-child(even) { background-color: #f9f9f9; }
-          .sub-row { background-color: #f9f9f9; }
-        </style>
-      </head>
-      <body>
-        <h2>Query Counter Report</h2>
-        <p>Total query count: <%= total_query_count %></p>
-        <table>
-          <tr>
-            <th>Table</th>
-            <th>Total Query Count</th>
-            <th>Location</th>
-            <th>Location Count</th>
-          </tr>
-          <% data.each do |table, info| %>
-            <tr>
-              <td rowspan="<%= info[:location].size + 1 %>"><%= table %></td>
-              <td rowspan="<%= info[:location].size + 1 %>"><%= info[:count] %></td>
-            </tr>
-            <% info[:location].each do |loc, count| %>
-              <tr class="sub-row">
-                <td><%= loc %></td>
-                <td><%= count %></td>
-              </tr>
-            <% end %>
-          <% end %>
-        </table>
-      </body>
-      </html>
-      HTML
+      TEMPLATE_PATH = File.join(__dir__, 'templates', 'template.html.erb')
+      CSS_PATH = File.join(__dir__, 'templates', 'style.css')
+      JS_PATH = File.join(__dir__, 'templates', 'chart.js.erb')
 
       def self.print(raw_data)
         data = data(raw_data)
         total_query_count = data.values.sum { |v| v[:count] }
-        template = ERB.new(TEMPLATE)
+        chart_data = generate_chart_data(data)
+        template = ERB.new(File.read(TEMPLATE_PATH))
+        js_template = ERB.new(File.read(JS_PATH))
+        js_content = js_template.result(binding)
         html_content = template.result(binding)
 
-        # Ver porque cuando se cierra el proceso de borra el archivo y con ello la vista de chrome
-        file = Tempfile.new(['query_counter_report', '.html'])
-        file.write(html_content)
-        file.close
+        temp_dir = Dir.mktmpdir
+        css_dest = File.join(temp_dir, 'style.css')
+        js_dest = File.join(temp_dir, 'script.js')
+        html_dest = File.join(temp_dir, 'query_counter_report.html')
+
+        FileUtils.cp(CSS_PATH, css_dest)
+        File.write(js_dest, js_content)
+        File.write(html_dest, html_content)
+
         if ENV['WSL_DISTRIBUTION']
-          Launchy.open("file://wsl%24/#{ENV["WSL_DISTRIBUTION"]}#{file.path}")
+          Launchy.open("file://wsl%24/#{ENV["WSL_DISTRIBUTION"]}#{html_dest}")
           binding.pry
         else
-          Launchy.open(file.path)
+          Launchy.open(html_dest)
         end
+      end
+
+      def self.generate_chart_data(data)
+        chart_data = { labels: [], data: [], locations: {} }
+        data.each do |table, info|
+          chart_data[:labels] << table
+          chart_data[:data] << info[:count]
+          chart_data[:locations][table] = info[:location].map { |loc, count| { location: loc, count: count } }
+        end
+        chart_data
       end
     end
   end
