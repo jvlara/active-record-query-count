@@ -7,5 +7,6 @@ gemspec
 
 gem "activesupport"
 
-gem "minitest", "~> 5.0"
+gem "minitest"
 gem "launchy"
+gem "pry-byebug"
