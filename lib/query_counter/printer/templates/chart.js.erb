@@ -14,6 +14,27 @@ function toggleView() {
   };
 };
 
+function toggleColumnContent() {
+  const columnHeader = document.getElementById('columnHeader');
+  const toggleContents = document.querySelectorAll('.toggle-content');
+  const showSQL = columnHeader.textContent === 'File Path';
+
+  columnHeader.textContent = showSQL ? 'SQL' : 'File Path';
+
+  toggleContents.forEach(content => {
+    const filepath = content.querySelector('.filepath');
+    const sql = content.querySelector('.sql');
+
+    if (showSQL) {
+      filepath.style.display = 'none';
+      sql.style.display = 'block';
+    } else {
+      filepath.style.display = 'block';
+      sql.style.display = 'none';
+    }
+  });
+}
+
 function initializeChart(chartData) {
   console.log(chartData);
   const ctx = document.getElementById('queryCountChart').getContext('2d');
@@ -34,7 +55,16 @@ function initializeChart(chartData) {
     options: {
       scales: {
         y: {
-          beginAtZero: true
+          type: 'logarithmic',
+          beginAtZero: true,
+          ticks: {
+            callback: function(value, index, values) {
+              if (value === 10 || value === 100 || value === 1000 || value === 10000) {
+                return value.toString();
+              }
+              return null;
+            }
+          }
         }
       },
       plugins: {

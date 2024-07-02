@@ -7,8 +7,9 @@ module QueryCounter
       reset_query_count
     end
 
+    # This assums that in the same location of the code it will always be the same sql query
     def reset_query_count
-      @query_count = Hash.new { |hash, key| hash[key] = { count: 0, location: Hash.new(0) } }
+      @query_count = Hash.new { |hash, key| hash[key] = { count: 0, location: Hash.new { |loc_hash, loc_key| loc_hash[loc_key] = { count: 0, sql: nil } } } }
     end
 
     def subscribe
@@ -20,7 +21,8 @@ module QueryCounter
         if match.present? && match[:table]
           actual_location = Rails.backtrace_cleaner.clean(caller_from_sql).first
           query_count[match[:table]][:count] += 1
-          query_count[match[:table]][:location][actual_location] += 1
+          query_count[match[:table]][:location][actual_location][:count] += 1
+          query_count[match[:table]][:location][actual_location][:sql] = sql
         end
       end
     end

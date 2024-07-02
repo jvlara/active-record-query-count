@@ -1,6 +1,8 @@
 require 'erb'
 require 'tempfile'
 require 'launchy'
+require 'pry-byebug'
+require 'json'
 
 module QueryCounter
   module Printer
@@ -26,10 +28,8 @@ module QueryCounter
         FileUtils.cp(CSS_PATH, css_dest)
         File.write(js_dest, js_content)
         File.write(html_dest, html_content)
-
         if ENV['WSL_DISTRIBUTION']
           Launchy.open("file://wsl%24/#{ENV["WSL_DISTRIBUTION"]}#{html_dest}")
-          binding.pry
         else
           Launchy.open(html_dest)
         end
@@ -40,7 +40,7 @@ module QueryCounter
         data.each do |table, info|
           chart_data[:labels] << table
           chart_data[:data] << info[:count]
-          chart_data[:locations][table] = info[:location].map { |loc, count| { location: loc, count: count } }
+          chart_data[:locations][table] = info[:location].map { |loc, detail| { location: loc, count: detail[:count] } }
         end
         chart_data
       end

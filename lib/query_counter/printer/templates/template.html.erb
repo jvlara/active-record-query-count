@@ -10,14 +10,17 @@
   <h2>Query Counter Report</h2>
   <p>Total query count: <%= total_query_count %></p>
   <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
+  <button id="toggleColumnButton" onclick="toggleColumnContent()">Show SQL</button>
+
   <div class="center-container">
     <canvas id="queryCountChart" width="300" height="150"></canvas>
   </div>
-  <table id="queryTable">
+<table id="queryTable">
     <tr>
       <th>Table</th>
       <th>Total Query Count</th>
-      <th>Location</th>
+      <th id="columnHeader">File Path</th>
+      <th>Method</th>
       <th>Location Count</th>
     </tr>
     <% data.each do |table, info| %>
@@ -25,10 +28,15 @@
         <td rowspan="<%= info[:location].size + 1 %>"><%= table %></td>
         <td rowspan="<%= info[:location].size + 1 %>"><%= info[:count] %></td>
       </tr>
-      <% info[:location].each do |loc, count| %>
+      <% info[:location].each do |loc, detail| %>
         <tr class="sub-row">
-          <td><%= loc %></td>
-          <td><%= count %></td>
+          <% match = loc.match(/^(?<file_path>.*):in.*`(?<method>.*)'$/) %>
+          <td class="toggle-content">
+            <span class="filepath"><%= match[:file_path] %></span>
+            <span class="sql" style="display: none;"><%= detail[:sql].gsub('"', '') %></span>
+          </td>
+          <td class="method-column"><%= match[:method] %></td>
+          <td><%= detail[:count] %></td>
         </tr>
       <% end %>
     <% end %>
