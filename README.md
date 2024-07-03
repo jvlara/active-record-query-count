@@ -1,8 +1,8 @@
 # QueryCounter
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/query_counter`. To experiment with that code, run `bin/console` for an interactive prompt.
+`QueryCounter` is a Ruby gem designed to help you track and analyze SQL queries executed by your ActiveRecord models. By subscribing to ActiveSupport notifications, it provides detailed insights into the queries being run, including the tables involved and the locations in your code where the queries are generated.
+Also, you can compare two codes to view the difference in SQL counts on locations.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -22,11 +22,44 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+There are three ways of using this gem:
+
+1. With a block of code
+
+```ruby
+require 'query_counter'
+
+QueryCounter.start_with_block(printer: :html) do 
+    # your code goes here
+end
+```
+this will open up a html table with the SQL stats of your code
+2. Starting recording manually
+```ruby
+require 'query_counter'
+
+QueryCounter.start_recording 
+# your code goes here
+QueryCounter.end_recording(printer: :html)
+```
+
+3. Comparing two blocks of code 
+
+```ruby
+require 'query_counter'
+QueryCounter.compare do |bench|
+    bench.code('script1') do 
+    end 
+    bench.code('script2') do 
+    end 
+    bench.compare!
+end
+```
+this will open up a graph comparing the quantity of SQL of the two codes
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 

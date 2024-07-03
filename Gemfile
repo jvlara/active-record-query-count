@@ -6,12 +6,17 @@ source "https://rubygems.org"
 gemspec
 
 gem "activesupport"
-
 gem "launchy"
-group :development do
+gem "colorize"
+
+group :development, :test do
   gem "pry-byebug"
-end
-group :test do
+  gem "rake"
   gem "minitest"
   gem 'shoulda-matchers', '~> 6.0'
+  gem 'shoulda-context'
+  gem 'mocha'
+  gem 'sqlite3', '~> 1.4'
+  gem 'activerecord'
+  gem 'rubocop'
 end

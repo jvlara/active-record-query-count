@@ -13,6 +13,7 @@ module QueryCounter
 
       def self.print(raw_data)
         data = data(raw_data)
+        # used by binding on erb templates
         total_query_count = data.values.sum { |v| v[:count] }
         chart_data = generate_chart_data(data)
         template = ERB.new(File.read(TEMPLATE_PATH))

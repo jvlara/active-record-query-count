@@ -1,3 +1,5 @@
+require 'colorize'
+
 module QueryCounter
   module Printer
     class Console < Base
