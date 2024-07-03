@@ -43,6 +43,8 @@ GEM
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
     public_suffix (5.1.1)
+    shoulda-matchers (6.2.0)
+      activesupport (>= 5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
 
@@ -55,6 +57,7 @@ DEPENDENCIES
   minitest
   pry-byebug
   query_counter!
+  shoulda-matchers (~> 6.0)
 
 BUNDLED WITH
    2.3.6

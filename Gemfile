@@ -7,6 +7,11 @@ gemspec
 
 gem "activesupport"
 
-gem "minitest"
 gem "launchy"
-gem "pry-byebug"
+group :development do
+  gem "pry-byebug"
+end
+group :test do
+  gem "minitest"
+  gem 'shoulda-matchers', '~> 6.0'
+end
