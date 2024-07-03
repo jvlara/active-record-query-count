@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require_relative "lib/query_counter/version"
+require_relative 'lib/query_counter/version'
 
 Gem::Specification.new do |spec|
-  spec.name = "query_counter"
+  spec.name = 'query_counter'
   spec.version = QueryCounter::VERSION
-  spec.authors = ["Jose Lara"]
-  spec.email = ["jvlara@uc.cl"]
+  spec.authors = ['Jose Lara']
+  spec.email = ['jvlara@uc.cl']
 
-  spec.summary = "Display quantity of queries and their origin in Rails applications."
+  spec.summary = 'Display quantity of queries and their origin in Rails applications.'
   # spec.homepage = "..."
-  spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.license = 'MIT'
+  spec.required_ruby_version = '>= 3.2.2'
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
@@ -26,9 +26,9 @@ Gem::Specification.new do |spec|
       (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
     end
   end
-  spec.bindir = "exe"
+  spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   # Uncomment to register a new dependency of your gem
   spec.add_runtime_dependency 'activesupport', '>= 5.0'

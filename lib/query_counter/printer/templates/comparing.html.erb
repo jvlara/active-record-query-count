@@ -8,9 +8,7 @@
 </head>
 <body>
   <h2>Query Counter Report</h2>
-  <p>Total query count on process: <%= total_query_count %></p>
-  <p>The table will show only tables with more than <%= ::QueryCounter::Configuration.ignore_table_count %> queries</p>
-  <p>Only the top  <%= ::QueryCounter::Configuration.max_locations_per_table %> locations with the most occurrences will be shown.</p>
+  <p>Total query count: <%= total_query_count %></p>
   <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
   <button id="toggleColumnButton" onclick="toggleColumnContent()">Show SQL</button>
 
@@ -25,7 +23,7 @@
       <th>Method</th>
       <th>Location Count</th>
     </tr>
-    <% data.each do |table, info| %>
+    <% data_1.each do |table, info| %>
       <tr>
         <td rowspan="<%= info[:location].size + 1 %>"><%= table %></td>
         <td rowspan="<%= info[:location].size + 1 %>"><%= info[:count] %></td>
@@ -45,7 +43,7 @@
   </table>
   <script>
     const chartData = <%= chart_data.to_json %>;
-    initializeChart(chartData);
+    initializeChartCompare(chartData);
   </script>
 </body>
 </html>

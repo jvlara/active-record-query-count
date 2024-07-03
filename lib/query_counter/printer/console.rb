@@ -3,8 +3,13 @@ require 'colorize'
 module QueryCounter
   module Printer
     class Console < Base
-      def self.print(raw_data)
-        data = data(raw_data)
+      def initialize data:
+        super()
+        @data = data
+      end
+
+      def print
+        data = filter_data(@data)
         puts "[QueryCounter] Query count per table:".colorize(:blue)
         puts "Total query count: #{data.values.sum { |v| v[:count] }}\n\n"
         puts "All tables with less than #{Configuration.ignore_table_count} queries are ignored. \n\n"
@@ -13,10 +18,9 @@ module QueryCounter
           puts "Table #{category.colorize(:cyan)}"
           puts "  Total query count: #{info[:count].to_s.colorize(:blue)}"
           puts "  Locations where the table was called:"
-          locations.each do |loc, count|
-            location_display = loc.nil? ? 'None' : loc
-            puts "    - File location: #{location_display}"
-            puts "        Query count: #{count.to_s.colorize(:blue)}"
+          info[:location].each do |loc, details|
+            puts "    - File location: #{loc}"
+            puts "        Query count: #{details[:count].to_s.colorize(:blue)}"
           end
           puts
         end

@@ -86,3 +86,61 @@ function initializeChart(chartData) {
   });
   document.getElementById('queryCountChart').style.display = 'none';
 }
+
+function initializeChartCompare(chartData) {
+  const ctx = document.getElementById('queryCountChart').getContext('2d');
+  const queryCountChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: chartData.labels,
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: chartData.data1,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Dataset 2',
+          data: chartData.data2,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          type: 'logarithmic',
+          beginAtZero: true,
+          ticks: {
+            callback: function(value, index, values) {
+              if (value === 10 || value === 100 || value === 1000 || value === 10000) {
+                return value.toString();
+              }
+              return null;
+            }
+          }
+        }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(tooltipItem) {
+              const index = tooltipItem.dataIndex;
+              const table = chartData.labels[index];
+              // const locations = chartData1.locations[table];
+              // Aquí se podría hacer el stackgraph
+              return [
+                `Total Queries: ${tooltipItem.raw}`,
+              ];
+            }
+          }
+        }
+      }
+    }
+  });
+  document.getElementById('queryCountChart').style.display = 'none';
+}

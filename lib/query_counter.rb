@@ -6,6 +6,7 @@ require_relative 'query_counter/printer/console'
 require_relative 'query_counter/printer/html'
 require_relative 'query_counter/recording/base'
 require_relative 'query_counter/recording/tracker'
+require_relative 'query_counter/compare/comparator'
 
 module QueryCounter
   extend Recording::Base
@@ -17,6 +18,11 @@ module QueryCounter
 
     def tracker
       @tracker ||= Tracker.new
+    end
+
+    def compare
+      comparator = Compare::Comparator.new
+      yield(comparator)
     end
   end
 end

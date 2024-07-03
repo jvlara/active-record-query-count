@@ -11,12 +11,12 @@ class PrinterTest < Minitest::Test
   
     should 'print html output without errors' do
       Launchy.expects(:open).with(anything).once
-      QueryCounter::Printer::Html.print(@data)
+      QueryCounter::Printer::Html.new(data_1: @data).print
     end
 
         
     should 'print console output without errors' do
-      QueryCounter::Printer::Console.print(@data)
+      QueryCounter::Printer::Console.new(data: @data).print
     end
   end
 end

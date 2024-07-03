@@ -1,0 +1,457 @@
+---
+users:
+  :count: 10000
+  :location:
+    ! '':
+      :count: 2
+      :sql: SELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2
+permission_roles:
+  :count: 2
+  :location:
+    packs/plataforma/core_app/app/models/ability.rb:1416:in `cache_key':
+      :count: 2
+      :sql: SELECT "permission_roles"."id", "permission_roles"."action_plans", "permission_roles"."amonestaciones",
+        "permission_roles"."asistencia", "permission_roles"."benefit_requests", "permission_roles"."benefits",
+        "permission_roles"."bloqueo_persona", "permission_roles"."boletas_honorario",
+        "permission_roles"."configuracion_sistema", "permission_roles"."cost_center",
+        "permission_roles"."courses", "permission_roles"."created_at", "permission_roles"."cuentas_contables",
+        "permission_roles"."custom_attributes", "permission_roles"."document_template",
+        "permission_roles"."documentos_empleado", "permission_roles"."empleados",
+        "permission_roles"."encuesta_clima", "permission_roles"."encuesta_libre",
+        "permission_roles"."evaluacion", "permission_roles"."exportadores", "permission_roles"."fee_services",
+        "permission_roles"."feedback", "permission_roles"."grant_support_access",
+        "permission_roles"."historial", "permission_roles"."importador_masivo", "permission_roles"."metas",
+        "permission_roles"."mural", "permission_roles"."name", "permission_roles"."overtime_request",
+        "permission_roles"."piecework_admin", "permission_roles"."piecework_worklog",
+        "permission_roles"."processes", "permission_roles"."reportes", "permission_roles"."roles",
+        "permission_roles"."seleccion", "permission_roles"."structure_areas", "permission_roles"."updated_at",
+        "permission_roles"."vacation", "permission_roles"."vacation_approval", "permission_roles"."workflow",
+        "permission_roles"."assign_items", "permission_roles"."admin_items", "permission_roles"."onboarding",
+        "permission_roles"."jobs", "permission_roles"."prevision", "permission_roles"."personal_information",
+        "permission_roles"."recognitions", "permission_roles"."nomina_electronica",
+        "permission_roles"."suspension", "permission_roles"."logbooks", "permission_roles"."recintos",
+        "permission_roles"."users_and_profiles", "permission_roles"."vacation_configuration",
+        "permission_roles"."calibrations", "permission_roles"."send_banktransfer",
+        "permission_roles"."download_banktransfer", "permission_roles"."copilot_assistant",
+        "permission_roles"."communication_employee_service", "permission_roles"."partner_complaint",
+        "permission_roles"."adelantos", "permission_roles"."finiquitos" FROM "permission_roles"
+        WHERE "permission_roles"."id" = $1 LIMIT $2
+generals:
+  :count: 1
+  :location:
+    packs/plataforma/building_blocks/general/app/models/general.rb:2575:in `block in generales':
+      :count: 1
+      :sql: SELECT "generals"."nombre", "generals"."valor" FROM "generals"
+public:
+  :count: 18
+  :location:
+    packs/plataforma/building_blocks/feature_flag/app/lib/buk/feature.rb:22:in `block in enabled?':
+      :count: 17
+      :sql: SELECT "public"."flipper_gates"."key", "public"."flipper_gates"."value"
+        FROM "public"."flipper_gates" WHERE "public"."flipper_gates"."feature_key"
+        = $1
+    packs/plataforma/core_app/app/models/tenant.rb:71:in `block in current_tenant':
+      :count: 1
+      :sql: SELECT "public"."tenants".* FROM "public"."tenants" WHERE ("public"."tenants"."name"
+        = $1) AND ("public"."tenants"."active" = $2) LIMIT $3
+tipo_atributo_customs:
+  :count: 3
+  :location:
+    packs/plataforma/building_blocks/custom_attrs/app/models/tipo_atributo_custom.rb:156:in `group_by':
+      :count: 1
+      :sql: SELECT "tipo_atributo_customs".* FROM "tipo_atributo_customs" WHERE "tipo_atributo_customs"."do_not_use"
+        IS NULL ORDER BY "tipo_atributo_customs"."entidad" ASC, "tipo_atributo_customs"."position"
+        ASC, "tipo_atributo_customs"."atributo" ASC
+    ? packs/plataforma/building_blocks/exportadores/app/services/exportador/custom/categories/custom_attributes_category.rb:37:in
+      `map'
+    : :count: 2
+      :sql: SELECT "tipo_atributo_customs"."entidad" FROM "tipo_atributo_customs"
+        WHERE ("tipo_atributo_customs"."do_not_use" IS NULL) AND ("tipo_atributo_customs"."sensible"
+        IN ($1, $2)) AND ((("tipo_atributo_customs"."entidad" IN ($3, $4, $5, $6,
+        $7, $8)) OR ((1 = 0) AND ("tipo_atributo_customs"."tipo_valor" IN ($9, $10,
+        $11, $12))))) GROUP BY "tipo_atributo_customs"."entidad" ORDER BY "tipo_atributo_customs"."entidad"
+        ASC
+variables:
+  :count: 6
+  :location:
+    packs/hcm/core/vacacion/app/services/exportador/custom/reports/vacation_status_report.rb:32:in `selected_variable':
+      :count: 1
+      :sql: SELECT "variables"."id", "variables"."aportes_patronales_url", "variables"."banco_url",
+        "variables"."contabilidad_finiquitos_url", "variables"."contabilidad_url",
+        "variables"."created_at", "variables"."estado", "variables"."fecha_archivos",
+        "variables"."fecha_envio_liquidaciones", "variables"."legacy_files", "variables"."leyes_sociales_url",
+        "variables"."libro_descuentos_url", "variables"."libro_remuneraciones_completo_url",
+        "variables"."libro_remuneraciones_url", "variables"."pdf_url", "variables"."previred_url",
+        "variables"."updated_at", "variables"."monthly_variable_id", "variables"."period_type",
+        "variables"."period_number", "variables"."end_date", "variables"."start_date",
+        "variables"."paid" FROM "variables" WHERE "variables"."start_date" = $1 ORDER
+        BY "variables"."start_date" ASC LIMIT $2
+    packs/nomina/core/periodo/app/services/variable/current.rb:25:in `block in all_open':
+      :count: 1
+      :sql: SELECT "variables"."id", "variables"."aportes_patronales_url", "variables"."banco_url",
+        "variables"."contabilidad_finiquitos_url", "variables"."contabilidad_url",
+        "variables"."created_at", "variables"."estado", "variables"."fecha_archivos",
+        "variables"."fecha_envio_liquidaciones", "variables"."legacy_files", "variables"."leyes_sociales_url",
+        "variables"."libro_descuentos_url", "variables"."libro_remuneraciones_completo_url",
+        "variables"."libro_remuneraciones_url", "variables"."pdf_url", "variables"."previred_url",
+        "variables"."updated_at", "variables"."monthly_variable_id", "variables"."period_type",
+        "variables"."period_number", "variables"."end_date", "variables"."start_date",
+        "variables"."paid" FROM "variables" WHERE "variables"."estado" = $1 ORDER
+        BY "variables"."start_date" ASC
+    packs/nomina/core/periodo/app/lib/variable/utils.rb:190:in `by_period_type_and_date_or_last':
+      :count: 2
+      :sql: SELECT "variables"."id", "variables"."aportes_patronales_url", "variables"."banco_url",
+        "variables"."contabilidad_finiquitos_url", "variables"."contabilidad_url",
+        "variables"."created_at", "variables"."estado", "variables"."fecha_archivos",
+        "variables"."fecha_envio_liquidaciones", "variables"."legacy_files", "variables"."leyes_sociales_url",
+        "variables"."libro_descuentos_url", "variables"."libro_remuneraciones_completo_url",
+        "variables"."libro_remuneraciones_url", "variables"."pdf_url", "variables"."previred_url",
+        "variables"."updated_at", "variables"."monthly_variable_id", "variables"."period_type",
+        "variables"."period_number", "variables"."end_date", "variables"."start_date",
+        "variables"."paid" FROM "variables" WHERE ("variables"."period_type" = $1)
+        AND ("variables"."start_date" = $2) ORDER BY "variables"."start_date" ASC
+        LIMIT $3
+    packs/nomina/core/periodo/app/lib/variable/utils.rb:191:in `by_period_type_and_date_or_last':
+      :count: 2
+      :sql: SELECT "variables"."id", "variables"."aportes_patronales_url", "variables"."banco_url",
+        "variables"."contabilidad_finiquitos_url", "variables"."contabilidad_url",
+        "variables"."created_at", "variables"."estado", "variables"."fecha_archivos",
+        "variables"."fecha_envio_liquidaciones", "variables"."legacy_files", "variables"."leyes_sociales_url",
+        "variables"."libro_descuentos_url", "variables"."libro_remuneraciones_completo_url",
+        "variables"."libro_remuneraciones_url", "variables"."pdf_url", "variables"."previred_url",
+        "variables"."updated_at", "variables"."monthly_variable_id", "variables"."period_type",
+        "variables"."period_number", "variables"."end_date", "variables"."start_date",
+        "variables"."paid" FROM "variables" WHERE "variables"."period_type" = $1 ORDER
+        BY "variables"."start_date" DESC LIMIT $2
+employee_vacation_config_definitions:
+  :count: 2096
+  :location:
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_saldos_brutos.rb:336:in `flatten':
+      :count: 1082
+      :sql: SELECT "employee_vacation_config_definitions"."id", "employee_vacation_config_definitions"."vacation_definition_id",
+        "employee_vacation_config_definitions"."employee_vacation_config_id", "employee_vacation_config_definitions"."created_at",
+        "employee_vacation_config_definitions"."updated_at", "employee_vacation_config_definitions"."vacation_start_date",
+        "employee_vacation_config_definitions"."definition_start_date", "employee_vacation_config_definitions"."definition_end_date"
+        FROM "employee_vacation_config_definitions" WHERE "employee_vacation_config_definitions"."employee_vacation_config_id"
+        = $1
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_dias_proporcionales.rb:398:in `progresivas_setup':
+      :count: 1006
+      :sql: SELECT "employee_vacation_config_definitions"."id", "employee_vacation_config_definitions"."vacation_definition_id",
+        "employee_vacation_config_definitions"."employee_vacation_config_id", "employee_vacation_config_definitions"."created_at",
+        "employee_vacation_config_definitions"."updated_at", "employee_vacation_config_definitions"."vacation_start_date",
+        "employee_vacation_config_definitions"."definition_start_date", "employee_vacation_config_definitions"."definition_end_date"
+        FROM "employee_vacation_config_definitions" INNER JOIN "employee_vacation_configs"
+        ON "employee_vacation_config_definitions"."employee_vacation_config_id" =
+        "employee_vacation_configs"."id" WHERE "employee_vacation_configs"."employee_id"
+        = $1
+    app/lib/batch_preloader.rb:74:in `each':
+      :count: 4
+      :sql: SELECT "employee_vacation_config_definitions"."id" FROM "employee_vacation_config_definitions"
+        INNER JOIN "employee_vacation_configs" ON "employee_vacation_configs"."id"
+        = "employee_vacation_config_definitions"."employee_vacation_config_id" WHERE
+        (("employee_vacation_configs"."start_date" <= '2023-12-01') OR (("employee_vacation_configs"."start_date"
+        >= '2023-12-01') AND ("employee_vacation_configs"."start_date" <= '2023-12-31')))
+        AND (("employee_vacation_configs"."end_date" >= '2023-12-31') OR ("employee_vacation_configs"."end_date"
+        IS NULL)) AND ("employee_vacation_config_definitions"."id" > $1) ORDER BY
+        "employee_vacation_config_definitions"."id" ASC LIMIT $2
+employees:
+  :count: 3169
+  :location:
+    packs/hcm/core/employee_management/app/services/exportador/custom/categories/employee_category.rb:29:in `change_context':
+      :count: 3168
+      :sql: SELECT "employees"."id", "employees"."code", "employees"."company_bank_id",
+        "employees"."created_at", "employees"."estado", "employees"."extra_vacation_days",
+        "employees"."extra_vacation_start_date", "employees"."fecha_inicio_cotizacion_afc",
+        "employees"."fecha_inicio_progresivas", "employees"."ingreso_compania", "employees"."payment_detail_id",
+        "employees"."person_id", "employees"."rol_privado", "employees"."type", "employees"."updated_at",
+        "employees"."fecha_ingreso_sector_publico_chile", "employees"."fecha_reconocimiento_antiguedad",
+        "employees"."period_type" FROM "employees" INNER JOIN "employee_vacation_configs"
+        ON "employees"."id" = "employee_vacation_configs"."employee_id" WHERE "employee_vacation_configs"."id"
+        = $1 LIMIT $2
+    packs/hcm/core/employee_management/app/services/exportador/custom/categories/employee_category.rb:18:in `new_from_report':
+      :count: 1
+      :sql: SELECT "employees"."id", "employees"."code", "employees"."company_bank_id",
+        "employees"."created_at", "employees"."estado", "employees"."extra_vacation_days",
+        "employees"."extra_vacation_start_date", "employees"."fecha_inicio_cotizacion_afc",
+        "employees"."fecha_inicio_progresivas", "employees"."ingreso_compania", "employees"."payment_detail_id",
+        "employees"."person_id", "employees"."rol_privado", "employees"."type", "employees"."updated_at",
+        "employees"."fecha_ingreso_sector_publico_chile", "employees"."fecha_reconocimiento_antiguedad",
+        "employees"."period_type" FROM "employees" INNER JOIN "employee_vacation_configs"
+        ON "employees"."id" = "employee_vacation_configs"."employee_id" WHERE "employee_vacation_configs"."id"
+        = $1 LIMIT $2
+jobs:
+  :count: 3509
+  :location:
+    packs/hcm/core/vacacion/app/services/exportador/custom/objects/vacation_status_object.rb:13:in `job':
+      :count: 3169
+      :sql: |-
+        SELECT "jobs"."id", "jobs"."ajustar_sueldo_minimo", "jobs"."area_id", "jobs"."asignacion_de_zona_personalizada", "jobs"."caja", "jobs"."centro_costo_previred", "jobs"."comentario_interno_termino", "jobs"."considerar_cesantia_en_sueldo_patronal", "jobs"."created_at", "jobs"."daily_wages", "jobs"."dias", "jobs"."employee_id", "jobs"."empresa_id", "jobs"."end_date", "jobs"."exento_impuesto", "jobs"."fecha_aviso_termino", "jobs"."fecha_renovacion_sena_colombia", "jobs"."forma_calculo_retencion_fuente_colombia", "jobs"."gratificaciones", "jobs"."horario", "jobs"."horas_regulares", "jobs"."impuesto_agricola", "jobs"."is_manager_peru", "jobs"."jefe_id", "jobs"."liquido_teorico", "jobs"."location_id", "jobs"."moneda", "jobs"."next_job_id", "jobs"."obra", "jobs"."periodicidad", "jobs"."plan_fola_peru", "jobs"."previous_job_id", "jobs"."razon_termino", "jobs"."regimen_laboral_peru", "jobs"."regimen_ria", "jobs"."renovated", "jobs"."retencion_fuente_colombia", "jobs"."riesgo_colombia", "jobs"."role_id", "jobs"."salario_integral_colombia", "jobs"."sctr_pension_peru", "jobs"."sctr_salud_peru", "jobs"."seguro_fola_peru", "jobs"."start_date", "jobs"."sueldo_patronal", "jobs"."tasa_retencion_fuente_colombia", "jobs"."tasa_sctr_pension_peru", "jobs"."tasa_sctr_salud_peru", "jobs"."termino_contrato", "jobs"."termino_contrato_2", "jobs"."tipo_contrato", "jobs"."tipo_trabajador_peru", "jobs"."trabajo_pesado", "jobs"."type", "jobs"."union_id", "jobs"."updated_at", "jobs"."wage", "jobs"."tipo_trabajador_sunat_peru", "jobs"."situacion_especial_peru", "jobs"."tipo_salario_colombia", "jobs"."tipo_jornada_mexico", "jobs"."riesgo_mexico", "jobs"."tipo_jornada", "jobs"."otros_tipo_jornada", "jobs"."tipo_pension", "jobs"."asignaciones_terminadas", "jobs"."salario_base_cotizacion_mexico", "jobs"."wage_type", "jobs"."sin_liquidacion", "jobs"."tasa_impuesto_extranjero", "jobs"."grado_sector_publico_chile", "jobs"."estamento_sector_publico_chile", "jobs"."bienios_iniciales_sector_publico_chile", "jobs"."fecha_inicio_bienio_sector_publico_chile", "jobs"."recibe_pago_de_utilidades_anual_peru", "jobs"."pensionado_porcentaje_ccf_colombia", "jobs"."sistema_remuneracion", "jobs"."tipo_pensionado", "jobs"."pensionado_porcentaje_salud_empleador_colombia", "jobs"."pension_compartida", "jobs"."contract_subscription_date", "jobs"."tarifa_alto_riesgo_pension", "jobs"."fiscalizado_peru", "jobs"."modalidad_contrato_peru", "jobs"."concepto_gratificacion", "jobs"."registro_patronal_mexico", "jobs"."periodo_pago_gratificacion", "jobs"."clase_contrato_peru", "jobs"."trabajo_nocturno_peru", "jobs"."descripcion_gratificacion", "jobs"."considerar_sis_en_sueldo_patronal", "jobs"."codigo_actividad_economica", "jobs"."categoria_ocupacional_peru", "jobs"."admission_indicative", "jobs"."admission_type", "jobs"."vinculation", "jobs"."work_day_description", "jobs"."esocial_code", "jobs"."regimen_previsional", "jobs"."experience_contract", "jobs"."position_of_trust", "jobs"."function_of_trust", "jobs"."unhealthiness_additional", "jobs"."dangerousness_additional" FROM "jobs" WHERE ("jobs"."employee_id" = $1) AND ("jobs"."start_date" <= '2024-04-30') AND (("jobs"."end_date" IS NULL) OR ("jobs"."end_date" >= '2024-04-01')) AND ((jobs.id = (
+                    SELECT j1.id
+                    FROM jobs j1
+                    JOIN employees e ON j1.employee_id = e.id
+                    WHERE e.period_type = 0
+                      AND j1.employee_id = jobs.employee_id
+                      AND j1.start_date <= '2024-04-30'
+                      AND (j1.end_date IS NULL OR j1.end_date >= '2024-04-01')
+                    ORDER BY j1.start_date DESC
+                    LIMIT 1
+                  ))) LIMIT $2
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_dias_proporcionales.rb:60:in `vacaciones_proporcionales_hasta':
+      :count: 288
+      :sql: SELECT "jobs"."id", "jobs"."ajustar_sueldo_minimo", "jobs"."area_id",
+        "jobs"."asignacion_de_zona_personalizada", "jobs"."caja", "jobs"."centro_costo_previred",
+        "jobs"."comentario_interno_termino", "jobs"."considerar_cesantia_en_sueldo_patronal",
+        "jobs"."created_at", "jobs"."daily_wages", "jobs"."dias", "jobs"."employee_id",
+        "jobs"."empresa_id", "jobs"."end_date", "jobs"."exento_impuesto", "jobs"."fecha_aviso_termino",
+        "jobs"."fecha_renovacion_sena_colombia", "jobs"."forma_calculo_retencion_fuente_colombia",
+        "jobs"."gratificaciones", "jobs"."horario", "jobs"."horas_regulares", "jobs"."impuesto_agricola",
+        "jobs"."is_manager_peru", "jobs"."jefe_id", "jobs"."liquido_teorico", "jobs"."location_id",
+        "jobs"."moneda", "jobs"."next_job_id", "jobs"."obra", "jobs"."periodicidad",
+        "jobs"."plan_fola_peru", "jobs"."previous_job_id", "jobs"."razon_termino",
+        "jobs"."regimen_laboral_peru", "jobs"."regimen_ria", "jobs"."renovated", "jobs"."retencion_fuente_colombia",
+        "jobs"."riesgo_colombia", "jobs"."role_id", "jobs"."salario_integral_colombia",
+        "jobs"."sctr_pension_peru", "jobs"."sctr_salud_peru", "jobs"."seguro_fola_peru",
+        "jobs"."start_date", "jobs"."sueldo_patronal", "jobs"."tasa_retencion_fuente_colombia",
+        "jobs"."tasa_sctr_pension_peru", "jobs"."tasa_sctr_salud_peru", "jobs"."termino_contrato",
+        "jobs"."termino_contrato_2", "jobs"."tipo_contrato", "jobs"."tipo_trabajador_peru",
+        "jobs"."trabajo_pesado", "jobs"."type", "jobs"."union_id", "jobs"."updated_at",
+        "jobs"."wage", "jobs"."tipo_trabajador_sunat_peru", "jobs"."situacion_especial_peru",
+        "jobs"."tipo_salario_colombia", "jobs"."tipo_jornada_mexico", "jobs"."riesgo_mexico",
+        "jobs"."tipo_jornada", "jobs"."otros_tipo_jornada", "jobs"."tipo_pension",
+        "jobs"."asignaciones_terminadas", "jobs"."salario_base_cotizacion_mexico",
+        "jobs"."wage_type", "jobs"."sin_liquidacion", "jobs"."tasa_impuesto_extranjero",
+        "jobs"."grado_sector_publico_chile", "jobs"."estamento_sector_publico_chile",
+        "jobs"."bienios_iniciales_sector_publico_chile", "jobs"."fecha_inicio_bienio_sector_publico_chile",
+        "jobs"."recibe_pago_de_utilidades_anual_peru", "jobs"."pensionado_porcentaje_ccf_colombia",
+        "jobs"."sistema_remuneracion", "jobs"."tipo_pensionado", "jobs"."pensionado_porcentaje_salud_empleador_colombia",
+        "jobs"."pension_compartida", "jobs"."contract_subscription_date", "jobs"."tarifa_alto_riesgo_pension",
+        "jobs"."fiscalizado_peru", "jobs"."modalidad_contrato_peru", "jobs"."concepto_gratificacion",
+        "jobs"."registro_patronal_mexico", "jobs"."periodo_pago_gratificacion", "jobs"."clase_contrato_peru",
+        "jobs"."trabajo_nocturno_peru", "jobs"."descripcion_gratificacion", "jobs"."considerar_sis_en_sueldo_patronal",
+        "jobs"."codigo_actividad_economica", "jobs"."categoria_ocupacional_peru",
+        "jobs"."admission_indicative", "jobs"."admission_type", "jobs"."vinculation",
+        "jobs"."work_day_description", "jobs"."esocial_code", "jobs"."regimen_previsional",
+        "jobs"."experience_contract", "jobs"."position_of_trust", "jobs"."function_of_trust",
+        "jobs"."unhealthiness_additional", "jobs"."dangerousness_additional" FROM
+        "jobs" WHERE ("jobs"."employee_id" = $1) AND ((jobs.id = (select id from jobs
+        __j2 where __j2.employee_id = jobs.employee_id order by __j2.start_date DESC
+        limit 1))) LIMIT $2
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_saldos_brutos.rb:255:in `employee_job':
+      :count: 26
+      :sql: |-
+        SELECT "jobs"."id", "jobs"."ajustar_sueldo_minimo", "jobs"."area_id", "jobs"."asignacion_de_zona_personalizada", "jobs"."caja", "jobs"."centro_costo_previred", "jobs"."comentario_interno_termino", "jobs"."considerar_cesantia_en_sueldo_patronal", "jobs"."created_at", "jobs"."daily_wages", "jobs"."dias", "jobs"."employee_id", "jobs"."empresa_id", "jobs"."end_date", "jobs"."exento_impuesto", "jobs"."fecha_aviso_termino", "jobs"."fecha_renovacion_sena_colombia", "jobs"."forma_calculo_retencion_fuente_colombia", "jobs"."gratificaciones", "jobs"."horario", "jobs"."horas_regulares", "jobs"."impuesto_agricola", "jobs"."is_manager_peru", "jobs"."jefe_id", "jobs"."liquido_teorico", "jobs"."location_id", "jobs"."moneda", "jobs"."next_job_id", "jobs"."obra", "jobs"."periodicidad", "jobs"."plan_fola_peru", "jobs"."previous_job_id", "jobs"."razon_termino", "jobs"."regimen_laboral_peru", "jobs"."regimen_ria", "jobs"."renovated", "jobs"."retencion_fuente_colombia", "jobs"."riesgo_colombia", "jobs"."role_id", "jobs"."salario_integral_colombia", "jobs"."sctr_pension_peru", "jobs"."sctr_salud_peru", "jobs"."seguro_fola_peru", "jobs"."start_date", "jobs"."sueldo_patronal", "jobs"."tasa_retencion_fuente_colombia", "jobs"."tasa_sctr_pension_peru", "jobs"."tasa_sctr_salud_peru", "jobs"."termino_contrato", "jobs"."termino_contrato_2", "jobs"."tipo_contrato", "jobs"."tipo_trabajador_peru", "jobs"."trabajo_pesado", "jobs"."type", "jobs"."union_id", "jobs"."updated_at", "jobs"."wage", "jobs"."tipo_trabajador_sunat_peru", "jobs"."situacion_especial_peru", "jobs"."tipo_salario_colombia", "jobs"."tipo_jornada_mexico", "jobs"."riesgo_mexico", "jobs"."tipo_jornada", "jobs"."otros_tipo_jornada", "jobs"."tipo_pension", "jobs"."asignaciones_terminadas", "jobs"."salario_base_cotizacion_mexico", "jobs"."wage_type", "jobs"."sin_liquidacion", "jobs"."tasa_impuesto_extranjero", "jobs"."grado_sector_publico_chile", "jobs"."estamento_sector_publico_chile", "jobs"."bienios_iniciales_sector_publico_chile", "jobs"."fecha_inicio_bienio_sector_publico_chile", "jobs"."recibe_pago_de_utilidades_anual_peru", "jobs"."pensionado_porcentaje_ccf_colombia", "jobs"."sistema_remuneracion", "jobs"."tipo_pensionado", "jobs"."pensionado_porcentaje_salud_empleador_colombia", "jobs"."pension_compartida", "jobs"."contract_subscription_date", "jobs"."tarifa_alto_riesgo_pension", "jobs"."fiscalizado_peru", "jobs"."modalidad_contrato_peru", "jobs"."concepto_gratificacion", "jobs"."registro_patronal_mexico", "jobs"."periodo_pago_gratificacion", "jobs"."clase_contrato_peru", "jobs"."trabajo_nocturno_peru", "jobs"."descripcion_gratificacion", "jobs"."considerar_sis_en_sueldo_patronal", "jobs"."codigo_actividad_economica", "jobs"."categoria_ocupacional_peru", "jobs"."admission_indicative", "jobs"."admission_type", "jobs"."vinculation", "jobs"."work_day_description", "jobs"."esocial_code", "jobs"."regimen_previsional", "jobs"."experience_contract", "jobs"."position_of_trust", "jobs"."function_of_trust", "jobs"."unhealthiness_additional", "jobs"."dangerousness_additional" FROM "jobs" WHERE ("jobs"."employee_id" = $1) AND ("jobs"."start_date" <= '2023-12-31') AND (("jobs"."end_date" IS NULL) OR ("jobs"."end_date" >= '2023-12-31')) AND ((jobs.id = (
+                    SELECT j1.id
+                    FROM jobs j1
+                    JOIN employees e ON j1.employee_id = e.id
+                    WHERE e.period_type = 0
+                      AND j1.employee_id = jobs.employee_id
+                      AND j1.start_date <= '2023-12-31'
+                      AND (j1.end_date IS NULL OR j1.end_date >= '2023-12-31')
+                    ORDER BY j1.start_date DESC
+                    LIMIT 1
+                  ))) ORDER BY "jobs"."id" DESC LIMIT $2
+empresas:
+  :count: 2355
+  :location:
+    packs/hcm/core/vacacion/app/services/exportador/custom/objects/vacation_status_object.rb:6:in `empresa':
+      :count: 2355
+      :sql: SELECT "empresas"."id", "empresas"."actividad_economica", "empresas"."ciudad",
+        "empresas"."codigo_convenio_xdata", "empresas"."codigo_empresa", "empresas"."codigo_empresa_2",
+        "empresas"."comuna", "empresas"."considerar_horas_extra_gratificaciones",
+        "empresas"."contabilidad", "empresas"."created_at", "empresas"."direccion",
+        "empresas"."fantasy_name", "empresas"."giro", "empresas"."gratificacion_sin_tope",
+        "empresas"."logo_url", "empresas"."lucro", "empresas"."modulo_vacaciones",
+        "empresas"."nom_bd_softland", "empresas"."nombre", "empresas"."plazo_vencimiento_extras",
+        "empresas"."plazo_vencimiento_legales", "empresas"."plazo_vencimiento_progresivas",
+        "empresas"."proporcionar_tope_gratificaciones", "empresas"."recargo_domingo_en_gratificacion",
+        "empresas"."regimen", "empresas"."region", "empresas"."reporte_ine_url", "empresas"."retencion_fuente_colombia",
+        "empresas"."rut", "empresas"."tope_gratificacion_multiples_fichas", "empresas"."type",
+        "empresas"."updated_at", "empresas"."vencer_vacaciones", "empresas"."registro_patronal_mexico",
+        "empresas"."codigo_postal", "empresas"."limit_realms", "empresas"."constitution_date_colombia",
+        "empresas"."email_empresa", "empresas"."location_id", "empresas"."emitir_pago_utilidades_anuales_peru",
+        "empresas"."codigo_servicio_sector_publico", "empresas"."servicio_sector_publico",
+        "empresas"."codigo_dependencia_sector_publico", "empresas"."dependencia_sector_publico",
+        "empresas"."address_type", "empresas"."address_number", "empresas"."address_reference",
+        "empresas"."address_neighborhood", "empresas"."electronic_record", "empresas"."payroll_dismissal",
+        "empresas"."anio_acogida_40_horas", "empresas"."curp" FROM "empresas" WHERE
+        "empresas"."id" = $1 LIMIT $2
+liquidacions:
+  :count: 3169
+  :location:
+    packs/hcm/core/vacacion/app/services/exportador/custom/objects/vacation_status_object.rb:17:in `settlement':
+      :count: 3169
+      :sql: SELECT "liquidacions".* FROM "liquidacions" WHERE ("liquidacions"."liquidacion_type"
+        = $1) AND ("liquidacions"."employee_id" = $2) AND ("liquidacions"."variable_id"
+        = $3) LIMIT $4
+vacation_types:
+  :count: 10694
+  :location:
+    packs/hcm/core/vacacion/app/services/exportador/custom/categories/vacation_status_category.rb:22:in `change_context':
+      :count: 3169
+      :sql: SELECT "vacation_types"."id", "vacation_types"."calculation_method", "vacation_types"."code",
+        "vacation_types"."created_at", "vacation_types"."description", "vacation_types"."name",
+        "vacation_types"."type", "vacation_types"."updated_at", "vacation_types"."recargo",
+        "vacation_types"."requestable", "vacation_types"."finiquitable", "vacation_types"."dias_sobregiro",
+        "vacation_types"."approval_method", "vacation_types"."notify_supervisor",
+        "vacation_types"."require_employee_signature", "vacation_types"."expirable",
+        "vacation_types"."certificate_generation", "vacation_types"."partial_day_ratio",
+        "vacation_types"."show_proportional_days", "vacation_types"."pago_prima_vacacional",
+        "vacation_types"."metodo_conteo", "vacation_types"."gozar_vacaciones_vencidas_peru",
+        "vacation_types"."plazo_vencimiento", "vacation_types"."legal", "vacation_types"."provides_first_year",
+        "vacation_types"."include_proportion_between_years", "vacation_types"."notify_periods_accruing",
+        "vacation_types"."number_periods_to_notify", "vacation_types"."report_siaper",
+        "vacation_types"."proportional_calculation_base", "vacation_types"."default_vacation_definition_id",
+        "vacation_types"."vacation_accumulation_day", "vacation_types"."descontar_ausencias",
+        "vacation_types"."devengar_primer_dia" FROM "vacation_types" INNER JOIN "vacation_definitions"
+        ON "vacation_types"."id" = "vacation_definitions"."vacation_type_id" WHERE
+        "vacation_definitions"."id" = $1 LIMIT $2
+    ? packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_saldos_brutos.rb:337:in
+      `block in tipos_de_vacaciones_del_empleado'
+    : :count: 3169
+      :sql: SELECT "vacation_types"."id", "vacation_types"."calculation_method", "vacation_types"."code",
+        "vacation_types"."created_at", "vacation_types"."description", "vacation_types"."name",
+        "vacation_types"."type", "vacation_types"."updated_at", "vacation_types"."recargo",
+        "vacation_types"."requestable", "vacation_types"."finiquitable", "vacation_types"."dias_sobregiro",
+        "vacation_types"."approval_method", "vacation_types"."notify_supervisor",
+        "vacation_types"."require_employee_signature", "vacation_types"."expirable",
+        "vacation_types"."certificate_generation", "vacation_types"."partial_day_ratio",
+        "vacation_types"."show_proportional_days", "vacation_types"."pago_prima_vacacional",
+        "vacation_types"."metodo_conteo", "vacation_types"."gozar_vacaciones_vencidas_peru",
+        "vacation_types"."plazo_vencimiento", "vacation_types"."legal", "vacation_types"."provides_first_year",
+        "vacation_types"."include_proportion_between_years", "vacation_types"."notify_periods_accruing",
+        "vacation_types"."number_periods_to_notify", "vacation_types"."report_siaper",
+        "vacation_types"."proportional_calculation_base", "vacation_types"."default_vacation_definition_id",
+        "vacation_types"."vacation_accumulation_day", "vacation_types"."descontar_ausencias",
+        "vacation_types"."devengar_primer_dia" FROM "vacation_types" WHERE "vacation_types"."id"
+        = $1 LIMIT $2
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_dias_proporcionales.rb:398:in `block in progresivas_setup':
+      :count: 3018
+      :sql: SELECT "vacation_types"."id", "vacation_types"."calculation_method", "vacation_types"."code",
+        "vacation_types"."created_at", "vacation_types"."description", "vacation_types"."name",
+        "vacation_types"."type", "vacation_types"."updated_at", "vacation_types"."recargo",
+        "vacation_types"."requestable", "vacation_types"."finiquitable", "vacation_types"."dias_sobregiro",
+        "vacation_types"."approval_method", "vacation_types"."notify_supervisor",
+        "vacation_types"."require_employee_signature", "vacation_types"."expirable",
+        "vacation_types"."certificate_generation", "vacation_types"."partial_day_ratio",
+        "vacation_types"."show_proportional_days", "vacation_types"."pago_prima_vacacional",
+        "vacation_types"."metodo_conteo", "vacation_types"."gozar_vacaciones_vencidas_peru",
+        "vacation_types"."plazo_vencimiento", "vacation_types"."legal", "vacation_types"."provides_first_year",
+        "vacation_types"."include_proportion_between_years", "vacation_types"."notify_periods_accruing",
+        "vacation_types"."number_periods_to_notify", "vacation_types"."report_siaper",
+        "vacation_types"."proportional_calculation_base", "vacation_types"."default_vacation_definition_id",
+        "vacation_types"."vacation_accumulation_day", "vacation_types"."descontar_ausencias",
+        "vacation_types"."devengar_primer_dia" FROM "vacation_types" INNER JOIN "vacation_definitions"
+        ON "vacation_types"."id" = "vacation_definitions"."vacation_type_id" WHERE
+        "vacation_definitions"."id" = $1 LIMIT $2
+vacaciones_percibidas:
+  :count: 1082
+  :location:
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_saldos_brutos.rb:73:in `saldo_vacaciones_percibidas_hasta':
+      :count: 1082
+      :sql: SELECT "vacaciones_percibidas".* FROM "vacaciones_percibidas" WHERE "vacaciones_percibidas"."employee_id"
+        = $1
+employee_vacation_configs:
+  :count: 1082
+  :location:
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_saldos_brutos.rb:335:in `tipos_de_vacaciones_del_empleado':
+      :count: 1082
+      :sql: SELECT "employee_vacation_configs".* FROM "employee_vacation_configs"
+        WHERE "employee_vacation_configs"."employee_id" = $1
+vacation_definitions:
+  :count: 6338
+  :location:
+    ? packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_saldos_brutos.rb:337:in
+      `block in tipos_de_vacaciones_del_empleado'
+    : :count: 3169
+      :sql: SELECT "vacation_definitions".* FROM "vacation_definitions" WHERE "vacation_definitions"."id"
+        = $1 LIMIT $2
+    packs/hcm/core/vacacion/app/services/exportador/custom/categories/vacation_status_category.rb:53:in `politica_de_vacacion':
+      :count: 3169
+      :sql: SELECT "vacation_definitions".* FROM "vacation_definitions" WHERE "vacation_definitions"."id"
+        = $1 LIMIT $2
+vacation_definition_rows:
+  :count: 2278
+  :location:
+    packs/hcm/core/vacacion/app/models/vacation_definition.rb:53:in `max_row_by_age':
+      :count: 2278
+      :sql: SELECT "vacation_definition_rows".* FROM "vacation_definition_rows" WHERE
+        "vacation_definition_rows"."vacation_definition_id" = $1
+vacacions:
+  :count: 2164
+  :location:
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_saldos_brutos.rb:101:in `vacaciones_tomadas':
+      :count: 2164
+      :sql: SELECT "vacacions"."id", "vacacions"."approved_by_id", "vacacions"."comentario",
+        "vacacions"."created_at", "vacacions"."dias_corridos", "vacacions"."dias_habiles",
+        "vacacions"."employee_id", "vacacions"."end_date", "vacacions"."estado", "vacacions"."start_date",
+        "vacacions"."updated_at", "vacacions"."vacation_type_id", "vacacions"."anticipate_vacation",
+        "vacacions"."rejection_comment", "vacacions"."requested_at", "vacacions"."pre_approved_at",
+        "vacacions"."approved_at", "vacacions"."pre_approved_by_id", "vacacions"."dias_laborales",
+        "vacacions"."resolution_code", "vacacions"."request_bonus" FROM "vacacions"
+        WHERE ("vacacions"."employee_id" = $1) AND ("vacacions"."estado" = $2)
+vacation_transactions:
+  :count: 1336
+  :location:
+    packs/hcm/core/vacacion/app/services/core/vacacion/v2/calculadora_saldos_brutos.rb:101:in `vacaciones_tomadas':
+      :count: 1336
+      :sql: SELECT "vacation_transactions".* FROM "vacation_transactions" WHERE "vacation_transactions"."vacacion_id"
+        = $1
+people:
+  :count: 3169
+  :location:
+    packs/hcm/core/employee_management/app/models/employee.rb:482:in `first_name':
+      :count: 3169
+      :sql: SELECT "people"."id", "people"."bloqueado", "people"."celular", "people"."ciudad",
+        "people"."codigo_pais", "people"."comuna", "people"."created_at", "people"."date_of_birth",
+        "people"."direccion", "people"."document_type", "people"."email", "people"."email_personal",
+        "people"."estado_civil", "people"."first_name", "people"."last_name", "people"."office_phone",
+        "people"."picture_url", "people"."region", "people"."rut", "people"."segundo_apellido",
+        "people"."sexo", "people"."type", "people"."updated_at", "people"."curp_mexico",
+        "people"."location_id", "people"."numero_seguridad_social" FROM "people" WHERE
+        ("people"."type" = $1) AND ("people"."id" = $2) LIMIT $3
+areas:
+  :count: 1
+  :location:
+    lib/rails_extensions/ancestry.rb:40:in `group_by':
+      :count: 1
+      :sql: SELECT "areas"."id", "areas"."active", "areas"."ancestry", "areas"."centro_costo_definition_id",
+        "areas"."ciudad", "areas"."comuna", "areas"."created_at", "areas"."department_id",
+        "areas"."direccion", "areas"."location_id", "areas"."name", "areas"."prefijo",
+        "areas"."region", "areas"."updated_at", "areas"."do_not_use", "areas"."division_id",
+        "areas"."ancestry_depth" FROM "areas"
+departments:
+  :count: 1
+  :location:
+    lib/rails_extensions/ancestry.rb:40:in `group_by':
+      :count: 1
+      :sql: SELECT "departments".* FROM "departments" WHERE "departments"."id" IN
+        ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17,
+        $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32,
+        $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47,
+        $48, $49, $50, $51, $52, $53, $54, $55)
+divisions:
+  :count: 1
+  :location:
+    lib/rails_extensions/ancestry.rb:40:in `group_by':
+      :count: 1
+      :sql: SELECT "divisions".* FROM "divisions" WHERE "divisions"."id" IN ($1, $2,
+        $3, $4, $5, $6, $7, $8, $9, $10)
+locations:
+  :count: 1
+  :location:
+    packs/hcm/core/organization/app/models/location.rb:299:in `block in cached_with_ancestors':
+      :count: 1
+      :sql: SELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC
+holidays:
+  :count: 1
+  :location:
+    packs/hcm/core/organization/app/models/location.rb:321:in `fill_holidays':
+      :count: 1
+      :sql: SELECT "holidays"."id", "holidays"."day" FROM "holidays"
+holidays_locations:
+  :count: 1
+  :location:
+    packs/hcm/core/organization/app/models/location.rb:322:in `group_by':
+      :count: 1
+      :sql: SELECT "holidays_locations"."holiday_id", "holidays_locations"."location_id"
+        FROM "holidays_locations"
