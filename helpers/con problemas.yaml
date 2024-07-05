@@ -1,0 +1,607 @@
+---
+public:
+  :count: 17
+  :location:
+    config/initializers/apartment.rb:142:in `block in call':
+      :count: 1
+      :sql: SELECT "public"."flipper_features"."key" AS "feature_key", "public"."flipper_gates"."key",
+        "public"."flipper_gates"."value" FROM "public"."flipper_features" LEFT OUTER
+        JOIN "public"."flipper_gates" ON "public"."flipper_features"."key" = "public"."flipper_gates"."feature_key"
+    packs/plataforma/core_app/app/models/tenant.rb:71:in `block in current_tenant':
+      :count: 1
+      :sql: SELECT "public"."tenants".* FROM "public"."tenants" WHERE ("public"."tenants"."name"
+        = $1) AND ("public"."tenants"."active" = $2) LIMIT $3
+    packs/plataforma/building_blocks/feature_flag/app/lib/buk/feature.rb:22:in `block in enabled?':
+      :count: 10
+      :sql: SELECT "public"."flipper_gates"."key", "public"."flipper_gates"."value"
+        FROM "public"."flipper_gates" WHERE "public"."flipper_gates"."feature_key"
+        = $1
+    packs/plataforma/building_blocks/jobs/app/jobs/application_job.rb:130:in `map':
+      :count: 1
+      :sql: SELECT "public"."delayed_jobs".* FROM "public"."delayed_jobs" WHERE ("public"."delayed_jobs"."tenant"
+        = $1) AND ("public"."delayed_jobs"."failed_at" IS NULL) AND ("public"."delayed_jobs"."active_job_name"
+        IN ($2, $3, $4, $5, $6, $7))
+    packs/nomina/core/periodo/app/cells/variable/management_actions/main_buttons_cell.rb:80:in `processing_closure?':
+      :count: 4
+      :sql: SELECT "public"."delayed_jobs".* FROM "public"."delayed_jobs" WHERE ("public"."delayed_jobs"."tenant"
+        = $1) AND ("public"."delayed_jobs"."failed_at" IS NULL) AND ("public"."delayed_jobs"."active_job_name"
+        = $2)
+generals:
+  :count: 1
+  :location:
+    packs/plataforma/building_blocks/general/app/models/general.rb:2575:in `block in generales':
+      :count: 1
+      :sql: SELECT "generals"."nombre", "generals"."valor" FROM "generals"
+users:
+  :count: 2
+  :location:
+    packs/plataforma/core_app/app/controllers/application_controller.rb:13:in `block in <class:ApplicationController>':
+      :count: 1
+      :sql: SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id"
+        ASC LIMIT $2
+    packs/talent/onboarding/app/models/onboarding/task.rb:70:in `block in <class:Task>':
+      :count: 1
+      :sql: SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2
+variables:
+  :count: 17
+  :location:
+    packs/nomina/core/periodo/app/services/variable/current.rb:25:in `block in all_open':
+      :count: 2
+      :sql: SELECT "variables"."id", "variables"."aportes_patronales_url", "variables"."banco_url",
+        "variables"."contabilidad_finiquitos_url", "variables"."contabilidad_url",
+        "variables"."created_at", "variables"."end_date", "variables"."estado", "variables"."fecha_archivos",
+        "variables"."fecha_envio_liquidaciones", "variables"."legacy_files", "variables"."leyes_sociales_url",
+        "variables"."libro_descuentos_url", "variables"."libro_remuneraciones_completo_url",
+        "variables"."libro_remuneraciones_url", "variables"."monthly_variable_id",
+        "variables"."paid", "variables"."pdf_url", "variables"."period_number", "variables"."period_type",
+        "variables"."previred_url", "variables"."start_date", "variables"."updated_at"
+        FROM "variables" WHERE "variables"."estado" = $1 ORDER BY "variables"."start_date"
+        ASC
+    packs/nomina/core/periodo/app/models/variable.rb:465:in `block in numero_variables':
+      :count: 1
+      :sql: SELECT COUNT(*) FROM "variables"
+    packs/nomina/core/procesos/app/cells/processes/home_widget/show/procesos.erb:12:in `block in __tilt_105120':
+      :count: 1
+      :sql: SELECT "variables"."id", "variables"."aportes_patronales_url", "variables"."banco_url",
+        "variables"."contabilidad_finiquitos_url", "variables"."contabilidad_url",
+        "variables"."created_at", "variables"."end_date", "variables"."estado", "variables"."fecha_archivos",
+        "variables"."fecha_envio_liquidaciones", "variables"."legacy_files", "variables"."leyes_sociales_url",
+        "variables"."libro_descuentos_url", "variables"."libro_remuneraciones_completo_url",
+        "variables"."libro_remuneraciones_url", "variables"."monthly_variable_id",
+        "variables"."paid", "variables"."pdf_url", "variables"."period_number", "variables"."period_type",
+        "variables"."previred_url", "variables"."start_date", "variables"."updated_at"
+        FROM "variables" ORDER BY "variables"."start_date" DESC LIMIT $1
+    packs/nomina/core/periodo/app/models/variable.rb:620:in `validate_abrir_mes_siguiente':
+      :count: 6
+      :sql: SELECT COUNT(*) FROM "variables" WHERE "variables"."estado" = $1
+    packs/nomina/core/periodo/app/models/variable.rb:623:in `validate_abrir_mes_siguiente':
+      :count: 6
+      :sql: SELECT 1 AS one FROM "variables" WHERE ("variables"."start_date" = $1)
+        AND ("variables"."period_type" = $2) LIMIT $3
+    packs/nomina/core/periodo/app/models/variable.rb:630:in `block in <class:Variable>':
+      :count: 1
+      :sql: SELECT "variables"."id", "variables"."aportes_patronales_url", "variables"."banco_url",
+        "variables"."contabilidad_finiquitos_url", "variables"."contabilidad_url",
+        "variables"."created_at", "variables"."end_date", "variables"."estado", "variables"."fecha_archivos",
+        "variables"."fecha_envio_liquidaciones", "variables"."legacy_files", "variables"."leyes_sociales_url",
+        "variables"."libro_descuentos_url", "variables"."libro_remuneraciones_completo_url",
+        "variables"."libro_remuneraciones_url", "variables"."monthly_variable_id",
+        "variables"."paid", "variables"."pdf_url", "variables"."period_number", "variables"."period_type",
+        "variables"."previred_url", "variables"."start_date", "variables"."updated_at"
+        FROM "variables" WHERE ("variables"."start_date" = $1) AND ("variables"."period_type"
+        = $2) ORDER BY "variables"."start_date" ASC LIMIT $3
+monthly_variables:
+  :count: 2
+  :location:
+    packs/hcm/core/employee_management/app/models/queries/dashboard_cajas.rb:9:in `initialize':
+      :count: 1
+      :sql: SELECT "monthly_variables"."id", "monthly_variables"."auxilio_transporte",
+        "monthly_variables"."bono_movilidad_adicional_peru", "monthly_variables"."bono_movilidad_peru",
+        "monthly_variables"."caja_compensacion_familiar", "monthly_variables"."cesantia_colombia",
+        "monthly_variables"."created_at", "monthly_variables"."dependiente_brasil",
+        "monthly_variables"."descuento_infonavit_mexico", "monthly_variables"."descuento_vale_trasnporte_brasil",
+        "monthly_variables"."dias_subsidio_maternidad_peru", "monthly_variables"."eps_empleado",
+        "monthly_variables"."eps_empleado_1", "monthly_variables"."eps_empleado_2",
+        "monthly_variables"."eps_empleado_3", "monthly_variables"."eps_empleado_4",
+        "monthly_variables"."eps_empleado_5", "monthly_variables"."eps_empleador",
+        "monthly_variables"."factor_actualizacion", "monthly_variables"."fgts_multa_acuerdo",
+        "monthly_variables"."fgts_multa_general", "monthly_variables"."fgts_patronal_excepcion",
+        "monthly_variables"."fgts_patronal_general", "monthly_variables"."icbf", "monthly_variables"."impuesto_renta_tasa_1_peru",
+        "monthly_variables"."impuesto_renta_tasa_2_peru", "monthly_variables"."impuesto_renta_tasa_3_peru",
+        "monthly_variables"."impuesto_renta_tasa_4_peru", "monthly_variables"."impuesto_renta_tasa_5_peru",
+        "monthly_variables"."impuesto_renta_tramo_1_peru", "monthly_variables"."impuesto_renta_tramo_2_peru",
+        "monthly_variables"."impuesto_renta_tramo_3_peru", "monthly_variables"."impuesto_renta_tramo_4_peru",
+        "monthly_variables"."impuestos_1_alto", "monthly_variables"."impuestos_1_bajo",
+        "monthly_variables"."impuestos_1_base", "monthly_variables"."impuestos_1_tasa",
+        "monthly_variables"."impuestos_2_alto", "monthly_variables"."impuestos_2_bajo",
+        "monthly_variables"."impuestos_2_base", "monthly_variables"."impuestos_2_tasa",
+        "monthly_variables"."impuestos_3_alto", "monthly_variables"."impuestos_3_bajo",
+        "monthly_variables"."impuestos_3_base", "monthly_variables"."impuestos_3_tasa",
+        "monthly_variables"."impuestos_4_alto", "monthly_variables"."impuestos_4_bajo",
+        "monthly_variables"."impuestos_4_base", "monthly_variables"."impuestos_4_tasa",
+        "monthly_variables"."impuestos_5_alto", "monthly_variables"."impuestos_5_bajo",
+        "monthly_variables"."impuestos_5_base", "monthly_variables"."impuestos_5_tasa",
+        "monthly_variables"."impuestos_6_alto", "monthly_variables"."impuestos_6_bajo",
+        "monthly_variables"."impuestos_6_base", "monthly_variables"."impuestos_6_tasa",
+        "monthly_variables"."impuestos_7_alto", "monthly_variables"."impuestos_7_bajo",
+        "monthly_variables"."impuestos_7_base", "monthly_variables"."impuestos_7_tasa",
+        "monthly_variables"."imss_ceav_empleador_mexico", "monthly_variables"."imss_ceav_trabajador_mexico",
+        "monthly_variables"."imss_enfermedad_cuota_adicional_empleador_mexico", "monthly_variables"."imss_enfermedad_cuota_adicional_trabajador_mexico",
+        "monthly_variables"."imss_enfermedad_cuota_fija_empleador_mexico", "monthly_variables"."imss_enfermedad_cuota_fija_trabajador_mexico",
+        "monthly_variables"."imss_enfermedad_dinero_empleador_mexico", "monthly_variables"."imss_enfermedad_dinero_trabajador_mexico",
+        "monthly_variables"."imss_enfermedad_gastos_empleador_mexico", "monthly_variables"."imss_enfermedad_gastos_trabajador_mexico",
+        "monthly_variables"."imss_infonavit_empleador_mexico", "monthly_variables"."imss_infonavit_trabajador_mexico",
+        "monthly_variables"."imss_invalides_empleador_mexico", "monthly_variables"."imss_invalides_trabajador_mexico",
+        "monthly_variables"."imss_prestaciones_sociales_empleador_mexico", "monthly_variables"."imss_prestaciones_sociales_trabajador_mexico",
+        "monthly_variables"."imss_retiro_empleador_mexico", "monthly_variables"."imss_retiro_trabajador_mexico",
+        "monthly_variables"."imss_riesgo_empleador_mexico", "monthly_variables"."imss_riesgo_trabajador_mexico",
+        "monthly_variables"."insalubridad_maximo", "monthly_variables"."insalubridad_medio",
+        "monthly_variables"."insalubridad_minimo", "monthly_variables"."inss_cprb",
+        "monthly_variables"."inss_deduccion_1", "monthly_variables"."inss_deduccion_2",
+        "monthly_variables"."inss_deduccion_3", "monthly_variables"."inss_deduccion_4",
+        "monthly_variables"."inss_desde_2", "monthly_variables"."inss_desde_3", "monthly_variables"."inss_desde_4",
+        "monthly_variables"."inss_empresa", "monthly_variables"."inss_factor_1", "monthly_variables"."inss_factor_2",
+        "monthly_variables"."inss_factor_3", "monthly_variables"."inss_factor_4",
+        "monthly_variables"."inss_hasta_1", "monthly_variables"."inss_hasta_2", "monthly_variables"."inss_hasta_3",
+        "monthly_variables"."inss_hasta_4", "monthly_variables"."inss_limite", "monthly_variables"."inss_remuneration_limit",
+        "monthly_variables"."inss_simples_nacionales", "monthly_variables"."interes_cesantia",
+        "monthly_variables"."irrf_deduccion_1", "monthly_variables"."irrf_deduccion_2",
+        "monthly_variables"."irrf_deduccion_3", "monthly_variables"."irrf_deduccion_4",
+        "monthly_variables"."irrf_deduccion_5", "monthly_variables"."irrf_desde_1",
+        "monthly_variables"."irrf_desde_2", "monthly_variables"."irrf_desde_3", "monthly_variables"."irrf_desde_4",
+        "monthly_variables"."irrf_desde_5", "monthly_variables"."irrf_empleado_deduccion_1",
+        "monthly_variables"."irrf_empleado_deduccion_2", "monthly_variables"."irrf_empleado_deduccion_3",
+        "monthly_variables"."irrf_empleado_deduccion_4", "monthly_variables"."irrf_empleado_deduccion_5",
+        "monthly_variables"."irrf_empleado_desde_1", "monthly_variables"."irrf_empleado_desde_2",
+        "monthly_variables"."irrf_empleado_desde_3", "monthly_variables"."irrf_empleado_desde_4",
+        "monthly_variables"."irrf_empleado_desde_5", "monthly_variables"."irrf_empleado_factor_1",
+        "monthly_variables"."irrf_empleado_factor_2", "monthly_variables"."irrf_empleado_factor_3",
+        "monthly_variables"."irrf_empleado_factor_4", "monthly_variables"."irrf_empleado_factor_5",
+        "monthly_variables"."irrf_empleado_hasta_1", "monthly_variables"."irrf_empleado_hasta_2",
+        "monthly_variables"."irrf_empleado_hasta_3", "monthly_variables"."irrf_empleado_hasta_4",
+        "monthly_variables"."irrf_empleado_hasta_5", "monthly_variables"."irrf_factor_1",
+        "monthly_variables"."irrf_factor_2", "monthly_variables"."irrf_factor_3",
+        "monthly_variables"."irrf_factor_4", "monthly_variables"."irrf_factor_5",
+        "monthly_variables"."irrf_hasta_1", "monthly_variables"."irrf_hasta_2", "monthly_variables"."irrf_hasta_3",
+        "monthly_variables"."irrf_hasta_4", "monthly_variables"."irrf_hasta_5", "monthly_variables"."jornales_asignacion_escolaridad_peru",
+        "monthly_variables"."limite_asignacion_familiar_a", "monthly_variables"."limite_asignacion_familiar_b",
+        "monthly_variables"."limite_asignacion_familiar_c", "monthly_variables"."limite_tramo1",
+        "monthly_variables"."limite_tramo2", "monthly_variables"."limite_tramo3",
+        "monthly_variables"."limite_tramo4", "monthly_variables"."limite_tramo5",
+        "monthly_variables"."limite_tramo6", "monthly_variables"."limite_tramo7",
+        "monthly_variables"."mes", "monthly_variables"."monto_asignacion_familiar_a",
+        "monthly_variables"."monto_asignacion_familiar_b", "monthly_variables"."monto_asignacion_familiar_c",
+        "monthly_variables"."mutual_cotizacion_basica", "monthly_variables"."peligrosidad_brasil",
+        "monthly_variables"."pension_empleado", "monthly_variables"."pension_empleador",
+        "monthly_variables"."porcentaje_buc_oficial", "monthly_variables"."porcentaje_buc_operario",
+        "monthly_variables"."porcentaje_buc_peon", "monthly_variables"."porcentaje_factor_prestacional_colombia",
+        "monthly_variables"."porcentaje_retencion_honorarios_chile", "monthly_variables"."prevision_aporte_afp_peru",
+        "monthly_variables"."prevision_aporte_sistema_nacional_peru", "monthly_variables"."prima_seguro_habitat_peru",
+        "monthly_variables"."prima_seguro_integra_peru", "monthly_variables"."prima_seguro_prima_peru",
+        "monthly_variables"."prima_seguro_profuturo_peru", "monthly_variables"."prima_seguro_remuneracion_maxima_asegurable_peru",
+        "monthly_variables"."prima_seguro_sistema_nacional_peru", "monthly_variables"."prima_vida_seguro_es_salud_peru",
+        "monthly_variables"."primas", "monthly_variables"."riesgo_laboral_1", "monthly_variables"."riesgo_laboral_2",
+        "monthly_variables"."riesgo_laboral_3", "monthly_variables"."riesgo_laboral_4",
+        "monthly_variables"."riesgo_laboral_5", "monthly_variables"."salario_familia_brasil",
+        "monthly_variables"."salario_minimo_estatal_pr", "monthly_variables"."salario_minimo_estatal_rj",
+        "monthly_variables"."salario_minimo_estatal_rs", "monthly_variables"."salario_minimo_estatal_sc",
+        "monthly_variables"."salario_minimo_estatal_sp", "monthly_variables"."salario_minimo_federal_brasil",
+        "monthly_variables"."salario_minimo_general_mexico", "monthly_variables"."salario_minimo_norte_mexico",
+        "monthly_variables"."sanna", "monthly_variables"."seguro_vivienda_mexico",
+        "monthly_variables"."sena", "monthly_variables"."solidaridad_1_alto", "monthly_variables"."solidaridad_1_bajo",
+        "monthly_variables"."solidaridad_1_tasa", "monthly_variables"."solidaridad_2_alto",
+        "monthly_variables"."solidaridad_2_bajo", "monthly_variables"."solidaridad_2_tasa",
+        "monthly_variables"."solidaridad_3_alto", "monthly_variables"."solidaridad_3_bajo",
+        "monthly_variables"."solidaridad_3_tasa", "monthly_variables"."solidaridad_4_alto",
+        "monthly_variables"."solidaridad_4_bajo", "monthly_variables"."solidaridad_4_tasa",
+        "monthly_variables"."solidaridad_5_alto", "monthly_variables"."solidaridad_5_bajo",
+        "monthly_variables"."solidaridad_5_tasa", "monthly_variables"."solidaridad_6_alto",
+        "monthly_variables"."solidaridad_6_bajo", "monthly_variables"."solidaridad_6_tasa",
+        "monthly_variables"."sueldo_grado_1A", "monthly_variables"."sueldo_minimo",
+        "monthly_variables"."sueldo_minimo_18_65", "monthly_variables"."sueldo_minimo_colombia",
+        "monthly_variables"."sueldo_minimo_para_fines_no_remuneracionales", "monthly_variables"."sueldo_minimo_peru",
+        "monthly_variables"."tasa_afp_jubilacion_aporte_peru", "monthly_variables"."tasa_afp_jubilacion_descuento_peru",
+        "monthly_variables"."tasa_canaempu_publicos_regimen_1", "monthly_variables"."tasa_canaempu_publicos_regimen_21",
+        "monthly_variables"."tasa_capital", "monthly_variables"."tasa_capremer_regimen_1",
+        "monthly_variables"."tasa_cesantia_fijo", "monthly_variables"."tasa_cesantia_indefinido",
+        "monthly_variables"."tasa_cesantia_indefinido_empleador", "monthly_variables"."tasa_cesantia_once",
+        "monthly_variables"."tasa_conafovicer_peru", "monthly_variables"."tasa_cuprum",
+        "monthly_variables"."tasa_desahucio_capremer_regimen_1", "monthly_variables"."tasa_desahucio_empart_regimen_1",
+        "monthly_variables"."tasa_ee_municipales_republica_regimen_1", "monthly_variables"."tasa_ee_municipales_republica_regimen_2",
+        "monthly_variables"."tasa_ee_municipales_republica_regimen_3", "monthly_variables"."tasa_empart_regimen_1",
+        "monthly_variables"."tasa_eps_peru", "monthly_variables"."tasa_es_salud_peru",
+        "monthly_variables"."tasa_habitat", "monthly_variables"."tasa_modelo", "monthly_variables"."tasa_no_residente_colombia",
+        "monthly_variables"."tasa_oo_municipales_republica_regimen_1", "monthly_variables"."tasa_oo_municipales_republica_regimen_2",
+        "monthly_variables"."tasa_oo_municipales_republica_regimen_3", "monthly_variables"."tasa_planvital",
+        "monthly_variables"."tasa_previsional_habitat_flujo_peru", "monthly_variables"."tasa_previsional_habitat_saldo_peru",
+        "monthly_variables"."tasa_previsional_integra_flujo_peru", "monthly_variables"."tasa_previsional_integra_saldo_peru",
+        "monthly_variables"."tasa_previsional_prima_flujo_peru", "monthly_variables"."tasa_previsional_prima_saldo_peru",
+        "monthly_variables"."tasa_previsional_profuturo_flujo_peru", "monthly_variables"."tasa_previsional_profuturo_saldo_peru",
+        "monthly_variables"."tasa_previsional_sistema_nacional_flujo_peru", "monthly_variables"."tasa_previsional_sistema_nacional_saldo_peru",
+        "monthly_variables"."tasa_provida", "monthly_variables"."tasa_salud_obligatoria_ccaf_chile",
+        "monthly_variables"."tasa_seguro_invalidez", "monthly_variables"."tasa_servicios_de_seguro_social_regimen_1",
+        "monthly_variables"."tasa_tramo1", "monthly_variables"."tasa_tramo2", "monthly_variables"."tasa_tramo3",
+        "monthly_variables"."tasa_tramo4", "monthly_variables"."tasa_tramo5", "monthly_variables"."tasa_tramo6",
+        "monthly_variables"."tasa_tramo7", "monthly_variables"."tasa_tramo8", "monthly_variables"."tasa_triomar_regimen_1",
+        "monthly_variables"."tasa_uno", "monthly_variables"."tope_afp", "monthly_variables"."tope_apv_anual",
+        "monthly_variables"."tope_apv_mes", "monthly_variables"."tope_cesantia", "monthly_variables"."tope_imponible_eps",
+        "monthly_variables"."tope_imponible_pension", "monthly_variables"."tope_renta_exenta_colombia",
+        "monthly_variables"."trabajo_menos_pesado_empleador", "monthly_variables"."trabajo_menos_pesado_trabajador",
+        "monthly_variables"."trabajo_pesado_empleador", "monthly_variables"."trabajo_pesado_trabajador",
+        "monthly_variables"."uf", "monthly_variables"."uf_anterior", "monthly_variables"."uf_dia_1",
+        "monthly_variables"."uf_dia_9", "monthly_variables"."uf_dia_9_mes_siguiente",
+        "monthly_variables"."uit_peru", "monthly_variables"."uma_mexico", "monthly_variables"."umi_mexico",
+        "monthly_variables"."updated_at", "monthly_variables"."utm", "monthly_variables"."uvt",
+        "monthly_variables"."vacaciones", "monthly_variables"."tope_salario_familia_brasil",
+        "monthly_variables"."irrf_simplificado_brasil", "monthly_variables"."porcentaje_cargo_de_confianza_brasil",
+        "monthly_variables"."subsidy_percentage", "monthly_variables"."subsidy_monthly_threshold"
+        FROM "monthly_variables" WHERE "monthly_variables"."id" = $1 ORDER BY "monthly_variables"."mes"
+        ASC LIMIT $2
+    packs/nomina/core/periodo/app/models/variable.rb:383:in `uf_dia_9':
+      :count: 1
+      :sql: SELECT "monthly_variables"."id", "monthly_variables"."auxilio_transporte",
+        "monthly_variables"."bono_movilidad_adicional_peru", "monthly_variables"."bono_movilidad_peru",
+        "monthly_variables"."caja_compensacion_familiar", "monthly_variables"."cesantia_colombia",
+        "monthly_variables"."created_at", "monthly_variables"."dependiente_brasil",
+        "monthly_variables"."descuento_infonavit_mexico", "monthly_variables"."descuento_vale_trasnporte_brasil",
+        "monthly_variables"."dias_subsidio_maternidad_peru", "monthly_variables"."eps_empleado",
+        "monthly_variables"."eps_empleado_1", "monthly_variables"."eps_empleado_2",
+        "monthly_variables"."eps_empleado_3", "monthly_variables"."eps_empleado_4",
+        "monthly_variables"."eps_empleado_5", "monthly_variables"."eps_empleador",
+        "monthly_variables"."factor_actualizacion", "monthly_variables"."fgts_multa_acuerdo",
+        "monthly_variables"."fgts_multa_general", "monthly_variables"."fgts_patronal_excepcion",
+        "monthly_variables"."fgts_patronal_general", "monthly_variables"."icbf", "monthly_variables"."impuesto_renta_tasa_1_peru",
+        "monthly_variables"."impuesto_renta_tasa_2_peru", "monthly_variables"."impuesto_renta_tasa_3_peru",
+        "monthly_variables"."impuesto_renta_tasa_4_peru", "monthly_variables"."impuesto_renta_tasa_5_peru",
+        "monthly_variables"."impuesto_renta_tramo_1_peru", "monthly_variables"."impuesto_renta_tramo_2_peru",
+        "monthly_variables"."impuesto_renta_tramo_3_peru", "monthly_variables"."impuesto_renta_tramo_4_peru",
+        "monthly_variables"."impuestos_1_alto", "monthly_variables"."impuestos_1_bajo",
+        "monthly_variables"."impuestos_1_base", "monthly_variables"."impuestos_1_tasa",
+        "monthly_variables"."impuestos_2_alto", "monthly_variables"."impuestos_2_bajo",
+        "monthly_variables"."impuestos_2_base", "monthly_variables"."impuestos_2_tasa",
+        "monthly_variables"."impuestos_3_alto", "monthly_variables"."impuestos_3_bajo",
+        "monthly_variables"."impuestos_3_base", "monthly_variables"."impuestos_3_tasa",
+        "monthly_variables"."impuestos_4_alto", "monthly_variables"."impuestos_4_bajo",
+        "monthly_variables"."impuestos_4_base", "monthly_variables"."impuestos_4_tasa",
+        "monthly_variables"."impuestos_5_alto", "monthly_variables"."impuestos_5_bajo",
+        "monthly_variables"."impuestos_5_base", "monthly_variables"."impuestos_5_tasa",
+        "monthly_variables"."impuestos_6_alto", "monthly_variables"."impuestos_6_bajo",
+        "monthly_variables"."impuestos_6_base", "monthly_variables"."impuestos_6_tasa",
+        "monthly_variables"."impuestos_7_alto", "monthly_variables"."impuestos_7_bajo",
+        "monthly_variables"."impuestos_7_base", "monthly_variables"."impuestos_7_tasa",
+        "monthly_variables"."imss_ceav_empleador_mexico", "monthly_variables"."imss_ceav_trabajador_mexico",
+        "monthly_variables"."imss_enfermedad_cuota_adicional_empleador_mexico", "monthly_variables"."imss_enfermedad_cuota_adicional_trabajador_mexico",
+        "monthly_variables"."imss_enfermedad_cuota_fija_empleador_mexico", "monthly_variables"."imss_enfermedad_cuota_fija_trabajador_mexico",
+        "monthly_variables"."imss_enfermedad_dinero_empleador_mexico", "monthly_variables"."imss_enfermedad_dinero_trabajador_mexico",
+        "monthly_variables"."imss_enfermedad_gastos_empleador_mexico", "monthly_variables"."imss_enfermedad_gastos_trabajador_mexico",
+        "monthly_variables"."imss_infonavit_empleador_mexico", "monthly_variables"."imss_infonavit_trabajador_mexico",
+        "monthly_variables"."imss_invalides_empleador_mexico", "monthly_variables"."imss_invalides_trabajador_mexico",
+        "monthly_variables"."imss_prestaciones_sociales_empleador_mexico", "monthly_variables"."imss_prestaciones_sociales_trabajador_mexico",
+        "monthly_variables"."imss_retiro_empleador_mexico", "monthly_variables"."imss_retiro_trabajador_mexico",
+        "monthly_variables"."imss_riesgo_empleador_mexico", "monthly_variables"."imss_riesgo_trabajador_mexico",
+        "monthly_variables"."insalubridad_maximo", "monthly_variables"."insalubridad_medio",
+        "monthly_variables"."insalubridad_minimo", "monthly_variables"."inss_cprb",
+        "monthly_variables"."inss_deduccion_1", "monthly_variables"."inss_deduccion_2",
+        "monthly_variables"."inss_deduccion_3", "monthly_variables"."inss_deduccion_4",
+        "monthly_variables"."inss_desde_2", "monthly_variables"."inss_desde_3", "monthly_variables"."inss_desde_4",
+        "monthly_variables"."inss_empresa", "monthly_variables"."inss_factor_1", "monthly_variables"."inss_factor_2",
+        "monthly_variables"."inss_factor_3", "monthly_variables"."inss_factor_4",
+        "monthly_variables"."inss_hasta_1", "monthly_variables"."inss_hasta_2", "monthly_variables"."inss_hasta_3",
+        "monthly_variables"."inss_hasta_4", "monthly_variables"."inss_limite", "monthly_variables"."inss_remuneration_limit",
+        "monthly_variables"."inss_simples_nacionales", "monthly_variables"."interes_cesantia",
+        "monthly_variables"."irrf_deduccion_1", "monthly_variables"."irrf_deduccion_2",
+        "monthly_variables"."irrf_deduccion_3", "monthly_variables"."irrf_deduccion_4",
+        "monthly_variables"."irrf_deduccion_5", "monthly_variables"."irrf_desde_1",
+        "monthly_variables"."irrf_desde_2", "monthly_variables"."irrf_desde_3", "monthly_variables"."irrf_desde_4",
+        "monthly_variables"."irrf_desde_5", "monthly_variables"."irrf_empleado_deduccion_1",
+        "monthly_variables"."irrf_empleado_deduccion_2", "monthly_variables"."irrf_empleado_deduccion_3",
+        "monthly_variables"."irrf_empleado_deduccion_4", "monthly_variables"."irrf_empleado_deduccion_5",
+        "monthly_variables"."irrf_empleado_desde_1", "monthly_variables"."irrf_empleado_desde_2",
+        "monthly_variables"."irrf_empleado_desde_3", "monthly_variables"."irrf_empleado_desde_4",
+        "monthly_variables"."irrf_empleado_desde_5", "monthly_variables"."irrf_empleado_factor_1",
+        "monthly_variables"."irrf_empleado_factor_2", "monthly_variables"."irrf_empleado_factor_3",
+        "monthly_variables"."irrf_empleado_factor_4", "monthly_variables"."irrf_empleado_factor_5",
+        "monthly_variables"."irrf_empleado_hasta_1", "monthly_variables"."irrf_empleado_hasta_2",
+        "monthly_variables"."irrf_empleado_hasta_3", "monthly_variables"."irrf_empleado_hasta_4",
+        "monthly_variables"."irrf_empleado_hasta_5", "monthly_variables"."irrf_factor_1",
+        "monthly_variables"."irrf_factor_2", "monthly_variables"."irrf_factor_3",
+        "monthly_variables"."irrf_factor_4", "monthly_variables"."irrf_factor_5",
+        "monthly_variables"."irrf_hasta_1", "monthly_variables"."irrf_hasta_2", "monthly_variables"."irrf_hasta_3",
+        "monthly_variables"."irrf_hasta_4", "monthly_variables"."irrf_hasta_5", "monthly_variables"."jornales_asignacion_escolaridad_peru",
+        "monthly_variables"."limite_asignacion_familiar_a", "monthly_variables"."limite_asignacion_familiar_b",
+        "monthly_variables"."limite_asignacion_familiar_c", "monthly_variables"."limite_tramo1",
+        "monthly_variables"."limite_tramo2", "monthly_variables"."limite_tramo3",
+        "monthly_variables"."limite_tramo4", "monthly_variables"."limite_tramo5",
+        "monthly_variables"."limite_tramo6", "monthly_variables"."limite_tramo7",
+        "monthly_variables"."mes", "monthly_variables"."monto_asignacion_familiar_a",
+        "monthly_variables"."monto_asignacion_familiar_b", "monthly_variables"."monto_asignacion_familiar_c",
+        "monthly_variables"."mutual_cotizacion_basica", "monthly_variables"."peligrosidad_brasil",
+        "monthly_variables"."pension_empleado", "monthly_variables"."pension_empleador",
+        "monthly_variables"."porcentaje_buc_oficial", "monthly_variables"."porcentaje_buc_operario",
+        "monthly_variables"."porcentaje_buc_peon", "monthly_variables"."porcentaje_factor_prestacional_colombia",
+        "monthly_variables"."porcentaje_retencion_honorarios_chile", "monthly_variables"."prevision_aporte_afp_peru",
+        "monthly_variables"."prevision_aporte_sistema_nacional_peru", "monthly_variables"."prima_seguro_habitat_peru",
+        "monthly_variables"."prima_seguro_integra_peru", "monthly_variables"."prima_seguro_prima_peru",
+        "monthly_variables"."prima_seguro_profuturo_peru", "monthly_variables"."prima_seguro_remuneracion_maxima_asegurable_peru",
+        "monthly_variables"."prima_seguro_sistema_nacional_peru", "monthly_variables"."prima_vida_seguro_es_salud_peru",
+        "monthly_variables"."primas", "monthly_variables"."riesgo_laboral_1", "monthly_variables"."riesgo_laboral_2",
+        "monthly_variables"."riesgo_laboral_3", "monthly_variables"."riesgo_laboral_4",
+        "monthly_variables"."riesgo_laboral_5", "monthly_variables"."salario_familia_brasil",
+        "monthly_variables"."salario_minimo_estatal_pr", "monthly_variables"."salario_minimo_estatal_rj",
+        "monthly_variables"."salario_minimo_estatal_rs", "monthly_variables"."salario_minimo_estatal_sc",
+        "monthly_variables"."salario_minimo_estatal_sp", "monthly_variables"."salario_minimo_federal_brasil",
+        "monthly_variables"."salario_minimo_general_mexico", "monthly_variables"."salario_minimo_norte_mexico",
+        "monthly_variables"."sanna", "monthly_variables"."seguro_vivienda_mexico",
+        "monthly_variables"."sena", "monthly_variables"."solidaridad_1_alto", "monthly_variables"."solidaridad_1_bajo",
+        "monthly_variables"."solidaridad_1_tasa", "monthly_variables"."solidaridad_2_alto",
+        "monthly_variables"."solidaridad_2_bajo", "monthly_variables"."solidaridad_2_tasa",
+        "monthly_variables"."solidaridad_3_alto", "monthly_variables"."solidaridad_3_bajo",
+        "monthly_variables"."solidaridad_3_tasa", "monthly_variables"."solidaridad_4_alto",
+        "monthly_variables"."solidaridad_4_bajo", "monthly_variables"."solidaridad_4_tasa",
+        "monthly_variables"."solidaridad_5_alto", "monthly_variables"."solidaridad_5_bajo",
+        "monthly_variables"."solidaridad_5_tasa", "monthly_variables"."solidaridad_6_alto",
+        "monthly_variables"."solidaridad_6_bajo", "monthly_variables"."solidaridad_6_tasa",
+        "monthly_variables"."sueldo_grado_1A", "monthly_variables"."sueldo_minimo",
+        "monthly_variables"."sueldo_minimo_18_65", "monthly_variables"."sueldo_minimo_colombia",
+        "monthly_variables"."sueldo_minimo_para_fines_no_remuneracionales", "monthly_variables"."sueldo_minimo_peru",
+        "monthly_variables"."tasa_afp_jubilacion_aporte_peru", "monthly_variables"."tasa_afp_jubilacion_descuento_peru",
+        "monthly_variables"."tasa_canaempu_publicos_regimen_1", "monthly_variables"."tasa_canaempu_publicos_regimen_21",
+        "monthly_variables"."tasa_capital", "monthly_variables"."tasa_capremer_regimen_1",
+        "monthly_variables"."tasa_cesantia_fijo", "monthly_variables"."tasa_cesantia_indefinido",
+        "monthly_variables"."tasa_cesantia_indefinido_empleador", "monthly_variables"."tasa_cesantia_once",
+        "monthly_variables"."tasa_conafovicer_peru", "monthly_variables"."tasa_cuprum",
+        "monthly_variables"."tasa_desahucio_capremer_regimen_1", "monthly_variables"."tasa_desahucio_empart_regimen_1",
+        "monthly_variables"."tasa_ee_municipales_republica_regimen_1", "monthly_variables"."tasa_ee_municipales_republica_regimen_2",
+        "monthly_variables"."tasa_ee_municipales_republica_regimen_3", "monthly_variables"."tasa_empart_regimen_1",
+        "monthly_variables"."tasa_eps_peru", "monthly_variables"."tasa_es_salud_peru",
+        "monthly_variables"."tasa_habitat", "monthly_variables"."tasa_modelo", "monthly_variables"."tasa_no_residente_colombia",
+        "monthly_variables"."tasa_oo_municipales_republica_regimen_1", "monthly_variables"."tasa_oo_municipales_republica_regimen_2",
+        "monthly_variables"."tasa_oo_municipales_republica_regimen_3", "monthly_variables"."tasa_planvital",
+        "monthly_variables"."tasa_previsional_habitat_flujo_peru", "monthly_variables"."tasa_previsional_habitat_saldo_peru",
+        "monthly_variables"."tasa_previsional_integra_flujo_peru", "monthly_variables"."tasa_previsional_integra_saldo_peru",
+        "monthly_variables"."tasa_previsional_prima_flujo_peru", "monthly_variables"."tasa_previsional_prima_saldo_peru",
+        "monthly_variables"."tasa_previsional_profuturo_flujo_peru", "monthly_variables"."tasa_previsional_profuturo_saldo_peru",
+        "monthly_variables"."tasa_previsional_sistema_nacional_flujo_peru", "monthly_variables"."tasa_previsional_sistema_nacional_saldo_peru",
+        "monthly_variables"."tasa_provida", "monthly_variables"."tasa_salud_obligatoria_ccaf_chile",
+        "monthly_variables"."tasa_seguro_invalidez", "monthly_variables"."tasa_servicios_de_seguro_social_regimen_1",
+        "monthly_variables"."tasa_tramo1", "monthly_variables"."tasa_tramo2", "monthly_variables"."tasa_tramo3",
+        "monthly_variables"."tasa_tramo4", "monthly_variables"."tasa_tramo5", "monthly_variables"."tasa_tramo6",
+        "monthly_variables"."tasa_tramo7", "monthly_variables"."tasa_tramo8", "monthly_variables"."tasa_triomar_regimen_1",
+        "monthly_variables"."tasa_uno", "monthly_variables"."tope_afp", "monthly_variables"."tope_apv_anual",
+        "monthly_variables"."tope_apv_mes", "monthly_variables"."tope_cesantia", "monthly_variables"."tope_imponible_eps",
+        "monthly_variables"."tope_imponible_pension", "monthly_variables"."tope_renta_exenta_colombia",
+        "monthly_variables"."trabajo_menos_pesado_empleador", "monthly_variables"."trabajo_menos_pesado_trabajador",
+        "monthly_variables"."trabajo_pesado_empleador", "monthly_variables"."trabajo_pesado_trabajador",
+        "monthly_variables"."uf", "monthly_variables"."uf_anterior", "monthly_variables"."uf_dia_1",
+        "monthly_variables"."uf_dia_9", "monthly_variables"."uf_dia_9_mes_siguiente",
+        "monthly_variables"."uit_peru", "monthly_variables"."uma_mexico", "monthly_variables"."umi_mexico",
+        "monthly_variables"."updated_at", "monthly_variables"."utm", "monthly_variables"."uvt",
+        "monthly_variables"."vacaciones", "monthly_variables"."tope_salario_familia_brasil",
+        "monthly_variables"."irrf_simplificado_brasil", "monthly_variables"."porcentaje_cargo_de_confianza_brasil",
+        "monthly_variables"."subsidy_percentage", "monthly_variables"."subsidy_monthly_threshold"
+        FROM "monthly_variables" WHERE "monthly_variables"."id" = $1 ORDER BY "monthly_variables"."mes"
+        ASC LIMIT $2
+liquidacions:
+  :count: 66
+  :location:
+    packs/hcm/core/employee_management/app/models/queries/dashboard_cajas.rb:12:in `initialize':
+      :count: 1
+      :sql: SELECT SUM("liquidacions"."gasto_empresa") FROM "liquidacions" WHERE ("liquidacions"."variable_id"
+        = $1) AND ("liquidacions"."job_id" IN (SELECT "jobs"."id" FROM "jobs" WHERE
+        "jobs"."tipo_contrato" != $2)) AND ("liquidacions"."liquidacion_type" = $3)
+    packs/hcm/core/employee_management/app/models/queries/dashboard_cajas.rb:28:in `compania':
+      :count: 1
+      :sql: SELECT COUNT(*) FROM "liquidacions" WHERE ("liquidacions"."liquidacion_type"
+        = $1) AND ("liquidacions"."variable_id" = $2)
+    packs/hcm/core/employee_management/app/models/queries/dashboard_cajas.rb:33:in `compania':
+      :count: 1
+      :sql: SELECT SUM("liquidacions"."gasto_empresa") FROM "liquidacions" WHERE ("liquidacions"."liquidacion_type"
+        = $1) AND ("liquidacions"."variable_id" = $2) AND ("liquidacions"."job_id"
+        IN (SELECT "jobs"."id" FROM "jobs" WHERE "jobs"."tipo_contrato" != $3))
+    packs/hcm/core/employee_management/app/models/queries/dashboard_cajas.rb:49:in `asistencia':
+      :count: 1
+      :sql: SELECT SUM("liquidacions"."dias_no_trabajados") FROM "liquidacions" WHERE
+        ("liquidacions"."liquidacion_type" = $1) AND ("liquidacions"."variable_id"
+        = $2)
+    packs/hcm/core/employee_management/app/models/queries/dashboard_cajas.rb:50:in `asistencia':
+      :count: 1
+      :sql: SELECT SUM("liquidacions"."horas_sobretiempos") FROM "liquidacions" WHERE
+        ("liquidacions"."liquidacion_type" = $1) AND ("liquidacions"."variable_id"
+        = $2)
+    packs/nomina/core/periodo/app/models/variable.rb:777:in `liquidacions_outdated?':
+      :count: 1
+      :sql: SELECT 1 AS one FROM "liquidacions" WHERE ("liquidacions"."liquidacion_type"
+        = $1) AND ("liquidacions"."variable_id" = $2) AND ("liquidacions"."historica"
+        = $3) AND ((calculated_at < '2024-04-11')) LIMIT $4
+    packs/nomina/core/periodo/app/models/variable.rb:740:in `completion_percentage':
+      :count: 18
+      :sql: SELECT COUNT(*) FROM "liquidacions" WHERE ("liquidacions"."liquidacion_type"
+        = $1) AND ("liquidacions"."variable_id" = $2)
+    packs/nomina/core/periodo/app/models/variable.rb:741:in `completion_percentage':
+      :count: 36
+      :sql: SELECT COUNT(*) FROM "liquidacions" WHERE ("liquidacions"."liquidacion_type"
+        = $1) AND ("liquidacions"."variable_id" = $2)
+    packs/nomina/core/periodo/app/cells/variable/management_actions_cell.rb:82:in `last_calculated_settlement':
+      :count: 3
+      :sql: SELECT MAX("liquidacions"."calculated_at") FROM "liquidacions" WHERE ("liquidacions"."liquidacion_type"
+        = $1) AND ("liquidacions"."variable_id" = $2)
+    packs/nomina/core/periodo/app/models/variable.rb:762:in `pub_unpub_liquidacions':
+      :count: 3
+      :sql: SELECT COUNT(*) AS count_all, "liquidacions"."published" AS "liquidacions_published"
+        FROM "liquidacions" WHERE ("liquidacions"."liquidacion_type" = $1) AND ("liquidacions"."variable_id"
+        = $2) GROUP BY "liquidacions"."published"
+jobs:
+  :count: 4
+  :location:
+    packs/hcm/core/employee_management/app/models/queries/dashboard_cajas.rb:77:in `rotacion':
+      :count: 1
+      :sql: SELECT COUNT(*) FROM "jobs" INNER JOIN "employees" ON "employees"."id"
+        = "jobs"."employee_id" WHERE ("jobs"."start_date" <= '2024-04-30') AND (("jobs"."end_date"
+        IS NULL) OR ("jobs"."end_date" >= '2024-04-01')) AND ("employees"."period_type"
+        = $1) AND ("jobs"."previous_job_id" IS NULL) AND ("jobs"."start_date" BETWEEN
+        ($2) AND ($3))
+    packs/hcm/core/employee_management/app/models/queries/dashboard_cajas.rb:78:in `rotacion':
+      :count: 1
+      :sql: SELECT COUNT(*) FROM "jobs" INNER JOIN "employees" ON "employees"."id"
+        = "jobs"."employee_id" WHERE ("jobs"."start_date" <= '2024-04-30') AND (("jobs"."end_date"
+        IS NULL) OR ("jobs"."end_date" >= '2024-04-01')) AND ("employees"."period_type"
+        = $1) AND ("jobs"."next_job_id" IS NULL) AND ("jobs"."end_date" BETWEEN ($2)
+        AND ($3)) AND ("jobs"."end_date" IS NOT NULL)
+    packs/plataforma/building_blocks/sidebar/app/cells/layouts/sidebarv2_cell.rb:338:in `block in build_gestion_asistencia':
+      :count: 1
+      :sql: SELECT 1 AS one FROM "jobs" WHERE "jobs"."periodicidad" = $1 LIMIT $2
+    packs/plataforma/building_blocks/sidebar/app/cells/layouts/sidebarv2_cell.rb:961:in `trabajos_por_hora?':
+      :count: 1
+      :sql: SELECT 1 AS one FROM "jobs" WHERE "jobs"."periodicidad" = $1 LIMIT $2
+variable_anuals:
+  :count: 1
+  :location:
+    packs/plataforma/core_app/app/controllers/static_pages_controller.rb:105:in `dashboard':
+      :count: 1
+      :sql: SELECT "variable_anuals".* FROM "variable_anuals" ORDER BY "variable_anuals"."id"
+        DESC LIMIT $1
+integrations_backup_banks:
+  :count: 6
+  :location:
+    packs/nomina/core/periodo/app/cells/variable/management_actions_cell.rb:287:in `other_payments':
+      :count: 6
+      :sql: SELECT 1 AS one FROM "integrations_backup_banks" LIMIT $1
+variable_files:
+  :count: 123
+  :location:
+    packs/nomina/core/periodo/app/models/variable/file_loader.rb:26:in `fetch':
+      :count: 120
+      :sql: SELECT "variable_files".* FROM "variable_files" WHERE ("variable_files"."variable_id"
+        = $1) AND ("variable_files"."file_type" = $2) AND ((file_attributes @> '{}'))
+    app/helpers/outdated_files_helper.rb:51:in `sort_by':
+      :count: 3
+      :sql: SELECT "variable_files".* FROM "variable_files" WHERE "variable_files"."variable_id"
+        = $1
+receipts:
+  :count: 3
+  :location:
+    packs/nomina/core/periodo/app/models/variable.rb:766:in `pub_unpub_receipts':
+      :count: 3
+      :sql: SELECT COUNT(*) AS count_all, "receipts"."published" AS "receipts_published"
+        FROM "receipts" INNER JOIN "liquidacions" ON "receipts"."liquidacion_id" =
+        "liquidacions"."id" WHERE ("liquidacions"."liquidacion_type" = $1) AND ("liquidacions"."variable_id"
+        = $2) GROUP BY "receipts"."published"
+employees:
+  :count: 2
+  :location:
+    packs/plataforma/core_app/app/views/static_pages/home.html.erb:88:
+      :count: 1
+      :sql: SELECT "employees"."id" AS "t0_r0", "employees"."code" AS "t0_r1", "employees"."company_bank_id"
+        AS "t0_r2", "employees"."created_at" AS "t0_r3", "employees"."estado" AS "t0_r4",
+        "employees"."extra_vacation_days" AS "t0_r5", "employees"."extra_vacation_start_date"
+        AS "t0_r6", "employees"."fecha_ingreso_sector_publico_chile" AS "t0_r7", "employees"."fecha_inicio_cotizacion_afc"
+        AS "t0_r8", "employees"."fecha_inicio_progresivas" AS "t0_r9", "employees"."fecha_reconocimiento_antiguedad"
+        AS "t0_r10", "employees"."ingreso_compania" AS "t0_r11", "employees"."payment_detail_id"
+        AS "t0_r12", "employees"."period_type" AS "t0_r13", "employees"."person_id"
+        AS "t0_r14", "employees"."rol_privado" AS "t0_r15", "employees"."type" AS
+        "t0_r16", "employees"."updated_at" AS "t0_r17", "people"."id" AS "t1_r0",
+        "people"."address_neighborhood" AS "t1_r1", "people"."address_number" AS "t1_r2",
+        "people"."address_reference" AS "t1_r3", "people"."address_type" AS "t1_r4",
+        "people"."ano_egreso_educacion_peru" AS "t1_r5", "people"."birth_country"
+        AS "t1_r6", "people"."bloqueado" AS "t1_r7", "people"."carrera_educacion_peru"
+        AS "t1_r8", "people"."celular" AS "t1_r9", "people"."ciudad" AS "t1_r10",
+        "people"."codigo_pais" AS "t1_r11", "people"."codigo_postal_fiscal" AS "t1_r12",
+        "people"."comuna" AS "t1_r13", "people"."created_at" AS "t1_r14", "people"."ctps_id"
+        AS "t1_r15", "people"."ctps_issuing_date" AS "t1_r16", "people"."ctps_issuing_state"
+        AS "t1_r17", "people"."ctps_series" AS "t1_r18", "people"."cuota" AS "t1_r19",
+        "people"."curp_mexico" AS "t1_r20", "people"."date_of_birth" AS "t1_r21",
+        "people"."direccion" AS "t1_r22", "people"."disabilities" AS "t1_r23", "people"."document_type"
+        AS "t1_r24", "people"."education_level" AS "t1_r25", "people"."email" AS "t1_r26",
+        "people"."email_personal" AS "t1_r27", "people"."estado_civil" AS "t1_r28",
+        "people"."ethnic_colour" AS "t1_r29", "people"."fathers_name" AS "t1_r30",
+        "people"."first_name" AS "t1_r31", "people"."institucion_educacion_peru" AS
+        "t1_r32", "people"."last_name" AS "t1_r33", "people"."location_id" AS "t1_r34",
+        "people"."madre_con_responsabilidad_familiar_peru" AS "t1_r35", "people"."mothers_name"
+        AS "t1_r36", "people"."numero_seguridad_social" AS "t1_r37", "people"."office_phone"
+        AS "t1_r38", "people"."picture_url" AS "t1_r39", "people"."preferred_name"
+        AS "t1_r40", "people"."region" AS "t1_r41", "people"."rg_id" AS "t1_r42",
+        "people"."rg_issuing_authority" AS "t1_r43", "people"."rg_issuing_date" AS
+        "t1_r44", "people"."rg_issuing_state" AS "t1_r45", "people"."rut" AS "t1_r46",
+        "people"."security_number" AS "t1_r47", "people"."segundo_apellido" AS "t1_r48",
+        "people"."sexo" AS "t1_r49", "people"."situacion_educacion_peru" AS "t1_r50",
+        "people"."tipo_centro_de_formacion_peru" AS "t1_r51", "people"."type" AS "t1_r52",
+        "people"."updated_at" AS "t1_r53" FROM "employees" LEFT OUTER JOIN "people"
+        ON "people"."id" = "employees"."person_id" WHERE "employees"."estado" = $1
+        ORDER BY "employees"."ingreso_compania" DESC LIMIT $2
+    packs/hcm/core/employee_management/app/helpers/static_pages_helper.rb:25:in `create_employee_button':
+      :count: 1
+      :sql: SELECT COUNT(*) FROM "employees" WHERE "employees"."estado" IN ($1, $2)
+empresas:
+  :count: 1
+  :location:
+    packs/plataforma/core_app/app/cells/layouts/header/show.erb:327:in `__tilt_105120':
+      :count: 1
+      :sql: SELECT 1 AS one FROM "empresas" WHERE "empresas"."codigo_convenio_xdata"
+        IS NOT NULL LIMIT $1
+seleccions:
+  :count: 1
+  :location:
+    packs/plataforma/building_blocks/sidebar/app/cells/layouts/sidebarv2_cell.rb:199:in `block in build_home':
+      :count: 1
+      :sql: SELECT 1 AS one FROM "seleccions" WHERE ("seleccions"."publicar_portal_interno"
+        = $1) AND ((busqueda in (1,0))) AND ((estado in (1,0))) LIMIT $2
+filter_queries:
+  :count: 1
+  :location:
+    packs/plataforma/building_blocks/sidebar/app/cells/layouts/sidebarv2_cell.rb:222:in `block in build_gestion_empleados':
+      :count: 1
+      :sql: SELECT "filter_queries".* FROM "filter_queries" WHERE ((not (user_id <>
+        32 AND user_id is not null))) AND ("filter_queries"."name" = $1) AND ("filter_queries"."user_id"
+        IS NULL) LIMIT $2
+employee_substitutions:
+  :count: 1
+  :location:
+    packs/plataforma/core_app/app/models/user.rb:368:in `user_and_substitutes_ids':
+      :count: 1
+      :sql: SELECT "employee_substitutions"."employee_id" FROM "employee_substitutions"
+        WHERE ((active = true AND start_date <= '2024-07-04' AND (end_date >= '2024-07-04'
+        OR end_date is null))) AND (1 = 0)
+onboarding_tasks:
+  :count: 1
+  :location:
+    packs/plataforma/building_blocks/sidebar/app/cells/layouts/sidebarv2_cell.rb:587:in `block (2 levels) in build_talento':
+      :count: 1
+      :sql: SELECT 1 AS one FROM "onboarding_tasks" LEFT OUTER JOIN "onboarding_processes"
+        "process" ON "process"."id" = "onboarding_tasks"."process_id" LEFT OUTER JOIN
+        "onboarding_task_assignees" ON "onboarding_task_assignees"."task_id" = "onboarding_tasks"."id"
+        WHERE ("onboarding_tasks"."discarded_at" IS NULL) AND ("onboarding_task_assignees"."assignee_id"
+        = $1) AND ((("process"."onboarded_id" != $2) OR ("process"."onboarded_id"
+        IS NULL))) LIMIT $3
+communication_employee_service_configs:
+  :count: 2
+  :location:
+    packs/culture/communication/employee_service/app/models/employee_service_config.rb:38:in `admin_inbox_url':
+      :count: 1
+      :sql: SELECT "communication_employee_service_configs".* FROM "communication_employee_service_configs"
+        ORDER BY "communication_employee_service_configs"."id" DESC LIMIT $1
+    packs/culture/communication/employee_service/app/models/employee_service_config.rb:28:in `valid_structure?':
+      :count: 1
+      :sql: SELECT "communication_employee_service_configs".* FROM "communication_employee_service_configs"
+        ORDER BY "communication_employee_service_configs"."id" DESC LIMIT $1
+benefits:
+  :count: 2
+  :location:
+    packs/plataforma/building_blocks/sidebar/app/cells/layouts/sidebarv2_cell.rb:918:in `total_benefits_pending':
+      :count: 2
+      :sql: SELECT COUNT(*) FROM "benefits" WHERE "benefits"."status" IN ($1, $2,
+        $3)
+available_benefits:
+  :count: 1
+  :location:
+    packs/plataforma/building_blocks/sidebar/app/cells/layouts/sidebarv2_cell.rb:922:in `b2b_benefits?':
+      :count: 1
+      :sql: SELECT 1 AS one FROM "available_benefits" WHERE ("available_benefits"."is_deleted"
+        = $1) AND ("available_benefits"."benefit_type" = $2) AND ("available_benefits"."draft"
+        = $3) LIMIT $4
+support_accesses:
+  :count: 1
+  :location:
+    packs/plataforma/building_blocks/support_access/app/cells/support_access/access_limit_flash_cell.rb:11:in `should_show?':
+      :count: 1
+      :sql: SELECT "support_accesses".* FROM "support_accesses" WHERE "support_accesses"."user_id"
+        = $1 ORDER BY created_at DESC LIMIT $2
