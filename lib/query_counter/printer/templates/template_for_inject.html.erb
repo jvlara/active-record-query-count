@@ -1,0 +1,64 @@
+<style>
+  #query-modal-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000000;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  #query-modal-button:hover {
+    background-color: #0056b3;
+  }
+
+  #modal-close-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  #modal-close-button:hover {
+    background-color: #c9302c;
+  }
+
+  #modal-content-query-count {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 700px;
+    max-height: 80%;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10000000;
+    overflow: auto;
+  }
+
+  <%= css_content %>
+</style>
+<script>
+  function toggleQueryModal() {
+    var modal = document.getElementById('modal-content-query-count');
+    if (modal.style.display === 'none' || modal.style.display === '') {
+      modal.style.display = 'block';
+    } else {
+      modal.style.display = 'none';
+    }
+  }
+</script>
+<div id="query-modal-button">
+  <button id="query-modal-button" onclick="toggleQueryModal()">Toggle Query Counter</button>
+</div>
+<div id="modal-content-query-count">
+  <button id="modal-close-button" onclick="toggleQueryModal()">Close</button>
+  <%= render_query_counter_base_div %>
+</div>

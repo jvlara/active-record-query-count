@@ -7,9 +7,17 @@ require_relative 'query_counter/printer/html'
 require_relative 'query_counter/recording/base'
 require_relative 'query_counter/recording/tracker'
 require_relative 'query_counter/compare/comparator'
-
+require_relative 'query_counter/middleware'
+require_relative 'query_counter/printer/html_compare'
 module QueryCounter
   extend Recording::Base
+  if defined?(Rails::Railtie)
+    class QueryCounterRailtie < Rails::Railtie
+      initializer 'query_counter.configure_rails_initialization' do |app|
+        app.middleware.use Middleware
+      end
+    end
+  end
 
   class << self
     def configure
@@ -17,7 +25,7 @@ module QueryCounter
     end
 
     def tracker
-      @tracker ||= Tracker.new
+      Thread.current[:query_counter_data] ||= Tracker.new
     end
 
     def compare

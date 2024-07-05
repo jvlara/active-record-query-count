@@ -1,0 +1,51 @@
+<script>
+  <%= js_content %>
+</script>
+<style>
+  <%= css_content %>
+</style>
+<div id='query_counter_report_gem'>
+  <h2>Query Counter Report</h2>
+  <p>Total query count on process: <%= total_query_count %></p>
+  <p>The table will show only tables with more than <%= ::QueryCounter::Configuration.ignore_table_count %> queries</p>
+  <p>Only the top  <%= ::QueryCounter::Configuration.max_locations_per_table %> locations with the most occurrences will be shown.</p>
+  <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
+  <button id="toggleColumnButton" onclick="toggleColumnContent()">Show SQL</button>
+
+  <div class="center-container">
+    <canvas id="queryCountChart" width="300" height="150"></canvas>
+  </div>
+<table id="queryTable">
+    <tr>
+      <th>Table</th>
+      <th>Total Query Count</th>
+      <th id="columnHeader">File Path</th>
+      <th>Method</th>
+      <th>Location Count</th>
+    </tr>
+    <% data.each do |table, info| %>
+      <tr>
+        <td rowspan="<%= info[:location].size + 1 %>"><%= table %></td>
+        <td rowspan="<%= info[:location].size + 1 %>"><%= info[:count] %></td>
+      </tr>
+      <% info[:location].each do |loc, detail| %>
+        <tr class="sub-row">
+          <% match = loc&.match(/^(?<file_path>.*):in.*`(?<method>.*)'$/) %>
+          <% file_path = match ? match[:file_path] : loc %>
+          <% method = match ? match[:method] : nil %>
+          <td class="toggle-content">
+            <span class="filepath"><%= file_path %></span>
+            <span class="sql" style="display: none;"><%= detail[:sql].gsub('"', '') %></span>
+          </td>
+          <td class="method-column"><%= method %></td>
+          <td><%= detail[:count] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const chartData = <%= chart_data.to_json %>;
+    initializeChart(chartData);
+  </script>
+</div>
