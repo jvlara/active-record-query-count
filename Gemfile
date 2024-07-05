@@ -8,6 +8,7 @@ gemspec
 gem "activesupport"
 gem "launchy"
 gem "colorize"
+gem "nokogiri"
 
 group :development, :test do
   gem "pry-byebug"
