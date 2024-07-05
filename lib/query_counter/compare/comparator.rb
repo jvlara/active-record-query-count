@@ -20,7 +20,7 @@ module QueryCounter
 
       def compare!
         raise "Exactly two code blocks are required" if @scripts_loaded != 2
-        QueryCounter::Printer::Html.new(mode: :compare, data_1: @results.values[0], data_2: @results.values[1]).print_compare
+        QueryCounter::Printer::HtmlCompare.new(data_1: @results.values[0], data_2: @results.values[1]).print
       end
     end
 
