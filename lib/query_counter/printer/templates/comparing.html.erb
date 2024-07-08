@@ -32,15 +32,15 @@
         <th>Location Count Script 2</th>
       </tr>
       <% tables.each do |table_name| %>
-        <% locations = data_1[table_name][:location].keys | data_2[table_name][:location].keys%>
+        <% locations = (data_1.dig(table_name, :location)&.keys || []) | (data_2.dig(table_name, :location)&.keys || [])%>
         <tr>
           <td rowspan="<%= locations.count + 1 %>"><%= table_name %></td>
-          <td rowspan="<%= locations.count + 1 %>"><%= data_1[table_name][:count] %></td>
-          <td rowspan="<%= locations.count + 1 %>"><%= data_2[table_name][:count] %></td>
+          <td rowspan="<%= locations.count + 1 %>"><%= data_1.dig(table_name, :count) || 0%></td>
+          <td rowspan="<%= locations.count + 1 %>"><%= data_2.dig(table_name, :count) || 0 %></td>
         </tr>
         <% locations.each do |loc| %>
-          <% details_1 = data_1[table_name][:location][loc] || {}%>
-          <% details_2 = data_2[table_name][:location][loc] || {}%>
+          <% details_1 = data_1.dig(table_name, :location, loc) || {}%>
+          <% details_2 = data_2.dig(table_name, :location, loc) || {}%>
           <% present_detail = details_1 || details_2 %>
           <tr class="sub-row">
             <% match = loc&.match(/^(?<file_path>.*):in.*`(?<method>.*)'$/) %>
@@ -48,7 +48,7 @@
             <% method = match ? match[:method] : nil %>
             <td class="toggle-content">
               <span class="filepath"><%= match[:file_path] %></span>
-              <span class="sql" style="display: none;"><%= present_detail[:sql].gsub('"', '') %></span>
+              <span class="sql" style="display: none;"><%= present_detail[:sql]&.gsub('"', '') %></span>
             </td>
             <td class="method-column"><%= match[:method] %></td>
             <td><%= details_1[:count] || 0 %></td>
