@@ -1,0 +1,16 @@
+Naming/VariableNumber:
+  Enabled: false
+Lint/UselessAssignment:
+  Enabled: false
+Style/MethodDefParentheses:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Lint/MissingSuper:
+  Enabled: false

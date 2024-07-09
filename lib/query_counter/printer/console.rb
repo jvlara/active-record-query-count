@@ -10,14 +10,14 @@ module QueryCounter
 
       def print
         data = filter_data(@data)
-        puts "[QueryCounter] Query count per table:".colorize(:blue)
+        puts '[QueryCounter] Query count per table:'.colorize(:blue)
         puts "Total query count: #{data.values.sum { |v| v[:count] }}\n\n"
         puts "All tables with less than #{Configuration.ignore_table_count} queries are ignored. \n\n"
         puts "For each table, the top #{Configuration.max_locations_per_table} locations with the most queries will be shown.\n\n"
         data.each do |category, info|
           puts "Table #{category.colorize(:cyan)}"
           puts "  Total query count: #{info[:count].to_s.colorize(:blue)}"
-          puts "  Locations where the table was called:"
+          puts '  Locations where the table was called:'
           info[:location].each do |loc, details|
             puts "    - File location: #{loc}"
             puts "        Query count: #{details[:count].to_s.colorize(:blue)}"

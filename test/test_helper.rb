@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
 ENV['RACK_ENV'] ||= 'test'
 
@@ -16,7 +17,6 @@ require 'active_record'
 require 'active_support'
 require 'active_support/notifications'
 require 'sqlite3'
-
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -47,7 +47,7 @@ module Rails
   def self.backtrace_cleaner
     Class.new do
       def self.clean(caller_from_sql)
-        caller_from_sql.select{|path| path.include?('/query_counter/')}.map{|path| path.gsub(Dir.home, '')}
+        caller_from_sql.select { |path| path.include?('/query_counter/') }.map { |path| path.gsub(Dir.home, '') }
       end
     end
   end

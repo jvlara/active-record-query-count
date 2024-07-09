@@ -7,7 +7,7 @@ require 'json'
 module QueryCounter
   module Printer
     class Html < Base
-      def initialize data: 
+      def initialize data:
         @template_path = File.join(__dir__, 'templates', 'template.html.erb')
         @base_query_counter_path = File.join(__dir__, 'templates', 'template_base_query_counter.html.erb')
         @inject_template_path = File.join(__dir__, 'templates', 'template_for_inject.html.erb')
@@ -17,11 +17,11 @@ module QueryCounter
         @data = data
       end
 
-      def data 
+      def data
         @data ||= filter_data(@data)
       end
 
-      def chart_data 
+      def chart_data
         @chart_data ||= generate_chart_data(data)
       end
 
@@ -42,26 +42,29 @@ module QueryCounter
         html_dest = generate_html(binding)
         open_file(html_dest)
       end
-    
-      private 
-        def generate_chart_data(data)
-          chart_data = { labels: [], data: [], locations: {} }
-          data.each do |table, info|
-            chart_data[:labels] << table
-            chart_data[:data] << info[:count]
-            chart_data[:locations][table] = info[:location].map { |loc, detail| { location: loc, count: detail[:count] } }
-          end
-          chart_data
-        end
 
-        def generate_html binding
-          template = ERB.new(File.read(@template_path))
-          html_content = template.result(binding)
-          temp_dir = Dir.mktmpdir
-          html_dest = File.join(temp_dir, 'query_counter_report.html')
-          File.write(html_dest, html_content)
-          html_dest
+      private
+
+      def generate_chart_data(data)
+        chart_data = { labels: [], data: [], locations: {} }
+        data.each do |table, info|
+          chart_data[:labels] << table
+          chart_data[:data] << info[:count]
+          chart_data[:locations][table] = info[:location].map do |loc, detail|
+            { location: loc, count: detail[:count] }
+          end
         end
+        chart_data
+      end
+
+      def generate_html binding
+        template = ERB.new(File.read(@template_path))
+        html_content = template.result(binding)
+        temp_dir = Dir.mktmpdir
+        html_dest = File.join(temp_dir, 'query_counter_report.html')
+        File.write(html_dest, html_content)
+        html_dest
+      end
     end
   end
 end
