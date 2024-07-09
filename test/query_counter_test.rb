@@ -16,8 +16,8 @@ class TestQueryCounter < Minitest::Test
       TestModel.last
       assert_equal 2, @tracker.query_count['test_models'][:count]
       locations = @tracker.query_count['test_models'][:location]
-      path_1 = locations.keys.find { |path| path['query_counter/test/query_counter_test.rb:16'] }
-      path_2 = locations.keys.find { |path| path['query_counter/test/query_counter_test.rb:17'] }
+      path_1 = locations.keys.find { |path| path['query_counter/test/query_counter_test.rb:15'] }
+      path_2 = locations.keys.find { |path| path['query_counter/test/query_counter_test.rb:16'] }
       assert_equal 1, locations[path_1][:count]
       assert_equal @expected_sql, locations[path_1][:sql]
       assert_equal 1, locations[path_2][:count]

@@ -16,7 +16,7 @@ class PrinterTest < Minitest::Test
 
     should 'print html compare output without errors' do
       Launchy.expects(:open).with(anything).once
-      QueryCounter::Printer::HtmlCompare.new(data_1: @data, data_2: @data).print
+      QueryCounter::Printer::HtmlCompare.new(data_1: {'script1': @data}, data_2: {'script2': @data}).print
     end
 
     should 'print console output without errors' do
