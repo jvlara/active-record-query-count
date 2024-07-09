@@ -7,6 +7,8 @@ require 'json'
 module QueryCounter
   module Printer
     class Html < Base
+      attr_accessor :data
+
       def initialize data:
         @template_path = File.join(__dir__, 'templates', 'template.html.erb')
         @base_query_counter_path = File.join(__dir__, 'templates', 'template_base_query_counter.html.erb')
@@ -15,10 +17,6 @@ module QueryCounter
         # este no falla, quizá pueda poner lo mismo aquí con chart.js y así no hacer lo del nonce y csp
         @js_path = File.join(__dir__, 'templates', 'bar_chart.js')
         @data = data
-      end
-
-      def data
-        @data ||= filter_data(@data)
       end
 
       def chart_data

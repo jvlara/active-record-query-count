@@ -23,7 +23,7 @@
       <th>Method</th>
       <th>Location Count</th>
     </tr>
-    <% data.each do |table, info| %>
+    <% filter_data(data).each do |table, info| %>
       <tr>
         <td rowspan="<%= info[:location].size + 1 %>"><%= table %></td>
         <td rowspan="<%= info[:location].size + 1 %>"><%= info[:count] %></td>

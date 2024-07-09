@@ -20,7 +20,7 @@ module QueryCounter
         tracker.unsubscribe
         case printer
         when :html
-          Printer::Html.new(data_1: tracker.query_count).print
+          Printer::Html.new(data: tracker.query_count).print
         when :console
           Printer::Console.new(data: tracker.query_count).print
         end
