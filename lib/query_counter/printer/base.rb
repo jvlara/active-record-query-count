@@ -11,6 +11,15 @@ module QueryCounter
         data.to_h
       end
 
+      def sort_data data
+        data = data.sort_by { |_, v| -v[:count] }.each do |_category, info|
+          info[:location] = info[:location].sort_by do |_, detail|
+            -detail[:count]
+          end.to_h
+        end
+        data.to_h
+      end
+
       def open_file html_dest
         if ENV['WSL_DISTRIBUTION']
           Launchy.open("file://wsl%24/#{ENV['WSL_DISTRIBUTION']}#{html_dest}")

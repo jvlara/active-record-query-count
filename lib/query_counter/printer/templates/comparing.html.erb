@@ -12,24 +12,23 @@
   </style>
   <div id='query_counter_report_gem'>
     <h2>Query Counter Report</h2>
-    <p>Total query count on process: <%= total_query_count %></p>
-    <p>The table will show only tables with more than <%= ::QueryCounter::Configuration.ignore_table_count %> queries</p>
-    <p>Only the top  <%= ::QueryCounter::Configuration.max_locations_per_table %> locations with the most occurrences will be shown.</p>
+    <p>Total query count on <%= @script_1_name %>: <%= total_query_count_1 %></p>
+    <p>Total query count on <%= @script_2_name %>: <%= total_query_count_2 %></p>
     <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
     <button id="toggleColumnButton" onclick="toggleColumnContent()">Show SQL</button>
 
     <div class="center-container">
-      <canvas id="queryCountChart" width="300" height="150"></canvas>
+      <canvas id="queryCountChart"></canvas>
     </div>
   <table id="queryTable">
       <tr>
         <th>Table</th>
-        <th>Total Query Count Script 1</th>
-        <th>Total Query Count Script 2</th>
+        <th>Total Query Count <%= @script_1_name %></th>
+        <th>Total Query Count <%= @script_2_name %></th>
         <th id="columnHeader">File Path</th>
         <th>Method</th>
-        <th>Location Count Script 1</th>
-        <th>Location Count Script 2</th>
+        <th>Location Count <%= @script_1_name %></th>
+        <th>Location Count <%= @script_2_name %></th>
       </tr>
       <% tables.each do |table_name| %>
         <% locations = (data_1.dig(table_name, :location)&.keys || []) | (data_2.dig(table_name, :location)&.keys || [])%>
@@ -47,12 +46,12 @@
             <% file_path = match ? match[:file_path] : loc %>
             <% method = match ? match[:method] : nil %>
             <td class="toggle-content">
-              <span class="filepath"><%= match[:file_path] %></span>
+              <span class="filepath"><%= file_path %></span>
               <span class="sql" style="display: none;"><%= present_detail[:sql]&.gsub('"', '') %></span>
             </td>
-            <td class="method-column"><%= match[:method] %></td>
+            <td class="method-column"><%= method %></td>
             <td><%= details_1[:count] || 0 %></td>
-            <td><%= details_2[:count] || 0%></td>
+            <td><%= details_2[:count] || 0 %></td>
           </tr>
         <% end %>
       <% end %>

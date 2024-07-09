@@ -8,7 +8,7 @@
     height: 100%;
     overflow:auto;
     display: block; /* Ensure the table behaves as a block element */
-    box-sizing: border-box; 
+    box-sizing: border-box;
   }
   th, td {
     border: 1px solid #ddd;
@@ -24,17 +24,16 @@
     background-color: #f9f9f9;
   }
   .center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #queryCountChart {
-    max-width: 600px;
-    max-height: 400px;
+    text-align: center;
     width: 100%;
-    height: auto;
+    height: 500px;
   }
-  #queryTable {
-    display: table;
+
+  #queryCountChart {
+    display: none;
+    margin: 0 auto;
+    width: 1200px;
+    height: 500px;
   }
+
 }
