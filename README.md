@@ -18,18 +18,18 @@ gem 'query_tracker'
 And then execute:
 
 ```bash
-    bundle install
+bundle install
 ```
 
 Or install it yourself as:
 
 ```bash
-    gem install query_tracker
+gem install query_tracker
 ```
 
 ## Usage
 
-There are three ways of using this gem:
+There are four ways of using this gem:
 
 1. With a block of code
 
@@ -74,8 +74,6 @@ this will open up a graph comparing the quantity of SQL of the two codes
   config.after_initialize do
     QueryTracker.configure do |configuration|
       configuration.enable_middleware = true
-      configuration.ignore_table_count = 1
-      configuration.max_locations_per_table = 4
     end
   end
 ```
@@ -83,6 +81,31 @@ this will open up a graph comparing the quantity of SQL of the two codes
 ### Printing options
 
 There are two ways of displaying the collected queries data, `:console` and `:html`, to select one pass the printer argument to `start_with_block` o `end_recording` methods.
+
+If you use `html` with WSL enviroment, you need to set on your enviroments variables the `WSL_DISTRIBUTION` that you are using, so the dependency Launchy work as expected.
+
+### Configuration options
+
+When visualizing the html table or the console output, tables with less than `ignore_table_count` will not be shown. Also, the ammount of locations to show is given by `max_locations_per_table`
+
+```ruby
+config.after_initialize do
+    QueryTracker.configure do |configuration|
+      configuration.ignore_table_count = 1
+      configuration.max_locations_per_table = 4
+    end
+  end
+end
+```
+
+## Examples of visualization
+
+1. Console output
+   ![Console output](images/console.png)
+2. HTML output
+   ![HTML output](images/html.png)
+3. Bar chart output
+   ![Bar chart output](images/bar_chart.png)
 
 ## Development
 
