@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    query_tracker (0.1.0)
+    active_record_query_tracker (0.1.1)
       activesupport (~> 6.0)
-      colorize
+      colorize (~> 1.1)
       launchy (~> 3.0)
       nokogiri (~> 1.16.5)
 
@@ -102,7 +102,7 @@ DEPENDENCIES
   minitest
   mocha
   pry-byebug
-  query_tracker!
+  active_record_query_tracker!
   rake
   rubocop
   ruby-lsp

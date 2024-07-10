@@ -11,16 +11,16 @@ class PrinterTest < Minitest::Test
 
     should 'print html output without errors' do
       Launchy.expects(:open).with(anything).once
-      QueryTracker::Printer::Html.new(data: @data).print
+      ActiveRecordQueryTracker::Printer::Html.new(data: @data).print
     end
 
     should 'print html compare output without errors' do
       Launchy.expects(:open).with(anything).once
-      QueryTracker::Printer::HtmlCompare.new(data_1: { 'script1': @data }, data_2: { 'script2': @data }).print
+      ActiveRecordQueryTracker::Printer::HtmlCompare.new(data_1: { 'script1': @data }, data_2: { 'script2': @data }).print
     end
 
     should 'print console output without errors' do
-      QueryTracker::Printer::Console.new(data: @data).print
+      ActiveRecordQueryTracker::Printer::Console.new(data: @data).print
     end
   end
 end

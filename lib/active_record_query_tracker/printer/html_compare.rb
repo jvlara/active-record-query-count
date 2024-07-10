@@ -4,7 +4,7 @@ require 'launchy'
 require 'pry-byebug'
 require 'json'
 
-module QueryTracker
+module ActiveRecordQueryTracker
   module Printer
     class HtmlCompare < Base
       def initialize data_1:, data_2:

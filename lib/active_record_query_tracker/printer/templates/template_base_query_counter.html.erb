@@ -7,8 +7,8 @@
 <div id='query_counter_report_gem'>
   <h2>Query Counter Report</h2>
   <p>Total query count on process: <%= total_query_count %></p>
-  <p>The table will show only tables with more than <%= ::QueryTracker::Configuration.ignore_table_count %> queries</p>
-  <p>Only the top  <%= ::QueryTracker::Configuration.max_locations_per_table %> locations with the most occurrences will be shown.</p>
+  <p>The table will show only tables with more than <%= ::ActiveRecordQueryTracker::Configuration.ignore_table_count %> queries</p>
+  <p>Only the top  <%= ::ActiveRecordQueryTracker::Configuration.max_locations_per_table %> locations with the most occurrences will be shown.</p>
   <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
   <button id="toggleColumnButton" onclick="toggleColumnContent()">Show SQL</button>
 

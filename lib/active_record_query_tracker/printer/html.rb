@@ -4,7 +4,7 @@ require 'launchy'
 require 'pry-byebug'
 require 'json'
 
-module QueryTracker
+module ActiveRecordQueryTracker
   module Printer
     class Html < Base
       attr_accessor :data

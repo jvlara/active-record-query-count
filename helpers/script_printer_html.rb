@@ -1,10 +1,10 @@
-require_relative '../lib/query_tracker'
+require_relative '../lib/active_record_query_tracker'
 require 'pry-byebug'
 
 data = File.read('helpers/con problemas.yaml')
 data = YAML.safe_load(data, permitted_classes: [Proc, Symbol])
-QueryTracker.start_with_block(printer: :html) do
-  QueryTracker.tracker.instance_variable_set :@query_tracker, data
+ActiveRecordQueryTracker.start_with_block(printer: :html) do
+  ActiveRecordQueryTracker.tracker.instance_variable_set :@active_record_query_tracker, data
 end
 
 # temp_dir = Dir.mktmpdir

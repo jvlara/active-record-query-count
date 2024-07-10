@@ -1,4 +1,4 @@
-module QueryTracker
+module ActiveRecordQueryTracker
   module Recording
     module Base
       def start_with_block(printer: :console)
@@ -18,9 +18,9 @@ module QueryTracker
         tracker.unsubscribe
         case printer
         when :html
-          Printer::Html.new(data: tracker.query_tracker).print
+          Printer::Html.new(data: tracker.active_record_query_tracker).print
         when :console
-          Printer::Console.new(data: tracker.query_tracker).print
+          Printer::Console.new(data: tracker.active_record_query_tracker).print
         end
       end
     end
