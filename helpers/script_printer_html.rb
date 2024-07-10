@@ -1,10 +1,10 @@
-require_relative '../lib/query_counter'
+require_relative '../lib/query_tracker'
 require 'pry-byebug'
 
 data = File.read('helpers/con problemas.yaml')
 data = YAML.safe_load(data, permitted_classes: [Proc, Symbol])
-QueryCounter.start_with_block(printer: :html) do
-  QueryCounter.tracker.instance_variable_set :@query_count, data
+QueryTracker.start_with_block(printer: :html) do
+  QueryTracker.tracker.instance_variable_set :@query_tracker, data
 end
 
 # temp_dir = Dir.mktmpdir

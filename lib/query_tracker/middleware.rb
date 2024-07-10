@@ -1,7 +1,7 @@
 require 'json'
 require 'nokogiri'
 
-module QueryCounter
+module QueryTracker
   class Middleware
     def initialize(app)
       @app = app
@@ -11,10 +11,10 @@ module QueryCounter
       return @app.call(env) unless Configuration.enable_middleware
 
       status, headers, response, query_count_data = nil
-      QueryCounter.start_recording
+      QueryTracker.start_recording
       status, headers, response = @app.call(env)
-      query_count_data = QueryCounter.tracker.query_count.clone
-      QueryCounter.end_recording(printer: :none)
+      query_count_data = QueryTracker.tracker.query_tracker.clone
+      QueryTracker.end_recording(printer: :none)
       if headers['Content-Type']&.include?('text/html') && response.respond_to?(:body) && response.body['<body']
         response_body = inject_query_counter_js(response.body, query_count_data)
         headers['Content-Length'] = response_body.bytesize.to_s
@@ -24,8 +24,7 @@ module QueryCounter
     end
 
     def inject_query_counter_js(response_body, query_count_data)
-
-      injected_html = ::QueryCounter::Printer::Html.new(data: query_count_data).inject_in_html
+      injected_html = ::QueryTracker::Printer::Html.new(data: query_count_data).inject_in_html
       # Parse the response body with Nokogiri
       doc = Nokogiri::HTML(response_body)
 

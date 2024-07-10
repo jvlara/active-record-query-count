@@ -1,14 +1,12 @@
-module QueryCounter
+module QueryTracker
   module Recording
     module Base
       def start_with_block(printer: :console)
-        if block_given?
-          start_recording
-          yield
-          end_recording(printer: printer)
-        else
-          raise "Block not given"
-        end
+        raise 'Block not given' unless block_given?
+
+        start_recording
+        yield
+        end_recording(printer:)
       end
 
       def start_recording
@@ -20,9 +18,9 @@ module QueryCounter
         tracker.unsubscribe
         case printer
         when :html
-          Printer::Html.new(data: tracker.query_count).print
+          Printer::Html.new(data: tracker.query_tracker).print
         when :console
-          Printer::Console.new(data: tracker.query_count).print
+          Printer::Console.new(data: tracker.query_tracker).print
         end
       end
     end

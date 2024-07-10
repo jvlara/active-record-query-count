@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
-require_relative 'lib/query_counter/version'
+require_relative 'lib/query_tracker/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'query_counter'
-  spec.version = QueryCounter::VERSION
+  spec.name = 'query_tracker'
+  spec.version = QueryTracker::VERSION
   spec.authors = ['Jose Lara']
   spec.email = ['jvlara@uc.cl']
 
   spec.summary = 'Display an overview of quantity of queries and their origin in Rails applications.'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.2.2'
-  spec.homepage = 'https://github.com/jvlara/query_counter'
+  spec.homepage = 'https://github.com/jvlara/query_tracker'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject do |file|
       file.start_with?(*%w[.git Gemfile Rakefile
-                           query_counter- query_counter.gemspec test helpers .rubocop.yml .ruby-version CHANGELOG CODE_OF_CONDUCT.md
+                           query_tracker- query_tracker.gemspec test helpers .rubocop.yml .ruby-version CHANGELOG CODE_OF_CONDUCT.md
                            CONTRIBUTING.md LICENSE])
     end
   end
@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   spec.add_runtime_dependency 'activesupport', '~> 6.0'
-  spec.add_runtime_dependency 'colorize', '~> 6.0'
+  spec.add_runtime_dependency 'colorize'
   spec.add_runtime_dependency 'launchy', '~> 3.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.16.5'
 

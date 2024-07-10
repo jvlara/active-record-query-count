@@ -4,7 +4,7 @@ require 'launchy'
 require 'pry-byebug'
 require 'json'
 
-module QueryCounter
+module QueryTracker
   module Printer
     class HtmlCompare < Base
       def initialize data_1:, data_2:
@@ -35,7 +35,7 @@ module QueryCounter
 
       def generate_chart_data_compare(data_1, data_2)
         labels = (data_1.keys | data_2.keys).sort
-        chart_data = {labels: [], data_1: {}, data_2: {}, locations: {} }
+        chart_data = { labels: [], data_1: {}, data_2: {}, locations: {} }
         chart_data[:data_1][:name] = @script_1_name
         chart_data[:data_2][:name] = @script_2_name
         chart_data[:data_1][:data] = []

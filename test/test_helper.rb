@@ -10,9 +10,9 @@ Bundler.require(:default, :development, ENV['RACK_ENV'] || :development)
 require 'minitest/autorun'
 require 'mocha/minitest'
 require 'shoulda/matchers'
-require 'query_counter'
-require 'query_counter/printer/console'
-require 'query_counter/printer/html'
+require 'query_tracker'
+require 'query_tracker/printer/console'
+require 'query_tracker/printer/html'
 require 'active_record'
 require 'active_support'
 require 'active_support/notifications'
@@ -47,7 +47,7 @@ module Rails
   def self.backtrace_cleaner
     Class.new do
       def self.clean(caller_from_sql)
-        caller_from_sql.select { |path| path.include?('/query_counter/') }.map { |path| path.gsub(Dir.home, '') }
+        caller_from_sql.select { |path| path.include?('/test/') }.map { |path| path.gsub(Dir.home, '') }
       end
     end
   end

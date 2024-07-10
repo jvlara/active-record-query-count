@@ -1,7 +1,7 @@
 require 'active_support'
 require 'active_support/core_ext/module/attribute_accessors'
 
-module QueryCounter
+module QueryTracker
   module Configuration
     mattr_accessor :ignore_table_count, :max_locations_per_table, :enable_middleware
 

@@ -1,4 +1,4 @@
-module QueryCounter
+module QueryTracker
   module Printer
     class Base
       def filter_data data
