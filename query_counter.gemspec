@@ -25,19 +25,19 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Uncomment to register a new dependency of your gem
-  spec.add_runtime_dependency 'activesupport', '>= 5.0'
-  spec.add_runtime_dependency 'colorize'
-  spec.add_runtime_dependency 'launchy'
-  spec.add_runtime_dependency 'nokogiri'
+  spec.add_runtime_dependency 'activesupport', '~> 6.0'
+  spec.add_runtime_dependency 'colorize', '~> 6.0'
+  spec.add_runtime_dependency 'launchy', '~> 3.0'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.16.5'
 
+  spec.add_development_dependency 'activerecord', '~> 6.0'
+  spec.add_development_dependency 'minitest'
+  spec.add_development_dependency 'mocha'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'minitest'
-  spec.add_development_dependency 'shoulda-matchers', '~> 6.0'
-  spec.add_development_dependency 'shoulda-context'
-  spec.add_development_dependency 'mocha'
-  spec.add_development_dependency 'sqlite3', '~> 1.4'
-  spec.add_development_dependency 'activerecord'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'ruby-lsp'
+  spec.add_development_dependency 'shoulda-context'
+  spec.add_development_dependency 'shoulda-matchers', '~> 6.0'
+  spec.add_development_dependency 'sqlite3', '~> 1.4'
 end
