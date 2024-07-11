@@ -12,7 +12,7 @@ There are three things this gem allows you to do
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'active_record_query_tracker'
+gem 'active_record_query_count'
 ```
 
 And then execute:
@@ -24,7 +24,7 @@ bundle install
 Or install it yourself as:
 
 ```bash
-gem install active_record_query_tracker
+gem install active_record_query_count
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ There are four ways of using this gem:
 1. With a block of code
 
 ```ruby
-require 'active_record_query_tracker'
+require 'active_record_query_count'
 ActiveRecordQueryCount.start_with_block(printer: :html) do
     # your code goes here
 end
@@ -45,7 +45,7 @@ this will open up a html table with the SQL stats of your code
 2. Starting recording manually
 
 ```ruby
-require 'active_record_query_tracker'
+require 'active_record_query_count'
 
 ActiveRecordQueryCount.start_recording
 # your code goes here
@@ -55,7 +55,7 @@ ActiveRecordQueryCount.end_recording(printer: :html)
 3. Comparing two blocks of code (only available for html printer)
 
 ```ruby
-require 'active_record_query_tracker'
+require 'active_record_query_count'
 ActiveRecordQueryCount.compare do |bench|
     bench.code('script1') do
     end
@@ -101,7 +101,7 @@ end
 ## Examples of visualization
 
 1. Console output
-   ![Console output](images/console.png)
+   ![Console output](images/terminal.png)
 2. HTML output
    ![HTML output](images/html.png)
 3. Bar chart output
@@ -115,7 +115,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at <https://github.com/[USERNAME]/active_record_query_tracker>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/active_record_query_tracker/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at <https://github.com/[USERNAME]/active_record_query_count>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/active_record_query_count/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -123,4 +123,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the ActiveRecordQueryCount project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/active_record_query_tracker/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ActiveRecordQueryCount project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/active_record_query_count/blob/master/CODE_OF_CONDUCT.md).
