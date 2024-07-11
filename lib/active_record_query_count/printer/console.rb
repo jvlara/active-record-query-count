@@ -1,6 +1,6 @@
 require 'colorize'
 
-module ActiveRecordQueryTracker
+module ActiveRecordQueryCount
   module Printer
     class Console < Base
       def initialize data:
@@ -10,7 +10,7 @@ module ActiveRecordQueryTracker
 
       def print
         data = filter_data(@data)
-        puts '[ActiveRecordQueryTracker] Query count per table:'.colorize(:blue)
+        puts '[ActiveRecordQueryCount] Query count per table:'.colorize(:blue)
         puts "Total query count: #{data.values.sum { |v| v[:count] }}\n\n"
         puts "All tables with less than #{Configuration.ignore_table_count} queries are ignored. \n\n"
         puts "For each table, the top #{Configuration.max_locations_per_table} locations with the most queries will be shown.\n\n"

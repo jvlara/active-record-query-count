@@ -1,0 +1,142 @@
+---
+east_caronberg:
+  :count: 1
+  :location:
+    app/models/east_caronberg.rb:82:in `zip_code':
+      :count: 1
+      :sql: SELECT * FROM east_caronberg
+jerdeburgh:
+  :count: 1
+  :location:
+    app/models/jerdeburgh.rb:12:in `latitude':
+      :count: 1
+      :sql: SELECT * FROM jerdeburgh
+south_brock:
+  :count: 2
+  :location:
+    app/models/south_brock.rb:51:in `latitude':
+      :count: 2
+      :sql: SELECT * FROM south_brock
+lake_arlie:
+  :count: 5
+  :location:
+    app/models/lake_arlie.rb:31:in `city':
+      :count: 1
+      :sql: SELECT * FROM lake_arlie
+    app/models/lake_arlie.rb:90:in `latitude':
+      :count: 2
+      :sql: SELECT * FROM lake_arlie
+    app/models/lake_arlie.rb:60:in `street_name':
+      :count: 2
+      :sql: SELECT * FROM lake_arlie
+south_mauricio:
+  :count: 2096
+  :location:
+    app/models/south_mauricio.rb:32:in `city':
+      :count: 4
+      :sql: SELECT * FROM south_mauricio
+    app/models/south_mauricio.rb:46:in `latitude':
+      :count: 4
+      :sql: SELECT * FROM south_mauricio
+    app/models/south_mauricio.rb:86:in `street_name':
+      :count: 1082
+      :sql: SELECT * FROM south_mauricio
+    app/models/south_mauricio.rb:63:in `state':
+      :count: 1006
+      :sql: SELECT * FROM south_mauricio
+east_curtfort:
+  :count: 1086
+  :location:
+    app/models/east_curtfort.rb:62:in `street_name':
+      :count: 1
+      :sql: SELECT * FROM east_curtfort
+    app/models/east_curtfort.rb:87:in `city':
+      :count: 1082
+      :sql: SELECT * FROM east_curtfort
+    app/models/east_curtfort.rb:29:in `zip_code':
+      :count: 3
+      :sql: SELECT * FROM east_curtfort
+new_damionview:
+  :count: 4
+  :location:
+    app/models/new_damionview.rb:59:in `longitude':
+      :count: 1
+      :sql: SELECT * FROM new_damionview
+    app/models/new_damionview.rb:22:in `city':
+      :count: 3
+      :sql: SELECT * FROM new_damionview
+hudsonborough:
+  :count: 1424
+  :location:
+    app/models/hudsonborough.rb:67:in `country':
+      :count: 1084
+      :sql: SELECT * FROM hudsonborough
+    app/models/hudsonborough.rb:69:in `zip_code':
+      :count: 288
+      :sql: SELECT * FROM hudsonborough
+    app/models/hudsonborough.rb:53:in `zip_code':
+      :count: 26
+      :sql: SELECT * FROM hudsonborough
+    app/models/hudsonborough.rb:23:in `city':
+      :count: 26
+      :sql: SELECT * FROM hudsonborough
+port_richmouth:
+  :count: 806
+  :location:
+    app/models/port_richmouth.rb:49:in `latitude':
+      :count: 806
+      :sql: SELECT * FROM port_richmouth
+north_felica:
+  :count: 1084
+  :location:
+    app/models/north_felica.rb:46:in `zip_code':
+      :count: 1084
+      :sql: SELECT * FROM north_felica
+east_arnoldfurt:
+  :count: 3173
+  :location:
+    app/models/east_arnoldfurt.rb:47:in `building_number':
+      :count: 4
+      :sql: SELECT * FROM east_arnoldfurt
+    app/models/east_arnoldfurt.rb:53:in `latitude':
+      :count: 3169
+      :sql: SELECT * FROM east_arnoldfurt
+new_nga:
+  :count: 6204
+  :location:
+    app/models/new_nga.rb:20:in `zip_code':
+      :count: 4
+      :sql: SELECT * FROM new_nga
+    app/models/new_nga.rb:84:in `latitude':
+      :count: 3169
+      :sql: SELECT * FROM new_nga
+    app/models/new_nga.rb:81:in `country':
+      :count: 3018
+      :sql: SELECT * FROM new_nga
+    app/models/new_nga.rb:62:in `building_number':
+      :count: 13
+      :sql: SELECT * FROM new_nga
+port_allenastad:
+  :count: 1082
+  :location:
+    app/models/port_allenastad.rb:57:in `street_name':
+      :count: 1082
+      :sql: SELECT * FROM port_allenastad
+north_tad:
+  :count: 2278
+  :location:
+    app/models/north_tad.rb:48:in `state':
+      :count: 2278
+      :sql: SELECT * FROM north_tad
+vanmouth:
+  :count: 1082
+  :location:
+    app/models/vanmouth.rb:34:in `country':
+      :count: 1082
+      :sql: SELECT * FROM vanmouth
+windlerport:
+  :count: 4
+  :location:
+    app/models/windlerport.rb:98:in `city':
+      :count: 4
+      :sql: SELECT * FROM windlerport

@@ -5,12 +5,12 @@ require 'test_helper'
 class TestQueryTracker < Minitest::Test
   context 'listen to changes in tracker' do
     setup do
-      @tracker = ActiveRecordQueryTracker.tracker
+      @tracker = ActiveRecordQueryCount.tracker
       @expected_sql = 'SELECT "test_models".* FROM "test_models" ORDER BY "test_models"."id" DESC LIMIT ?'
     end
 
     should 'generate hash with count, locations and sql of the queries made' do
-      ActiveRecordQueryTracker.start_recording
+      ActiveRecordQueryCount.start_recording
       TestModel.create(name: 'test')
       TestModel.last
       TestModel.last
@@ -22,7 +22,7 @@ class TestQueryTracker < Minitest::Test
       assert_equal @expected_sql, locations[path_1][:sql]
       assert_equal 1, locations[path_2][:count]
       assert_equal @expected_sql, locations[path_2][:sql]
-      ActiveRecordQueryTracker.end_recording
+      ActiveRecordQueryCount.end_recording
     end
   end
 end

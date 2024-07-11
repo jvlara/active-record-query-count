@@ -1,4 +1,4 @@
-module ActiveRecordQueryTracker
+module ActiveRecordQueryCount
   module Printer
     class Base
       def filter_data data

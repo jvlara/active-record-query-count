@@ -1,4 +1,4 @@
-module ActiveRecordQueryTracker
+module ActiveRecordQueryCount
   class Tracker
     REGEX_TABLE_SQL = /FROM\s+"(?<table>[^"]+)"/
     attr_accessor :active_record_query_tracker, :subscription

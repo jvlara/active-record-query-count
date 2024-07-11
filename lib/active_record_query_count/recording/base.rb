@@ -1,4 +1,4 @@
-module ActiveRecordQueryTracker
+module ActiveRecordQueryCount
   module Recording
     module Base
       def start_with_block(printer: :console)
@@ -6,7 +6,7 @@ module ActiveRecordQueryTracker
 
         start_recording
         yield
-        end_recording(printer:)
+        end_recording(printer: printer)
       end
 
       def start_recording

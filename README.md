@@ -1,6 +1,6 @@
-# ActiveRecordQueryTracker
+# ActiveRecordQueryCount
 
-`ActiveRecordQueryTracker` is a Ruby gem designed to help you track and analyze SQL queries executed by your ActiveRecord models. By subscribing to ActiveSupport notifications, it provides detailed insights into the queries being run, including the tables involved and the locations in your code where the queries are generated.
+`ActiveRecordQueryCount` is a Ruby gem designed to help you track and analyze SQL queries executed by your ActiveRecord models. By subscribing to ActiveSupport notifications, it provides detailed insights into the queries being run, including the tables involved and the locations in your code where the queries are generated.
 There are three things this gem allows you to do
 
 1. You can compare two codes to view the difference in SQL counts on locations with a graph or a table.
@@ -35,7 +35,7 @@ There are four ways of using this gem:
 
 ```ruby
 require 'active_record_query_tracker'
-ActiveRecordQueryTracker.start_with_block(printer: :html) do
+ActiveRecordQueryCount.start_with_block(printer: :html) do
     # your code goes here
 end
 ```
@@ -47,16 +47,16 @@ this will open up a html table with the SQL stats of your code
 ```ruby
 require 'active_record_query_tracker'
 
-ActiveRecordQueryTracker.start_recording
+ActiveRecordQueryCount.start_recording
 # your code goes here
-ActiveRecordQueryTracker.end_recording(printer: :html)
+ActiveRecordQueryCount.end_recording(printer: :html)
 ```
 
 3. Comparing two blocks of code (only available for html printer)
 
 ```ruby
 require 'active_record_query_tracker'
-ActiveRecordQueryTracker.compare do |bench|
+ActiveRecordQueryCount.compare do |bench|
     bench.code('script1') do
     end
     bench.code('script2') do
@@ -72,7 +72,7 @@ this will open up a graph comparing the quantity of SQL of the two codes
 
 ```ruby
   config.after_initialize do
-    ActiveRecordQueryTracker.configure do |configuration|
+    ActiveRecordQueryCount.configure do |configuration|
       configuration.enable_middleware = true
     end
   end
@@ -90,7 +90,7 @@ When visualizing the html table or the console output, tables with less than `ig
 
 ```ruby
 config.after_initialize do
-    ActiveRecordQueryTracker.configure do |configuration|
+    ActiveRecordQueryCount.configure do |configuration|
       configuration.ignore_table_count = 1
       configuration.max_locations_per_table = 4
     end
@@ -123,4 +123,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the ActiveRecordQueryTracker project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/active_record_query_tracker/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ActiveRecordQueryCount project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/active_record_query_tracker/blob/master/CODE_OF_CONDUCT.md).

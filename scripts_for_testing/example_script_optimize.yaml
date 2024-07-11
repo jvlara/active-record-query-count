@@ -1,0 +1,217 @@
+---
+east_caronberg:
+  :count: 1
+  :location:
+    app/models/east_caronberg.rb:47:in `building_number':
+      :count: 1
+      :sql: SELECT * FROM east_caronberg
+jerdeburgh:
+  :count: 1
+  :location:
+    app/models/jerdeburgh.rb:13:in `longitude':
+      :count: 1
+      :sql: SELECT * FROM jerdeburgh
+new_cyrus:
+  :count: 1
+  :location:
+    app/models/new_cyrus.rb:41:in `state':
+      :count: 1
+      :sql: SELECT * FROM new_cyrus
+lake_tyson:
+  :count: 3
+  :location:
+    app/models/lake_tyson.rb:99:in `state':
+      :count: 2
+      :sql: SELECT * FROM lake_tyson
+    app/models/lake_tyson.rb:66:in `zip_code':
+      :count: 1
+      :sql: SELECT * FROM lake_tyson
+new_damionview:
+  :count: 5
+  :location:
+    app/models/new_damionview.rb:91:in `zip_code':
+      :count: 1
+      :sql: SELECT * FROM new_damionview
+    app/models/new_damionview.rb:79:in `street_name':
+      :count: 1
+      :sql: SELECT * FROM new_damionview
+    app/models/new_damionview.rb:74:in `street_name':
+      :count: 3
+      :sql: SELECT * FROM new_damionview
+jermaineshire:
+  :count: 18
+  :location:
+    app/models/jermaineshire.rb:12:in `city':
+      :count: 1
+      :sql: SELECT * FROM jermaineshire
+    app/models/jermaineshire.rb:99:in `street_name':
+      :count: 17
+      :sql: SELECT * FROM jermaineshire
+kilbacktown:
+  :count: 1
+  :location:
+    app/models/kilbacktown.rb:45:in `latitude':
+      :count: 1
+      :sql: SELECT * FROM kilbacktown
+south_brock:
+  :count: 3
+  :location:
+    app/models/south_brock.rb:62:in `building_number':
+      :count: 1
+      :sql: SELECT * FROM south_brock
+    app/models/south_brock.rb:63:in `city':
+      :count: 2
+      :sql: SELECT * FROM south_brock
+lake_arlie:
+  :count: 6
+  :location:
+    app/models/lake_arlie.rb:87:in `longitude':
+      :count: 1
+      :sql: SELECT * FROM lake_arlie
+    app/models/lake_arlie.rb:74:in `city':
+      :count: 1
+      :sql: SELECT * FROM lake_arlie
+    app/models/lake_arlie.rb:54:in `street_name':
+      :count: 2
+      :sql: SELECT * FROM lake_arlie
+    app/models/lake_arlie.rb:43:in `latitude':
+      :count: 2
+      :sql: SELECT * FROM lake_arlie
+south_mauricio:
+  :count: 12
+  :location:
+    app/models/south_mauricio.rb:83:in `city':
+      :count: 4
+      :sql: SELECT * FROM south_mauricio
+    app/models/south_mauricio.rb:59:in `state':
+      :count: 4
+      :sql: SELECT * FROM south_mauricio
+    app/models/south_mauricio.rb:60:in `longitude':
+      :count: 4
+      :sql: SELECT * FROM south_mauricio
+east_curtfort:
+  :count: 8
+  :location:
+    app/models/east_curtfort.rb:37:in `longitude':
+      :count: 1
+      :sql: SELECT * FROM east_curtfort
+    app/models/east_curtfort.rb:97:in `city':
+      :count: 4
+      :sql: SELECT * FROM east_curtfort
+    app/models/east_curtfort.rb:56:in `city':
+      :count: 3
+      :sql: SELECT * FROM east_curtfort
+hudsonborough:
+  :count: 60
+  :location:
+    app/models/hudsonborough.rb:65:in `latitude':
+      :count: 4
+      :sql: SELECT * FROM hudsonborough
+    app/models/hudsonborough.rb:19:in `longitude':
+      :count: 4
+      :sql: SELECT * FROM hudsonborough
+    app/models/hudsonborough.rb:26:in `latitude':
+      :count: 26
+      :sql: SELECT * FROM hudsonborough
+    app/models/hudsonborough.rb:39:in `zip_code':
+      :count: 26
+      :sql: SELECT * FROM hudsonborough
+port_richmouth:
+  :count: 4
+  :location:
+    app/models/port_richmouth.rb:86:in `street_name':
+      :count: 4
+      :sql: SELECT * FROM port_richmouth
+north_felica:
+  :count: 4
+  :location:
+    app/models/north_felica.rb:54:in `building_number':
+      :count: 4
+      :sql: SELECT * FROM north_felica
+east_arnoldfurt:
+  :count: 8
+  :location:
+    app/models/east_arnoldfurt.rb:13:in `building_number':
+      :count: 4
+      :sql: SELECT * FROM east_arnoldfurt
+    app/models/east_arnoldfurt.rb:87:in `latitude':
+      :count: 4
+      :sql: SELECT * FROM east_arnoldfurt
+new_nga:
+  :count: 13
+  :location:
+    app/models/new_nga.rb:74:in `zip_code':
+      :count: 4
+      :sql: SELECT * FROM new_nga
+    app/models/new_nga.rb:18:in `country':
+      :count: 4
+      :sql: SELECT * FROM new_nga
+    app/models/new_nga.rb:58:in `street_name':
+      :count: 1
+      :sql: SELECT * FROM new_nga
+    app/models/new_nga.rb:43:in `building_number':
+      :count: 1
+      :sql: SELECT * FROM new_nga
+    app/models/new_nga.rb:85:in `longitude':
+      :count: 3
+      :sql: SELECT * FROM new_nga
+port_allenastad:
+  :count: 4
+  :location:
+    app/models/port_allenastad.rb:95:in `longitude':
+      :count: 4
+      :sql: SELECT * FROM port_allenastad
+north_tad:
+  :count: 4
+  :location:
+    app/models/north_tad.rb:64:in `street_name':
+      :count: 4
+      :sql: SELECT * FROM north_tad
+vanmouth:
+  :count: 4
+  :location:
+    app/models/vanmouth.rb:47:in `longitude':
+      :count: 4
+      :sql: SELECT * FROM vanmouth
+windlerport:
+  :count: 4
+  :location:
+    app/models/windlerport.rb:70:in `state':
+      :count: 4
+      :sql: SELECT * FROM windlerport
+framiport:
+  :count: 1
+  :location:
+    app/models/framiport.rb:97:in `zip_code':
+      :count: 1
+      :sql: SELECT * FROM framiport
+wittingborough:
+  :count: 1
+  :location:
+    app/models/wittingborough.rb:47:in `latitude':
+      :count: 1
+      :sql: SELECT * FROM wittingborough
+burtchester:
+  :count: 1
+  :location:
+    app/models/burtchester.rb:97:in `latitude':
+      :count: 1
+      :sql: SELECT * FROM burtchester
+renatotown:
+  :count: 1
+  :location:
+    app/models/renatotown.rb:57:in `state':
+      :count: 1
+      :sql: SELECT * FROM renatotown
+bogisichbury:
+  :count: 1
+  :location:
+    app/models/bogisichbury.rb:94:in `longitude':
+      :count: 1
+      :sql: SELECT * FROM bogisichbury
+east_clemmiebury:
+  :count: 1
+  :location:
+    app/models/east_clemmiebury.rb:71:in `street_name':
+      :count: 1
+      :sql: SELECT * FROM east_clemmiebury

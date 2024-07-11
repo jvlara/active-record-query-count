@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
-require_relative 'lib/active_record_query_tracker/version'
+require_relative 'lib/active_record_query_count/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'active_record_query_tracker'
-  spec.version = ActiveRecordQueryTracker::VERSION
+  spec.name = 'active-record-query-count'
+  spec.version = ActiveRecordQueryCount::VERSION
   spec.authors = ['Jose Lara']
   spec.email = ['jvlara@uc.cl']
 
   spec.summary = 'Display an overview of quantity of queries and their origin in Rails applications.'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.2.2'
-  spec.homepage = 'https://github.com/jvlara/active_record_query_tracker'
+  spec.homepage = 'https://github.com/jvlara/active-record-query-count'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject do |file|
       file.start_with?(*%w[.git Gemfile Rakefile
-                           active_record_query_tracker- active_record_query_tracker.gemspec test helpers .rubocop.yml .ruby-version CHANGELOG CODE_OF_CONDUCT.md
+                           active-record-query-count- active-record-query-count.gemspec test helpers .rubocop.yml .ruby-version CHANGELOG CODE_OF_CONDUCT.md
                            CONTRIBUTING.md LICENSE])
     end
   end

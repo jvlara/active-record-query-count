@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    active_record_query_tracker (0.1.1)
+    active-record-query-count (0.1.1)
       activesupport (~> 6.0)
       colorize (~> 1.1)
       launchy (~> 3.0)
@@ -98,11 +98,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  active-record-query-count!
   activerecord (~> 6.0)
   minitest
   mocha
   pry-byebug
-  active_record_query_tracker!
   rake
   rubocop
   ruby-lsp

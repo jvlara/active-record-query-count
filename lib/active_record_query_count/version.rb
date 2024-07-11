@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module ActiveRecordQueryTracker
+module ActiveRecordQueryCount
   VERSION = '0.1.1'
 end
