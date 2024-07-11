@@ -10,3 +10,4 @@ TAGS
 .envrc
 scripts/**/*
 scripts
+*.gem
