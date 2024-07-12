@@ -1,6 +1,15 @@
 module ActiveRecordQueryCount
   module Printer
     class Base
+      parent_dir = File.expand_path('../../../', __dir__)
+      TEMPLATE_PATH = File.join(parent_dir, 'assets', 'template.html.erb')
+      TEMPLATE_COMPARING_PATH = File.join(parent_dir, 'assets', 'comparing.html.erb')
+      CSS_PATH = File.join(parent_dir, 'assets', 'style.css')
+      JS_PATH = File.join(parent_dir, 'assets', 'bar_chart.js')
+      CHART_JS_CONTENT = File.join(parent_dir, 'assets', 'chart.min.js')
+      BASE_QUERY_COUNTER_PATH = File.join(parent_dir, 'assets', 'template_base_query_counter.html.erb')
+      INJECT_TEMPLATE_PATH = File.join(parent_dir, 'assets', 'template_for_inject.html.erb')
+
       def filter_data data
         data = data.select { |_, v| v[:count] >= Configuration.ignore_table_count }
         data = data.sort_by { |_, v| -v[:count] }.each do |_category, info|
@@ -28,14 +37,32 @@ module ActiveRecordQueryCount
         end
       end
 
-      # this js is not used as erb, it could be changed
       def js_content
-        File.read(@js_path)
+        File.read(JS_PATH)
       end
 
-      # this js is not used as erb, it could be changed
+      def chart_js_content
+        File.read(CHART_JS_CONTENT)
+      end
+
       def css_content
-        File.read(@css_path)
+        File.read(CSS_PATH)
+      end
+
+      def template_content
+        File.read(TEMPLATE_PATH)
+      end
+
+      def template_comparing_content
+        File.read(TEMPLATE_COMPARING_PATH)
+      end
+
+      def base_query_counter_content
+        File.read(BASE_QUERY_COUNTER_PATH)
+      end
+
+      def inject_template_content
+        File.read(INJECT_TEMPLATE_PATH)
       end
     end
   end

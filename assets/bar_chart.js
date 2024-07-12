@@ -54,6 +54,7 @@ function initializeChart(chartData) {
       ]
     },
     options: {
+      responsive: false,
       scales: {
         y: {
           type: 'logarithmic',

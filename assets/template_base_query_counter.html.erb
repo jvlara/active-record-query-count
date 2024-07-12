@@ -1,11 +1,8 @@
-<script>
-  <%= js_content %>
-</script>
 <style>
   <%= css_content %>
 </style>
 <div id='query_counter_report_gem'>
-  <h2>Query Counter Report</h2>
+  <h2>Query Count Report</h2>
   <p>Total query count on process: <%= total_query_count %></p>
   <p>The table will show only tables with more than <%= ::ActiveRecordQueryCount::Configuration.ignore_table_count %> queries</p>
   <p>Only the top  <%= ::ActiveRecordQueryCount::Configuration.max_locations_per_table %> locations with the most occurrences will be shown.</p>
@@ -43,7 +40,12 @@
       <% end %>
     <% end %>
   </table>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    <%= chart_js_content %>
+  </script>
+  <script>
+    <%= js_content %>
+  </script>
   <script>
     const chartData = <%= chart_data.to_json %>;
     initializeChart(chartData);

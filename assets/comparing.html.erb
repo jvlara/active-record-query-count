@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Query Counter Report</title>
+  <title>Query Count Benchmark Report</title>
 </head>
 <body>
-  <script>
-    <%= js_content %>
-  </script>
   <style>
     <%= css_content %>
   </style>
   <div id='query_counter_report_gem'>
-    <h2>Query Counter Report</h2>
+    <h2>Query Count Benchmark Report</h2>
     <p>Total query count on <%= @script_1_name %>: <%= total_query_count_1 %></p>
     <p>Total query count on <%= @script_2_name %>: <%= total_query_count_2 %></p>
     <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
     <button id="toggleColumnButton" onclick="toggleColumnContent()">Show SQL</button>
-
     <div class="center-container">
       <canvas id="queryCountChart"></canvas>
     </div>
@@ -47,7 +43,7 @@
             <% method = match ? match[:method] : nil %>
             <td class="toggle-content">
               <span class="filepath"><%= file_path %></span>
-              <span class="sql" style="display: none;"><%= present_detail[:sql]&.gsub('"', '') %></span>
+              <span class="sql" style="display: none;"><%= present_detail[:sql]&.gsub('"', '')  %></span>
             </td>
             <td class="method-column"><%= method %></td>
             <td><%= details_1[:count] || 0 %></td>
@@ -56,7 +52,12 @@
         <% end %>
       <% end %>
     </table>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      <%= chart_js_content %>
+    </script>
+    <script>
+      <%= js_content %>
+    </script>
     <script>
       const chartData = <%= chart_data.to_json %>;
       initializeChartCompare(chartData);

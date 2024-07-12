@@ -10,12 +10,6 @@ module ActiveRecordQueryCount
       attr_accessor :data
 
       def initialize data:
-        @template_path = File.join(__dir__, 'templates', 'template.html.erb')
-        @base_query_counter_path = File.join(__dir__, 'templates', 'template_base_query_counter.html.erb')
-        @inject_template_path = File.join(__dir__, 'templates', 'template_for_inject.html.erb')
-        @css_path = File.join(__dir__, 'templates', 'style.css')
-        # este no falla, quizá pueda poner lo mismo aquí con chart.js y así no hacer lo del nonce y csp
-        @js_path = File.join(__dir__, 'templates', 'bar_chart.js')
         @data = data
       end
 
@@ -29,11 +23,11 @@ module ActiveRecordQueryCount
       end
 
       def inject_in_html
-        ERB.new(File.read(@inject_template_path)).result(binding)
+        ERB.new(inject_template_content).result(binding)
       end
 
       def render_query_counter_base_div
-        ERB.new(File.read(@base_query_counter_path)).result(binding)
+        ERB.new(base_query_counter_content).result(binding)
       end
 
       def print
@@ -56,7 +50,7 @@ module ActiveRecordQueryCount
       end
 
       def generate_html binding
-        template = ERB.new(File.read(@template_path))
+        template = ERB.new(template_content)
         html_content = template.result(binding)
         temp_dir = Dir.mktmpdir
         html_dest = File.join(temp_dir, 'query_counter_report.html')

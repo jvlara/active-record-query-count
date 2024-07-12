@@ -23,6 +23,7 @@
   .sub-row {
     background-color: #f9f9f9;
   }
+
   .center-container {
     text-align: center;
     width: 100%;
@@ -30,11 +31,11 @@
   }
 
   #queryCountChart {
-    display: none;
-    margin: 0 auto;
     width: 1200px;
     height: 500px;
+    margin: 0 auto;
   }
+
   #queryTable {
     display: table;
   }

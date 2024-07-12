@@ -9,9 +9,6 @@ module ActiveRecordQueryCount
     class HtmlCompare < Base
       def initialize data_1:, data_2:
         super()
-        @template_path = File.join(__dir__, 'templates', 'comparing.html.erb')
-        @css_path = File.join(__dir__, 'templates', 'style.css')
-        @js_path = File.join(__dir__, 'templates', 'bar_chart.js')
         @script_1_name = data_1.keys.first
         @script_2_name = data_2.keys.first
         @data_1 = data_1[@script_1_name]
@@ -51,7 +48,7 @@ module ActiveRecordQueryCount
       end
 
       def generate_html binding
-        template = ERB.new(File.read(@template_path))
+        template = ERB.new(template_comparing_content)
         html_content = template.result(binding)
 
         temp_dir = Dir.mktmpdir
