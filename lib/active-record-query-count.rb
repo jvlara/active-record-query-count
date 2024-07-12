@@ -13,7 +13,7 @@ require_relative 'active_record_query_count/printer/html_compare'
 module ActiveRecordQueryCount
   extend Recording::Base
   if defined?(Rails::Railtie)
-    class QueryTrackerRailtie < Rails::Railtie
+    class QueryCountRailtie < Rails::Railtie
       initializer 'active_record_query_count.configure_rails_initialization' do |app|
         app.middleware.use Middleware
       end
