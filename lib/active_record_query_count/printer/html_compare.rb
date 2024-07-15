@@ -15,6 +15,9 @@ module ActiveRecordQueryCount
         @data_2 = data_2[@script_2_name]
       end
 
+      # TODO: the sql on the data_1 and data_2 of the same location could be different
+      #       in the html we only show the sql of the first script
+      #       It maybe better to remove the sql from the table in this case
       def print
         # used by binding on erb templates
         data_1 = sort_data(@data_1)
