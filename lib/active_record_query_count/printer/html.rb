@@ -17,7 +17,6 @@ module ActiveRecordQueryCount
         @chart_data ||= generate_chart_data(data)
       end
 
-      # maybe this should not be filtered
       def total_query_count
         @total_query_count ||= data.values.sum { |v| v[:count] }
       end

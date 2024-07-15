@@ -1,11 +1,14 @@
 # ActiveRecordQueryCount
 
-`ActiveRecordQueryCount` is a Ruby gem designed to help you track and analyze SQL queries executed by your ActiveRecord models. By subscribing to ActiveSupport notifications, it provides detailed insights into the queries being run, including the tables involved and the locations in your code where the queries are generated.
-There are three things this gem allows you to do
+`ActiveRecordQueryCount` is a Ruby gem designed to help you visualize and track SQL queries executed by your ActiveRecord models on a block of code.
 
-1. You can compare two codes to view the difference in SQL counts on locations with a graph or a table.
-2. You can view an overview of the SQL that a code does in a graph, a table or in the console.
-3. (In progress) You can see an overview of the current request on a controller action
+By subscribing to ActiveSupport notifications, it provides detailed insights into the quantity of queries being run, including the tables involved and the locations in your code where the queries are generated.
+
+There are three things this gem allows you to do:
+
+1. See an overview of all the queries that a code block executes and their origin locations in a graph, a table, or in the console.
+2. Benchmark two blocks of code to view the difference in SQL counts at different locations, with a graph or a table.
+3. See an overview of the current request on a controller action with a button on the top left corner of the screen.
 
 ## Installation
 
@@ -33,50 +36,55 @@ There are four ways of using this gem:
 
 1. With a block of code
 
-```ruby
-require 'active-record-query-count'
-ActiveRecordQueryCount.start_with_block(printer: :html) do
-    # your code goes here
-end
-```
+    ```ruby
+    require 'active-record-query-count'
+    ActiveRecordQueryCount.start_with_block(printer: :html) do
+        # your code goes here
+    end
+    ```
 
-this will open up a html table with the SQL stats of your code
+    this will open up a html table with the SQL stats of your code
 
 2. Starting recording manually
 
-```ruby
-require 'active-record-query-count'
+    ```ruby
+    require 'active-record-query-count'
 
-ActiveRecordQueryCount.start_recording
-# your code goes here
-ActiveRecordQueryCount.end_recording(printer: :html)
-```
+    ActiveRecordQueryCount.start_recording
+    # your code goes here
+    ActiveRecordQueryCount.end_recording(printer: :html)
+    ```
 
 3. Comparing two blocks of code (only available for html printer)
 
-```ruby
-require 'active-record-query-count'
-ActiveRecordQueryCount.compare do |bench|
-    bench.code('script1') do
+    ```ruby
+    require 'active-record-query-count'
+    ActiveRecordQueryCount.compare do |bench|
+        bench.code('script1') do
+        end
+        bench.code('script2') do
+        end
+        bench.compare!
     end
-    bench.code('script2') do
-    end
-    bench.compare!
-end
-```
+    ```
 
-this will open up a graph comparing the quantity of SQL of the two codes
+    this will open up a graph comparing the quantity of SQL of the two codes
 
-4. (In progress) Enabling a middleware to see an overview of the current request SQL's in Rack Application.
-    On `config/development.rb` or the initializer of the application.
+4. Enabling a middleware to see an overview of the current request SQL's in Rack Application.
 
-```ruby
-  config.after_initialize do
-    ActiveRecordQueryCount.configure do |configuration|
-      configuration.enable_middleware = true
-    end
-  end
-```
+   This will disponibilize a button on the top left on every request that will open the query count html view of the request on a modal.
+
+   To enable this, there are two ways,
+   1. You can enable it by an enviroment variable called `ENABLE_QUERY_COUNT`.
+   2. In `config/development.rb` or the initializer of the application.
+
+        ```ruby
+          config.after_initialize do
+            ActiveRecordQueryCount.configure do |configuration|
+              configuration.enable_middleware = true
+            end
+          end
+        ```
 
 ### Printing options
 
@@ -86,13 +94,15 @@ If you use `html` with WSL enviroment, you need to set on your enviroments varia
 
 ### Configuration options
 
-When visualizing the html table or the console output, tables with less than `ignore_table_count` will not be shown. Also, the ammount of locations to show is given by `max_locations_per_table`
+When visualizing the html table or the console output, tables with less than `ignore_table_count` will not be shown. Also, the amount of locations to show is given by `max_locations_per_table`
 
 ```ruby
 config.after_initialize do
     ActiveRecordQueryCount.configure do |configuration|
+      # Default values
       configuration.ignore_table_count = 1
       configuration.max_locations_per_table = 4
+      configuration.enable_middleware = false
     end
   end
 end
@@ -101,10 +111,13 @@ end
 ## Examples of visualization
 
 1. Console output
+
    ![Console output](images/terminal.png)
 2. HTML output
+
    ![HTML output](images/html.png)
 3. Bar chart output
+
    ![Bar chart output](images/bar_chart.png)
 
 ## Development
@@ -115,7 +128,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at <https://github.com/[USERNAME]/active-record-query-count>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/active-record-query-count/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at <https://github.com/jvlara/active-record-query-count>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/jvlara/active-record-query-count/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
