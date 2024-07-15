@@ -1,14 +1,15 @@
 <style>
   #query-modal-button {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
     z-index: 1000000;
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 3px;
     cursor: pointer;
+    border-bottom-right-radius: 8px;
   }
 
   #query-modal-button:hover {
@@ -21,6 +22,7 @@
     border: none;
     padding: 5px;
     cursor: pointer;
+    border-radius: 8px;
   }
 
   #modal-close-button:hover {
@@ -56,7 +58,7 @@
   }
 </script>
 <div id="query-modal-button">
-  <button id="query-modal-button" onclick="toggleQueryModal()">Toggle Query Counter</button>
+  <button id="query-modal-button" onclick="toggleQueryModal()">Query Count</button>
 </div>
 <div id="modal-content-query-count">
   <button id="modal-close-button" onclick="toggleQueryModal()">Close</button>
