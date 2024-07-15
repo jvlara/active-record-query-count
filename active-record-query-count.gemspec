@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Jose Lara']
   spec.email = ['jvlara@uc.cl']
 
-  spec.summary = 'Display an overview of quantity of queries and their origin in Rails applications.'
+  spec.summary = 'Display an overview of the quantity of queries being made and their origins in a block of code in Rails applications.'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.2.2'
   spec.homepage = 'https://github.com/jvlara/active-record-query-count'
