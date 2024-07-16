@@ -21,7 +21,7 @@ module ActiveRecordQueryCount
         raise 'Exactly two code blocks are required' if @scripts_loaded != 2
 
         ActiveRecordQueryCount::Printer::HtmlCompare.new(data_1: results.slice(results.keys[0]),
-                                               data_2: results.slice(results.keys[1])).print
+                                                         data_2: results.slice(results.keys[1])).print
       end
     end
 
