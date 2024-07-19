@@ -26,6 +26,7 @@ module ActiveRecordQueryCount
     end
 
     def tracker
+      # TODO: make a method to set a new tracker
       Thread.current[:query_counter_data] ||= Tracker.new
     end
 

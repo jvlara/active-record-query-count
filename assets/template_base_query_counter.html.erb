@@ -16,14 +16,17 @@
     <tr>
       <th>Table</th>
       <th>Total Query Count</th>
+      <th>Instantiation Count</th>
       <th id="columnHeader">File Path</th>
       <th>Method</th>
       <th>Location Count</th>
     </tr>
     <% filter_data(data).each do |table, info| %>
+
       <tr>
         <td rowspan="<%= info[:location].size + 1 %>"><%= table %></td>
         <td rowspan="<%= info[:location].size + 1 %>"><%= info[:count] %></td>
+        <td rowspan="<%= info[:location].size + 1 %>"><%= info[:instantiation_count] || 0 %></td>
       </tr>
       <% info[:location].each do |loc, detail| %>
         <tr class="sub-row">

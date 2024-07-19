@@ -7,12 +7,15 @@ require 'json'
 module ActiveRecordQueryCount
   module Printer
     class HtmlCompare < Base
-      def initialize data_1:, data_2:
+      def initialize data_1:, data_2:, max_objects_in_memory_1: 0, max_objects_in_memory_2: 0
+        # make the first key tables and outside some more variables like memory, max object in memory
         super()
         @script_1_name = data_1.keys.first
         @script_2_name = data_2.keys.first
         @data_1 = data_1[@script_1_name]
         @data_2 = data_2[@script_2_name]
+        @max_objects_in_memory_1 = max_objects_in_memory_1
+        @max_objects_in_memory_2 = max_objects_in_memory_2
       end
 
       # TODO: the sql on the data_1 and data_2 of the same location could be different
@@ -24,7 +27,11 @@ module ActiveRecordQueryCount
         data_2 = sort_data(@data_2)
         tables = data_1.keys | data_2.keys
         total_query_count_1 = data_1.values.sum { |v| v[:count] }
+        total_instantiation_1 = data_1.values.sum { |v| v[:instantiation_count].nil? ? 0 : v[:instantiation_count] }
+        max_objects_in_memory_1 = @max_objects_in_memory_1
         total_query_count_2 = data_2.values.sum { |v| v[:count] }
+        total_instantiation_2 = data_2.values.sum { |v| v[:instantiation_count].nil? ? 0 : v[:instantiation_count] }
+        max_objects_in_memory_2 = @max_objects_in_memory_2
         chart_data = generate_chart_data_compare(data_1, data_2)
         # end
         html_dest = generate_html(binding)

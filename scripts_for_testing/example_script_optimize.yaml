@@ -1,6 +1,7 @@
 ---
 east_caronberg:
   :count: 1
+  :instantiation_count: 4
   :location:
     app/models/east_caronberg.rb:47:in `building_number':
       :count: 1

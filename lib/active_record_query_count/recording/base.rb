@@ -22,6 +22,8 @@ module ActiveRecordQueryCount
         when :console
           Printer::Console.new(data: tracker.active_record_query_tracker).print
         end
+      ensure
+        Thread.current[:query_counter_data] = nil
       end
     end
   end

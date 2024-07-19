@@ -11,6 +11,8 @@
     <h2>Query Count Benchmark Report</h2>
     <p>Total query count on <%= @script_1_name %>: <%= total_query_count_1 %></p>
     <p>Total query count on <%= @script_2_name %>: <%= total_query_count_2 %></p>
+    <p>Total instantiation count on <%= @script_1_name %>: <%= total_instantiation_1 %>, max objects in memory: <%= max_objects_in_memory_1 %></p>
+    <p>Total instantiation count on <%= @script_2_name %>: <%= total_instantiation_2 %>, max objects in memory: <%= max_objects_in_memory_2 %></p>
     <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
     <button id="toggleColumnButton" onclick="toggleColumnContent()">Show SQL</button>
     <div class="center-container">
@@ -21,6 +23,8 @@
         <th>Table</th>
         <th>Total Query Count <%= @script_1_name %></th>
         <th>Total Query Count <%= @script_2_name %></th>
+        <th>Total Instantiation Count <%= @script_1_name %></th>
+        <th>Total Instantiation Count <%= @script_2_name %></th>
         <th id="columnHeader">File Path</th>
         <th>Method</th>
         <th>Location Count <%= @script_1_name %></th>
@@ -32,6 +36,8 @@
           <td rowspan="<%= locations.count + 1 %>"><%= table_name %></td>
           <td rowspan="<%= locations.count + 1 %>"><%= data_1.dig(table_name, :count) || 0%></td>
           <td rowspan="<%= locations.count + 1 %>"><%= data_2.dig(table_name, :count) || 0 %></td>
+          <td rowspan="<%= locations.count + 1 %>"><%= data_1.dig(table_name, :instantiation_count) || 0 %></td>
+          <td rowspan="<%= locations.count + 1 %>"><%= data_2.dig(table_name, :instantiation_count) || 0 %></td>
         </tr>
         <% locations.each do |loc| %>
           <% details_1 = data_1.dig(table_name, :location, loc) || {}%>

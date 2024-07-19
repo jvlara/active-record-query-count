@@ -15,6 +15,7 @@ class TestQueryTracker < Minitest::Test
       TestModel.last
       TestModel.last
       assert_equal 2, @tracker.active_record_query_tracker['test_models'][:count]
+      assert_equal 2, @tracker.active_record_query_tracker['test_models'][:instantiation_count]
       locations = @tracker.active_record_query_tracker['test_models'][:location]
       path_1 = locations.keys.find { |path| path['test/query_tracker_test.rb:15'] }
       path_2 = locations.keys.find { |path| path['test/query_tracker_test.rb:16'] }
