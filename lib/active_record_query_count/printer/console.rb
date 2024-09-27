@@ -21,6 +21,7 @@ module ActiveRecordQueryCount
           info[:location].each do |loc, details|
             puts "    - File location: #{loc}"
             puts "        Query count: #{details[:count].to_s.colorize(:blue)}"
+            puts "        Total Duration(ms): #{details[:duration]}"
           end
           puts
         end

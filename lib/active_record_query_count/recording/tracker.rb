@@ -19,13 +19,15 @@ module ActiveRecordQueryCount
     def subscribe
       return unless subscription.nil?
 
-      @subscription = ActiveSupport::Notifications.subscribe('sql.active_record') do |_a, _b, _c, _d, payload|
+      @subscription = ActiveSupport::Notifications.subscribe('sql.active_record') do |_a, start, finish, _d, payload|
         caller_from_sql = caller
         sql = payload[:sql]
         match = sql.match(REGEX_TABLE_SQL)
         if match.present? && match[:table]
           actual_location = Rails.backtrace_cleaner.clean(caller_from_sql).first
           active_record_query_tracker[match[:table]][:count] += 1
+          active_record_query_tracker[match[:table]][:location][actual_location][:duration] ||= 0
+          active_record_query_tracker[match[:table]][:location][actual_location][:duration] += (finish - start) * 1000
           active_record_query_tracker[match[:table]][:location][actual_location][:count] += 1
           active_record_query_tracker[match[:table]][:location][actual_location][:sql] = sql
         end

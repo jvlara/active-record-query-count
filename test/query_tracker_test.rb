@@ -19,8 +19,10 @@ class TestQueryTracker < Minitest::Test
       path_1 = locations.keys.find { |path| path['test/query_tracker_test.rb:15'] }
       path_2 = locations.keys.find { |path| path['test/query_tracker_test.rb:16'] }
       assert_equal 1, locations[path_1][:count]
+      assert locations[path_1][:duration].positive?
       assert_equal @expected_sql, locations[path_1][:sql]
       assert_equal 1, locations[path_2][:count]
+      assert locations[path_2][:duration].positive?
       assert_equal @expected_sql, locations[path_2][:sql]
       ActiveRecordQueryCount.end_recording
     end
