@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = 'Display an overview of the quantity of queries being made and their origins in a block of code in Rails applications.'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 2.7', '< 4.0'
+  spec.required_ruby_version = '>= 3.0', '< 4.0'
   spec.homepage = 'https://github.com/jvlara/active-record-query-count'
 
   # Specify which files should be added to the gem when it is released.
