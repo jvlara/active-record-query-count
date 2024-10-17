@@ -22,13 +22,13 @@
       <th>Location Count</th>
       <th>Total Duration(ms)</th>
     </tr>
-    <% filter_data(data).each do |table, info| %>
-      <tr>
+    <% filter_data(data).each_with_index do |(table, info), index| %>
+      <tr class="main-row <%= index.even? ? 'even' : 'odd' %>">
         <td rowspan="<%= info[:location].size + 1 %>"><%= table %></td>
         <td rowspan="<%= info[:location].size + 1 %>"><%= info[:count] %></td>
       </tr>
       <% info[:location].each do |loc, detail| %>
-        <tr class="sub-row">
+        <tr class="sub-row <%= index.even? ? 'even' : 'odd' %>">
           <% match = loc&.match(/^(?<file_path>.*):in.*`(?<method>.*)'$/) %>
           <% file_path = match ? match[:file_path] : loc %>
           <% method = match ? match[:method] : nil %>

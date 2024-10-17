@@ -4,10 +4,9 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-
     height: 100%;
-    overflow:auto;
-    display: block; /* Ensure the table behaves as a block element */
+    overflow: auto;
+    display: block;
     box-sizing: border-box;
   }
   th, td {
@@ -17,11 +16,12 @@
   th {
     background-color: #f2f2f2;
   }
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
+  tr.main-row.even, tr.sub-row.even {
+    background-color: #f2f2f2;
   }
-  .sub-row {
-    background-color: #f9f9f9;
+
+  tr.main-row.odd, tr.sub-row.odd {
+    background-color: #ffffff;
   }
 
   .center-container {
