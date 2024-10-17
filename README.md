@@ -1,14 +1,14 @@
 # ActiveRecordQueryCount
 
-`ActiveRecordQueryCount` is a Ruby gem designed to help you visualize and track SQL queries executed by your ActiveRecord models on a block of code.
+`ActiveRecordQueryCount` is a Ruby gem designed to help you visualize and track the SQL queries executed by your ActiveRecord models within a block of code.
 
-By subscribing to ActiveSupport notifications, it provides detailed insights into the quantity of queries being run, including the tables involved and the locations in your code where the queries are generated.
+By subscribing to ActiveSupport notifications, it provides detailed insights into the number of queries being run, the time taken by the code at specific locations (by adding the time each query took in that place), the tables involved, and the locations in your code where the queries were generated.
 
-There are three things this gem allows you to do:
+This gem offers three key features:
 
-1. See an overview of all the queries that a code block executes and their origin locations in a graph, a table, or in the console.
-2. Benchmark two blocks of code to view the difference in SQL counts at different locations, with a graph or a table.
-3. See an overview of the current request on a controller action with a button on the top left corner of the screen.
+1. View an overview of all queries executed by a block of code, including the time taken and their origin locations, presented in a graph, an HTML table, or directly in the console.
+2. Benchmark two blocks of code to compare SQL query counts at different locations, with results displayed in a graph or table.
+3. Get an overview of SQL queries for the current request in a controller action, accessible via a button in the top-left corner of the screen.
 
 ## Installation
 
