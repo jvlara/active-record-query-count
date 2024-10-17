@@ -14,7 +14,7 @@ module ActiveRecordQueryCount
       end
 
       def chart_data
-        @chart_data ||= generate_chart_data(data)
+        @chart_data ||= generate_chart_js_data(data)
       end
 
       def total_query_count
@@ -44,13 +44,13 @@ module ActiveRecordQueryCount
 
       private
 
-      def generate_chart_data(data)
+      def generate_chart_js_data(data)
         chart_data = { labels: [], data: [], locations: {} }
         data.each do |table, info|
           chart_data[:labels] << table
           chart_data[:data] << info[:count]
           chart_data[:locations][table] = info[:location].map do |loc, detail|
-            { location: loc, count: detail[:count], duration: detail[:duration].truncate(2) }
+            { location: loc, count: detail[:count], duration: detail[:duration] }
           end
         end
         chart_data

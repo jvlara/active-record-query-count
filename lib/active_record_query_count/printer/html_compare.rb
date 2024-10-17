@@ -25,7 +25,7 @@ module ActiveRecordQueryCount
         tables = data_1.keys | data_2.keys
         total_query_count_1 = data_1.values.sum { |v| v[:count] }
         total_query_count_2 = data_2.values.sum { |v| v[:count] }
-        chart_data = generate_chart_data_compare(data_1, data_2)
+        chart_data = generate_chart_js_data_compare(data_1, data_2)
         # end
         html_dest = generate_html(binding)
         open_file(html_dest)
@@ -33,7 +33,7 @@ module ActiveRecordQueryCount
 
       private
 
-      def generate_chart_data_compare(data_1, data_2)
+      def generate_chart_js_data_compare(data_1, data_2)
         labels = (data_1.keys | data_2.keys).sort
         chart_data = { labels: [], data_1: {}, data_2: {}, locations: {} }
         chart_data[:data_1][:name] = @script_1_name
