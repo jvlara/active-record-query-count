@@ -3,10 +3,10 @@
 </style>
 <div id='query_counter_report_gem'>
   <h2>Query Count Report</h2>
-  <p>Total query count on process: <%= total_query_count %></p>
-  <p>Total duration time spent on process: <%= total_duration_time %></p>
-  <p>The table will show only tables with more than <%= ::ActiveRecordQueryCount::Configuration.ignore_table_count %> queries</p>
-  <p>Only the top  <%= ::ActiveRecordQueryCount::Configuration.max_locations_per_table %> locations with the most occurrences will be shown.</p>
+  <p>Total number of queries in this process: <%= total_query_count %></p>
+  <p>Total time spent on queries in this process (ms): <%= total_duration_time %></p>
+  <p>Only tables with <%= ::ActiveRecordQueryCount::Configuration.ignore_table_count %> or more queries will be displayed.</p>
+  <p>The top <%= ::ActiveRecordQueryCount::Configuration.max_locations_per_table %> locations with the highest occurrences will be shown for each table.</p>
   <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
   <button id="toggleColumnButton" onclick="toggleColumnContent()">Show SQL</button>
 
