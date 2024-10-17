@@ -21,6 +21,14 @@ module ActiveRecordQueryCount
         @total_query_count ||= data.values.sum { |v| v[:count] }
       end
 
+      def total_duration_time
+        @total_duration_time ||= data.sum do |_, info|
+          info[:location].sum do |_, detail|
+            detail[:duration]
+          end
+        end.truncate(2)
+      end
+
       def inject_in_html
         ERB.new(inject_template_content).result(binding)
       end
@@ -42,7 +50,7 @@ module ActiveRecordQueryCount
           chart_data[:labels] << table
           chart_data[:data] << info[:count]
           chart_data[:locations][table] = info[:location].map do |loc, detail|
-            { location: loc, count: detail[:count] }
+            { location: loc, count: detail[:count], duration: detail[:duration].truncate(2) }
           end
         end
         chart_data

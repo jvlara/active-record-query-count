@@ -4,6 +4,7 @@
 <div id='query_counter_report_gem'>
   <h2>Query Count Report</h2>
   <p>Total query count on process: <%= total_query_count %></p>
+  <p>Total duration time spent on process: <%= total_duration_time %></p>
   <p>The table will show only tables with more than <%= ::ActiveRecordQueryCount::Configuration.ignore_table_count %> queries</p>
   <p>Only the top  <%= ::ActiveRecordQueryCount::Configuration.max_locations_per_table %> locations with the most occurrences will be shown.</p>
   <button id="toggleButton" onclick="toggleView()">Show Chart View</button>
@@ -19,6 +20,7 @@
       <th id="columnHeader">File Path</th>
       <th>Method</th>
       <th>Location Count</th>
+      <th>Total Duration(ms)</th>
     </tr>
     <% filter_data(data).each do |table, info| %>
       <tr>
@@ -36,6 +38,7 @@
           </td>
           <td class="method-column"><%= method %></td>
           <td><%= detail[:count] %></td>
+          <td><%= detail[:duration] %></td>
         </tr>
       <% end %>
     <% end %>
