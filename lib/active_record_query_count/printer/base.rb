@@ -11,6 +11,11 @@ module ActiveRecordQueryCount
       INJECT_TEMPLATE_PATH = File.join(parent_dir, 'assets', 'template_for_inject.html.erb')
 
       def filter_data data
+        data.each_value do |info|
+          info[:location].each_value do |detail|
+            detail[:duration] = detail[:duration].truncate(2)
+          end
+        end
         data = data.select { |_, v| v[:count] >= Configuration.ignore_table_count }
         data = data.sort_by { |_, v| -v[:count] }.each do |_category, info|
           info[:location] = info[:location].sort_by do |_, detail|
