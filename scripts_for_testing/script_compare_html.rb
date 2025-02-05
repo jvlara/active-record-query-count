@@ -1,4 +1,4 @@
-require_relative '../lib/active-record-query-count'
+require 'active-record-query-count'
 require 'pry-byebug'
 
 data_1 = File.read('scripts_for_testing/example_script_unoptimize.yaml')

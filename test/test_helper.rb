@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
-
 ENV['RACK_ENV'] ||= 'test'
 
 require 'bundler/setup'
@@ -15,6 +13,7 @@ require 'active_record'
 require 'active_support'
 require 'active_support/notifications'
 require 'sqlite3'
+require 'launchy'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

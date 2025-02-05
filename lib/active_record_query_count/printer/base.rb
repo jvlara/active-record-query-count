@@ -1,3 +1,4 @@
+require 'json'
 module ActiveRecordQueryCount
   module Printer
     class Base
@@ -35,6 +36,7 @@ module ActiveRecordQueryCount
       end
 
       def open_file html_dest
+        require 'launchy'
         if ENV['WSL_DISTRIBUTION']
           Launchy.open("file://wsl%24/#{ENV['WSL_DISTRIBUTION']}#{html_dest}")
         else
