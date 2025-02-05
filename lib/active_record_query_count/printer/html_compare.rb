@@ -1,8 +1,4 @@
 require 'erb'
-require 'tempfile'
-require 'launchy'
-require 'pry-byebug'
-require 'json'
 
 module ActiveRecordQueryCount
   module Printer

@@ -1,5 +1,5 @@
-require_relative '../lib/active-record-query-count'
 require 'pry-byebug'
+require 'active-record-query-count'
 
 data = File.read('scripts_for_testing/example_script_unoptimize.yaml')
 data = YAML.safe_load(data, permitted_classes: [Proc, Symbol])

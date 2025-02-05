@@ -1,5 +1,3 @@
-require 'colorize'
-
 module ActiveRecordQueryCount
   module Printer
     class Console < Base
@@ -9,6 +7,7 @@ module ActiveRecordQueryCount
       end
 
       def print
+        require 'colorize'
         data = filter_data(@data)
         puts '[ActiveRecordQueryCount] Query count per table:'.colorize(:blue)
         puts "Total query count: #{data.values.sum { |v| v[:count] }}\n\n"
