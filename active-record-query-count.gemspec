@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'ruby-lsp'
   spec.add_development_dependency 'shoulda-context', '~> 3.0.0.rc1'
   spec.add_development_dependency 'shoulda-matchers', '~> 6.0'
-  spec.add_development_dependency 'sqlite3', '~> 1.4'
+  spec.add_development_dependency 'sqlite3', '~> 2.0'
 end

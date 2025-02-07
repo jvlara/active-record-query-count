@@ -87,7 +87,7 @@ GEM
     shoulda-matchers (6.2.0)
       activesupport (>= 5.2.0)
     sorbet-runtime (0.5.11478)
-    sqlite3 (1.7.3-x86_64-linux)
+    sqlite3 (2.0.4-x86_64-linux-gnu)
     strscan (3.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -108,7 +108,7 @@ DEPENDENCIES
   ruby-lsp
   shoulda-context (~> 3.0.0.rc1)
   shoulda-matchers (~> 6.0)
-  sqlite3 (~> 1.4)
+  sqlite3 (~> 2.0)
 
 BUNDLED WITH
    2.4.22
