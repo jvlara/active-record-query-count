@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'activesupport', '>= 5.0', '< 8.0'
   spec.add_runtime_dependency 'colorize', '~> 1.1'
   spec.add_runtime_dependency 'launchy', '~> 3.0'
-  spec.add_runtime_dependency 'nokogiri', '~> 1.16.5'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.18.3'
 
   spec.add_development_dependency 'activerecord', '>= 5.0', '< 8.0'
   spec.add_development_dependency 'minitest'

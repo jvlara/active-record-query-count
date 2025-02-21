@@ -1,11 +1,11 @@
 PATH
   remote: .
   specs:
-    active-record-query-count (0.1.6)
+    active-record-query-count (0.1.7)
       activesupport (>= 5.0, < 8.0)
       colorize (~> 1.1)
       launchy (~> 3.0)
-      nokogiri (~> 1.16.5)
+      nokogiri (~> 1.18.3)
 
 GEM
   remote: https://rubygems.org/
@@ -41,7 +41,7 @@ GEM
     minitest (5.24.1)
     mocha (2.4.0)
       ruby2_keywords (>= 0.0.5)
-    nokogiri (1.16.6-x86_64-linux)
+    nokogiri (1.18.3-x86_64-linux-gnu)
       racc (~> 1.4)
     parallel (1.25.1)
     parser (3.3.4.0)
