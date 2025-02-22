@@ -1,11 +1,11 @@
 PATH
   remote: .
   specs:
-    active-record-query-count (0.1.7)
+    active-record-query-count (0.1.8)
       activesupport (>= 5.0, < 8.0)
       colorize (>= 1.1, < 2)
       launchy (>= 3.0, < 4)
-      nokogiri (>= 1.18.3, < 2)
+      nokogiri (>= 1.16.5, < 2)
 
 GEM
   remote: https://rubygems.org/
