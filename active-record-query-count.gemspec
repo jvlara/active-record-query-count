@@ -26,9 +26,9 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   spec.add_runtime_dependency 'activesupport', '>= 5.0', '< 8.0'
-  spec.add_runtime_dependency 'colorize', '~> 1.1'
-  spec.add_runtime_dependency 'launchy', '~> 3.0'
-  spec.add_runtime_dependency 'nokogiri', '~> 1.18.3'
+  spec.add_runtime_dependency 'colorize', '>= 1.1', '< 2'
+  spec.add_runtime_dependency 'launchy', '>= 3.0', '< 4'
+  spec.add_runtime_dependency 'nokogiri', '>= 1.18.3', '< 2'
 
   spec.add_development_dependency 'activerecord', '>= 5.0', '< 8.0'
   spec.add_development_dependency 'minitest'
