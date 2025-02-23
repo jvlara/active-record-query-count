@@ -12,16 +12,21 @@ class TestQueryTracker < Minitest::Test
     should 'generate hash with count, locations and sql of the queries made' do
       ActiveRecordQueryCount.start_recording
       TestModel.create(name: 'test')
-      TestModel.last
-      TestModel.last
-      assert_equal 2, @tracker.active_record_query_tracker['test_models'][:count]
+      ActiveRecord::Base.cache do
+        TestModel.last
+        TestModel.last
+      end
+
       locations = @tracker.active_record_query_tracker['test_models'][:location]
-      path_1 = locations.keys.find { |path| path['test/query_tracker_test.rb:15'] }
-      path_2 = locations.keys.find { |path| path['test/query_tracker_test.rb:16'] }
+      path_1 = locations.keys.find { |path| path['test/query_tracker_test.rb:16'] }
+      path_2 = locations.keys.find { |path| path['test/query_tracker_test.rb:17'] }
+
+      assert_equal 2, @tracker.active_record_query_tracker['test_models'][:count]
       assert_equal 1, locations[path_1][:count]
       assert locations[path_1][:duration].positive?
       assert_equal @expected_sql, locations[path_1][:sql]
       assert_equal 1, locations[path_2][:count]
+      assert_equal 1, locations[path_2][:cached_query_count]
       assert locations[path_2][:duration].positive?
       assert_equal @expected_sql, locations[path_2][:sql]
       ActiveRecordQueryCount.end_recording

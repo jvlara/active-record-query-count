@@ -6,6 +6,7 @@ class PrinterTest < Minitest::Test
       @data = { 'users' =>
         { count: 2,
           location: { nil => { count: 2,
+                               cached_query_count: 1,
                                duration: 2.5,
                                sql: 'SELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2' } } } }
     end

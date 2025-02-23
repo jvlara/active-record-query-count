@@ -46,7 +46,7 @@ module ActiveRecordQueryCount
           chart_data[:labels] << table
           chart_data[:data] << info[:count]
           chart_data[:locations][table] = info[:location].map do |loc, detail|
-            { location: loc, count: detail[:count], duration: detail[:duration] }
+            { location: loc, count: detail[:count], duration: detail[:duration], cached_query_count: detail[:cached_query_count] }
           end
         end
         chart_data

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    active-record-query-count (0.1.8)
+    active-record-query-count (0.1.9)
       activesupport (>= 5.0, < 8.0)
       colorize (>= 1.1, < 2)
       launchy (>= 3.0, < 4)
