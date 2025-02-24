@@ -1,3 +1,5 @@
+# usage: bundle exec ruby scripts_for_testing/script_printer_html.rb
+
 require 'pry-byebug'
 require 'active-record-query-count'
 
