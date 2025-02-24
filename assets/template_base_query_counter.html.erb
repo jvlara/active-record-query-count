@@ -20,6 +20,7 @@
       <th id="columnHeader">File Path</th>
       <th>Method</th>
       <th>Location Count</th>
+      <th>Cached Query</th>
       <th>Total Duration(ms)</th>
     </tr>
     <% filter_data(data).each_with_index do |(table, info), index| %>
@@ -38,6 +39,7 @@
           </td>
           <td class="method-column"><%= method %></td>
           <td><%= detail[:count] %></td>
+          <td><%= detail[:cached_query_count] %></td>
           <td><%= detail[:duration] %></td>
         </tr>
       <% end %>

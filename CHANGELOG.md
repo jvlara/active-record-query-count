@@ -1,5 +1,9 @@
 ## Changelog
 
+## [0.1.9] - 2025-02-23
+
+- Added cached query tracking to HTML and console output
+
 ## [0.1.8] - 2025-02-21
 
 - Bumps nokogiri dependency to resolve CVE-2025-24928 and CVE-2024-56171

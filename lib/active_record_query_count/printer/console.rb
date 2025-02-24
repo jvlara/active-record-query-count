@@ -20,6 +20,9 @@ module ActiveRecordQueryCount
           info[:location].each do |loc, details|
             puts "    - File location: #{loc}"
             puts "        Query count: #{details[:count].to_s.colorize(:blue)}"
+            unless (details[:cached_query_count]).zero?
+              puts "        Cached: #{details[:cached_query_count].to_s.colorize(:blue)}"
+            end
             puts "        Total Duration(ms): #{details[:duration]}"
           end
           puts
