@@ -1,3 +1,5 @@
+# usage: bundle exec ruby scripts_for_testing/script_compare_html.rb
+
 require 'active-record-query-count'
 require 'pry-byebug'
 
