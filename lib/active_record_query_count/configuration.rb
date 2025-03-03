@@ -19,5 +19,9 @@ module ActiveRecordQueryCount
     def self.ignore_table_count
       ENV['QUERY_COUNT_IGNORE_TABLE_COUNT'] || @@ignore_table_count
     end
+
+    def self.unlimited_locations_per_table?
+      max_locations_per_table.zero?
+    end
   end
 end

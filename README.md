@@ -94,7 +94,7 @@ If you use `html` with WSL enviroment, you need to set on your enviroments varia
 
 ### Configuration options
 
-When visualizing the html table or the console output, tables with less than `ignore_table_count` will not be shown. Also, the amount of locations to show is given by `max_locations_per_table`
+When visualizing the html table or the console output, tables with less than `ignore_table_count` will not be shown. Also, the amount of locations to show is given by `max_locations_per_table`. If `max_locations_per_table` is set to 0, all locations will be displayed without any limit.
 
 ```ruby
 config.after_initialize do
