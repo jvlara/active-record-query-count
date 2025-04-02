@@ -11,8 +11,12 @@ module ActiveRecordQueryCount
         data = filter_data(@data)
         puts '[ActiveRecordQueryCount] Query count per table:'.colorize(:blue)
         puts "Total query count: #{data.values.sum { |v| v[:count] }}\n\n"
-        puts "All tables with less than #{Configuration.ignore_table_count} queries are ignored. \n\n"
-        puts "For each table, the top #{Configuration.max_locations_per_table} locations with the most queries will be shown.\n\n"
+        if Configuration.ignore_table_count > 1
+          puts "All tables with less than #{Configuration.ignore_table_count} queries are ignored. \n\n"
+        end
+        unless Configuration.unlimited_locations_per_table?
+          puts "For each table, the top #{Configuration.max_locations_per_table} locations with the most queries will be shown.\n\n"
+        end
         data.each do |category, info|
           puts "Table #{category.colorize(:cyan)}"
           puts "  Total query count: #{info[:count].to_s.colorize(:blue)}"
